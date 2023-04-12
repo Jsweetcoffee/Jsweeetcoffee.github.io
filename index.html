@@ -1,272 +1,451 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>晓雲的小破屋</title>
-        <meta name="author" content="甜咖啡" />
-        <meta name="description" content="一个简单的博客" />
-        <meta name="keywords" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <link rel="icon" href="/Jsweetcoffee/Jsweetcoffee.github.io.git/images/any.jpeg" />
-        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
-<link rel="stylesheet" href="/Jsweetcoffee/Jsweetcoffee.github.io.git/css/fonts.min.css" />
-<script> const mixins = {}; </script>
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="一个简单的博客">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="甜咖啡">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="晓雲的小破屋"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="一个简单的博客" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="晓雲的小破屋"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="website" />
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>晓雲的小破屋</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/Jsweetcoffee/Jsweetcoffee.github.io.git/css/style.css">
 
 
+    <!-- Google Analytics -->
+    
 
 
-<script src="/Jsweetcoffee/Jsweetcoffee.github.io.git/js/lib/preview.js"></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
+<body>
 
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
 
-
-<script src="/Jsweetcoffee/Jsweetcoffee.github.io.git/js/lib/home.js"></script>
-
-<link rel="stylesheet" href="/Jsweetcoffee/Jsweetcoffee.github.io.git/css/main.css" />
-
-    <meta name="generator" content="Hexo 5.4.2"></head>
-    <body>
-        <div id="layout">
-            <transition name="fade">
-            <div id="loading" v-show="loading">
-                <div id="loading-circle">
-                    <h2>LOADING</h2>
-                    <p>加载过慢请开启缓存 浏览器默认开启</p>
-                    <img src="/Jsweetcoffee/Jsweetcoffee.github.io.git/images/loading.gif" />
-                </div>
-            </div>
-            </transition>
-            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
-    <div class="desktop-menu">
-        <a class="title" href="/Jsweetcoffee/Jsweetcoffee.github.io.git/">
-            <span>晓雲的小破屋</span>
-        </a>
-        
-        <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/">
-            <i class="fa-solid fa-主页 fa-fw"></i>
-            <span>&ensp;主页</span>
-        </a>
-        
-        <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
-        </a>
-        
-        <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
-        </a>
-        
-        <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/categories">
-            <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
-        </a>
-        
-        <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/tags">
-            <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
-        </a>
-        
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
     </div>
-    <div id="mobile-menu">
-        <div class="curtain" @click="shouMenuItems = !shouMenuItems" v-show="shouMenuItems"></div>
-        <div class="title" @click="shouMenuItems = !shouMenuItems">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;晓雲的小破屋</span>
-        </div>
-        <transition name="slide">
-        <div class="items" v-show="shouMenuItems">
-            
-            <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-主页 fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">主页</div>
-                </div>
-            </a>
-            
-            <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/about">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-id-card fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
-                </div>
-            </a>
-            
-            <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/archives">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-box-archive fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                </div>
-            </a>
-            
-            <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/categories">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-bookmark fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
-                </div>
-            </a>
-            
-            <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/tags">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
-                </div>
-            </a>
-            
-        </div>
-        </transition>
-    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
 </nav>
 
-            <transition name="into">
-            <div id="main" v-show="!loading">
-                <div id="home-head">
-    <div
-        id="home-background"
-        ref="homeBackground"
-        data-images="/Jsweetcoffee/Jsweetcoffee.github.io.git/images/BG.jpg"
-    ></div>
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>晓雲的小破屋</h1>
-                <h3>努力学习的晓雲─=≡Σ(((つ•̀ω•́)つ</h3>
-                <h5>一个简单的博客</h5>
-            </div>
-        </span>
-    </div>
-</div>
-<div id="home-posts-wrap"  ref="homePostsWrap">
-    <div id="home-posts">
-        
+<div class="container">
 
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+            <h1 id="main-title" class="title">晓雲的小破屋</h1>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+                
 <div class="post">
-    <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/2023/04/12/%E8%A1%A5%E8%AF%BE%E5%86%85%E5%AE%B9/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/4/12
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/2023/04/12/class1/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
             
-            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">WEB站点搭建</span></span><br><span class="line">网站构成：操作系统+中间件+数据库+脚本语言</span><br><span class="line">操作系统：Windows Server/Linux</span><br><span class="line">中间件：IIS / Apache /Tomcat /Nginx /Weblogic/Jboss /WebSphere</span><br><span class="line">数据库：Access /SQLServer /Mysql / Oracle/ DB2 /Postgresql /</span><br><span class="line">脚本语言：ASP /ASPX /PHP /JSP /Python /....</span><br><span class="line">常见的WEB架构搭配：</span><br><span class="line">WAMP:Windows+Apache+Mysql+PHP</span><br><span class="line">LAMP:Linux+Apache+Mysql+PHP</span><br><span class="line">LNMP:Linux+Nginx+Mysql+PHP</span><br><span class="line">Windows+IIS+ACCESS/SQLSERVER+asp/aspx</span><br><span class="line">Windows+Tomcat/Nginx/Jboss/+Mysql/oracle+PHP/JSP</span><br><span class="line">Windows+IIS+ACCESS/SQLSERVER+asp/aspx</span><br><span class="line">Linux+Tomcat/Nginx/Jboss/+Mysql/oracle+PHP/JSP</span><br><span class="line">该如何手工判断目标站点的WEB架构的配置：</span><br><span class="line">操作系统：Windows系统是区分大小的/Linux系统是不区分大小写</span><br><span class="line">中间件：查看服务器的相应数据包Server字段/尝试网站的报错</span><br><span class="line">数据库：使用Nmap进行开放端口的扫描/网络资产测绘引擎--》FOfa/shodan/钟馗之眼/鹰图/...</span><br><span class="line">脚本语言：根据功能点判断是那个语言编写，(功能点以HTML结尾很有是伪静态网站)</span><br><span class="line">如何通过工具对目标站点进行判断？</span><br><span class="line">1.Firefox--》Wappalyzer</span><br><span class="line">2.APPSCAN/WWWSCAN/....</span><br><span class="line"></span><br><span class="line">编程语言：动态语言:ASP/ASPX/PHP/JSP --&gt; 动态网站 静态语言：HTML --》 静态网站</span><br><span class="line">nmap --&gt; nmap -A -sV -Pn --script=vuln yeshu1699.com</span><br><span class="line"></span><br><span class="line">1.ASP脚本站点</span><br><span class="line">Wins08R2+IIS+ASP+Access</span><br><span class="line">操作系统：Windows Server 2008R2 --》 IIS 7.5</span><br><span class="line">中间件：IIS</span><br><span class="line">数据库：Access</span><br><span class="line">脚本语言：ASP</span><br><span class="line">2.PHP脚本站点</span><br><span class="line">操作系统：Windows Server 2008R2</span><br><span class="line">中间件：Apache</span><br><span class="line">数据库：Mysql</span><br><span class="line">脚本语言：PHP</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">HTTP协议的分析</span></span><br><span class="line">抓包分析工具--》BurpSuite(BP)是一款由Java编写的Web应用漏洞测试框架，做为浏览器到WEB服务器之间的中间人能够去拦截及篡改HTTP请求与响应的数据包从而检测漏洞！其核心的模块是Porxy;（专业版：收费/社区版本：免费）</span><br><span class="line">1.抓取WEB界面的数据包与分析</span><br><span class="line">--破解高版本BP</span><br><span class="line">--使用BP抓浏览器发送的HTTP请求数据包</span><br><span class="line">HTTP请求数据包：</span><br><span class="line">请求行/请求头/请求正文</span><br><span class="line">请求行-请求方法：Get Head Post put Delete options</span><br><span class="line">Get:访问Web服务器上的资源 </span><br><span class="line">Head:访问Web服务器上的资源；不带请求正文数据</span><br><span class="line">Post：Form表单上面--&gt;内容搜索/用户登录/头像修改/...</span><br><span class="line">Put:请求访问目标资源，如果不存在则创建</span><br><span class="line">Delete:请求访问目标资源并删除</span><br><span class="line">options:返回目标站点支持哪些请求的方法</span><br><span class="line">HTTP响应的数据包：</span><br><span class="line">相应行/响应头/相应正文</span><br><span class="line">响应行-状态码</span><br><span class="line">1xx:访问成功，继续访问</span><br><span class="line">2xx:表示访问成功且访问结束</span><br><span class="line">3xx:做网页跳转--》临时跳转/永久跳转</span><br><span class="line">4xx:客户端请求语法有错误</span><br><span class="line">5xx:服务端内部错误</span><br><span class="line">2.抓取手机APP的数据包</span><br><span class="line">-使用夜神模拟器模拟android环境</span><br><span class="line">-在模拟器上安装想要抓取数据包的app</span><br><span class="line">-在手机WLAN中配置代理到Bp的监听端口</span><br><span class="line">-到BP中配置IP地址的监听...</span><br><span class="line">-在手机浏览器中下载证书并修改后缀名为cer</span><br><span class="line">-抓app/网页的数据包...</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">计算机指令与网络</span></span><br><span class="line">实验：完成磁盘共享映射到另外一台机器上</span><br><span class="line">-将磁盘进行共享</span><br><span class="line">-在物理机上添加磁盘映射并验证</span><br><span class="line">-能够在计算机查看到映射过来的Z盘</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">MySQL数据操作</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">搜索问题——》Google / Baidu</span><br><span class="line">Bing/360/sougou/....</span><br><span class="line"></span><br><span class="line">Windows:https://msdn.itellyou.cn/</span><br><span class="line">Linux:</span><br><span class="line"></span><br><span class="line">黑客浏览器：Google（技术研究） / FireFox(黑客攻击) / 360-sougou(做黑客攻击支援) / IE （黑客攻击测试浏览器）</span><br><span class="line"></span><br><span class="line">问题：安装的Wins08R2虚拟机无法安装Vmware Tools</span><br><span class="line">1.安装老版本的Vmware Tools</span><br><span class="line">2.在物理开一个HTTP服务器提供虚拟机下载</span><br><span class="line">python2：python -m SimpleHTTPServer 8080</span><br><span class="line">python3：python -m http.server 8080</span><br><span class="line"></span><br><span class="line">问题：BP抓HTTPS协议的数据包是有问题的？不信任证书</span><br><span class="line">1.开着BP代理--》http://burpsuite/  http://127.0.0.1：8080 下载证书</span><br><span class="line">2.关闭BP代理--》讲下载的证书做导入</span><br><span class="line">3.开着BP代理--》再去抓取HTTPS协议的数据包，OK</span><br></pre></td></tr></table></figure>
-
-
-
-
+                <span class="date">2023-04-12</span>
+            
+            
             
         </div>
     </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/Jsweetcoffee/Jsweetcoffee.github.io.git/2023/04/12/%E8%A1%A5%E8%AF%BE%E5%86%85%E5%AE%B9/" class="go-post">阅读全文</a>
-</div>
 
-
-        <div class="page-current">
-    <div class="prev">
-        
-    </div>
-    <div class="page-index">
-        
-        <span class="current">1</span>
-        
-    </div>
-    <div class="next">
-        
-    </div>
-</div>
-
-    </div>
     
-    <div id="home-card">
-        <div id="card-div">
-    <div class="card-style">
-        <div class="avatar">
-            <img src="/Jsweetcoffee/Jsweetcoffee.github.io.git/images/02.png" alt="avatar" />
-        </div>
-        <div class="name">甜咖啡</div>
-        <div class="description">
-            <p>网安小白一枚(=￣ω￣=)喵了个咪<br>（*゜Д゜）σ凸←自爆按钮 </p>
+        <div class="content">
+            <pre><code class="shell">#WEB站点搭建
+网站构成：操作系统+中间件+数据库+脚本语言
+操作系统：Windows Server/Linux
+中间件：IIS / Apache /Tomcat /Nginx /Weblogic/Jboss /WebSphere
+数据库：Access /SQLServer /Mysql / Oracle/ DB2 /Postgresql /
+脚本语言：ASP /ASPX /PHP /JSP /Python /....
+常见的WEB架构搭配：
+WAMP:Windows+Apache+Mysql+PHP
+LAMP:Linux+Apache+Mysql+PHP
+LNMP:Linux+Nginx+Mysql+PHP
+Windows+IIS+ACCESS/SQLSERVER+asp/aspx
+Windows+Tomcat/Nginx/Jboss/+Mysql/oracle+PHP/JSP
+Windows+IIS+ACCESS/SQLSERVER+asp/aspx
+Linux+Tomcat/Nginx/Jboss/+Mysql/oracle+PHP/JSP
+该如何手工判断目标站点的WEB架构的配置：
+操作系统：Windows系统是区分大小的/Linux系统是不区分大小写
+中间件：查看服务器的相应数据包Server字段/尝试网站的报错
+数据库：使用Nmap进行开放端口的扫描/网络资产测绘引擎--》FOfa/shodan/钟馗之眼/鹰图/...
+脚本语言：根据功能点判断是那个语言编写，(功能点以HTML结尾很有是伪静态网站)
+如何通过工具对目标站点进行判断？
+1.Firefox--》Wappalyzer
+2.APPSCAN/WWWSCAN/....
+
+编程语言：动态语言:ASP/ASPX/PHP/JSP --&gt; 动态网站 静态语言：HTML --》 静态网站
+nmap --&gt; nmap -A -sV -Pn --script=vuln yeshu1699.com
+
+1.ASP脚本站点
+Wins08R2+IIS+ASP+Access
+操作系统：Windows Server 2008R2 --》 IIS 7.5
+中间件：IIS
+数据库：Access
+脚本语言：ASP
+2.PHP脚本站点
+操作系统：Windows Server 2008R2
+中间件：Apache
+数据库：Mysql
+脚本语言：PHP
+#HTTP协议的分析
+抓包分析工具--》BurpSuite(BP)是一款由Java编写的Web应用漏洞测试框架，做为浏览器到WEB服务器之间的中间人能够去拦截及篡改HTTP请求与响应的数据包从而检测漏洞！其核心的模块是Porxy;（专业版：收费/社区版本：免费）
+1.抓取WEB界面的数据包与分析
+--破解高版本BP
+--使用BP抓浏览器发送的HTTP请求数据包
+HTTP请求数据包：
+请求行/请求头/请求正文
+请求行-请求方法：Get Head Post put Delete options
+Get:访问Web服务器上的资源 
+Head:访问Web服务器上的资源；不带请求正文数据
+Post：Form表单上面--&gt;内容搜索/用户登录/头像修改/...
+Put:请求访问目标资源，如果不存在则创建
+Delete:请求访问目标资源并删除
+options:返回目标站点支持哪些请求的方法
+HTTP响应的数据包：
+相应行/响应头/相应正文
+响应行-状态码
+1xx:访问成功，继续访问
+2xx:表示访问成功且访问结束
+3xx:做网页跳转--》临时跳转/永久跳转
+4xx:客户端请求语法有错误
+5xx:服务端内部错误
+2.抓取手机APP的数据包
+-使用夜神模拟器模拟android环境
+-在模拟器上安装想要抓取数据包的app
+-在手机WLAN中配置代理到Bp的监听端口
+-到BP中配置IP地址的监听...
+-在手机浏览器中下载证书并修改后缀名为cer
+-抓app/网页的数据包...
+
+
+#计算机指令与网络
+实验：完成磁盘共享映射到另外一台机器上
+-将磁盘进行共享
+-在物理机上添加磁盘映射并验证
+-能够在计算机查看到映射过来的Z盘
+
+
+
+
+
+
+
+
+
+#MySQL数据操作
+
+</code></pre>
+<pre><code class="shell">搜索问题——》Google / Baidu
+Bing/360/sougou/....
+
+Windows:https://msdn.itellyou.cn/
+Linux:
+
+黑客浏览器：Google（技术研究） / FireFox(黑客攻击) / 360-sougou(做黑客攻击支援) / IE （黑客攻击测试浏览器）
+
+问题：安装的Wins08R2虚拟机无法安装Vmware Tools
+1.安装老版本的Vmware Tools
+2.在物理开一个HTTP服务器提供虚拟机下载
+python2：python -m SimpleHTTPServer 8080
+python3：python -m http.server 8080
+
+问题：BP抓HTTPS协议的数据包是有问题的？不信任证书
+1.开着BP代理--》http://burpsuite/  http://127.0.0.1：8080 下载证书
+2.关闭BP代理--》讲下载的证书做导入
+3.开着BP代理--》再去抓取HTTPS协议的数据包，OK
+</code></pre>
 
         </div>
-        
-        
-        <div class="friend-links">
+    
+
+</div>
             
-            <div class="friend-link">
-                <a href="https://github.com/Jsweetcoffee/Jsweetcoffee.github.io">Jsweetcoffee</a>
+        </section>
+    </div>
+</div>
+
+
+
+
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
             </div>
             
-        </div>
-        
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/Jsweetcoffee/Jsweetcoffee.github.io.git/2023/04/12/class1/">Untitled</a>
+            </li>
+            
+        </ul>
     </div>
-</div>
 
-    </div>
-    
-</div>
 
-                <footer id="footer">
-    <div id="footer-wrap">
-        <div>
-            &copy;
-            2022 - 2023 晓雲的小破屋
-            <span id="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            &commat;甜咖啡
+
+            
         </div>
-        <div>
-            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://telegram.org/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
         </div>
-        
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
 
-            </div>
-            </transition>
-            
-            <transition name="fade">
-            <div id="preview" ref="preview" v-show="previewShow">
-                <img id="preview-content" ref="previewContent" />
-            </div>
-            </transition>
-            
-        </div>
-        <script src="/Jsweetcoffee/Jsweetcoffee.github.io.git/js/main.js"></script>
-        
-    </body>
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/Jsweetcoffee/Jsweetcoffee.github.io.git/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
 </html>
