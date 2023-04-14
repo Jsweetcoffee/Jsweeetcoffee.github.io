@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title> | 晓雲的小破屋</title>
+        <meta name="author" content="SC" />
+        <meta name="description" content="一个简单的博客" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/any.jpeg" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 5.4.2"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div class="desktop-menu">
+        <a class="title" href="/">
+            <span>晓雲的小破屋</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-主页 fa-fw"></i>
+            <span>&ensp;主页</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" @click="shouMenuItems = !shouMenuItems" v-show="shouMenuItems"></div>
+        <div class="title" @click="shouMenuItems = !shouMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;晓雲的小破屋</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="shouMenuItems">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-主页 fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">主页</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <div class="article">
+    <div>
+        <h1></h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/4/12
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">WEB站点搭建</span></span><br><span class="line">网站构成：操作系统+中间件+数据库+脚本语言</span><br><span class="line">操作系统：Windows Server/Linux</span><br><span class="line">中间件：IIS / Apache /Tomcat /Nginx /Weblogic/Jboss /WebSphere</span><br><span class="line">数据库：Access /SQLServer /Mysql / Oracle/ DB2 /Postgresql /</span><br><span class="line">脚本语言：ASP /ASPX /PHP /JSP /Python /....</span><br><span class="line">常见的WEB架构搭配：</span><br><span class="line">WAMP:Windows+Apache+Mysql+PHP</span><br><span class="line">LAMP:Linux+Apache+Mysql+PHP</span><br><span class="line">LNMP:Linux+Nginx+Mysql+PHP</span><br><span class="line">Windows+IIS+ACCESS/SQLSERVER+asp/aspx</span><br><span class="line">Windows+Tomcat/Nginx/Jboss/+Mysql/oracle+PHP/JSP</span><br><span class="line">Windows+IIS+ACCESS/SQLSERVER+asp/aspx</span><br><span class="line">Linux+Tomcat/Nginx/Jboss/+Mysql/oracle+PHP/JSP</span><br><span class="line">该如何手工判断目标站点的WEB架构的配置：</span><br><span class="line">操作系统：Windows系统是区分大小的/Linux系统是不区分大小写</span><br><span class="line">中间件：查看服务器的相应数据包Server字段/尝试网站的报错</span><br><span class="line">数据库：使用Nmap进行开放端口的扫描/网络资产测绘引擎--》FOfa/shodan/钟馗之眼/鹰图/...</span><br><span class="line">脚本语言：根据功能点判断是那个语言编写，(功能点以HTML结尾很有是伪静态网站)</span><br><span class="line">如何通过工具对目标站点进行判断？</span><br><span class="line">1.Firefox--》Wappalyzer</span><br><span class="line">2.APPSCAN/WWWSCAN/....</span><br><span class="line"></span><br><span class="line">编程语言：动态语言:ASP/ASPX/PHP/JSP --&gt; 动态网站 静态语言：HTML --》 静态网站</span><br><span class="line">nmap --&gt; nmap -A -sV -Pn --script=vuln yeshu1699.com</span><br><span class="line"></span><br><span class="line">1.ASP脚本站点</span><br><span class="line">Wins08R2+IIS+ASP+Access</span><br><span class="line">操作系统：Windows Server 2008R2 --》 IIS 7.5</span><br><span class="line">中间件：IIS</span><br><span class="line">数据库：Access</span><br><span class="line">脚本语言：ASP</span><br><span class="line">2.PHP脚本站点</span><br><span class="line">操作系统：Windows Server 2008R2</span><br><span class="line">中间件：Apache</span><br><span class="line">数据库：Mysql</span><br><span class="line">脚本语言：PHP</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">HTTP协议的分析</span></span><br><span class="line">抓包分析工具--》BurpSuite(BP)是一款由Java编写的Web应用漏洞测试框架，做为浏览器到WEB服务器之间的中间人能够去拦截及篡改HTTP请求与响应的数据包从而检测漏洞！其核心的模块是Porxy;（专业版：收费/社区版本：免费）</span><br><span class="line">1.抓取WEB界面的数据包与分析</span><br><span class="line">--破解高版本BP</span><br><span class="line">--使用BP抓浏览器发送的HTTP请求数据包</span><br><span class="line">HTTP请求数据包：</span><br><span class="line">请求行/请求头/请求正文</span><br><span class="line">请求行-请求方法：Get Head Post put Delete options</span><br><span class="line">Get:访问Web服务器上的资源 </span><br><span class="line">Head:访问Web服务器上的资源；不带请求正文数据</span><br><span class="line">Post：Form表单上面--&gt;内容搜索/用户登录/头像修改/...</span><br><span class="line">Put:请求访问目标资源，如果不存在则创建</span><br><span class="line">Delete:请求访问目标资源并删除</span><br><span class="line">options:返回目标站点支持哪些请求的方法</span><br><span class="line">HTTP响应的数据包：</span><br><span class="line">相应行/响应头/相应正文</span><br><span class="line">响应行-状态码</span><br><span class="line">1xx:访问成功，继续访问</span><br><span class="line">2xx:表示访问成功且访问结束</span><br><span class="line">3xx:做网页跳转--》临时跳转/永久跳转</span><br><span class="line">4xx:客户端请求语法有错误</span><br><span class="line">5xx:服务端内部错误</span><br><span class="line">2.抓取手机APP的数据包</span><br><span class="line">-使用夜神模拟器模拟android环境</span><br><span class="line">-在模拟器上安装想要抓取数据包的app</span><br><span class="line">-在手机WLAN中配置代理到Bp的监听端口</span><br><span class="line">-到BP中配置IP地址的监听...</span><br><span class="line">-在手机浏览器中下载证书并修改后缀名为cer</span><br><span class="line">-抓app/网页的数据包...</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">计算机指令与网络</span></span><br><span class="line">实验：完成磁盘共享映射到另外一台机器上</span><br><span class="line">-将磁盘进行共享</span><br><span class="line">-在物理机上添加磁盘映射并验证</span><br><span class="line">-能够在计算机查看到映射过来的Z盘</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">MySQL数据操作</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">搜索问题——》Google / Baidu</span><br><span class="line">Bing/360/sougou/....</span><br><span class="line"></span><br><span class="line">Windows:https://msdn.itellyou.cn/</span><br><span class="line">Linux:</span><br><span class="line"></span><br><span class="line">黑客浏览器：Google（技术研究） / FireFox(黑客攻击) / 360-sougou(做黑客攻击支援) / IE （黑客攻击测试浏览器）</span><br><span class="line"></span><br><span class="line">问题：安装的Wins08R2虚拟机无法安装Vmware Tools</span><br><span class="line">1.安装老版本的Vmware Tools</span><br><span class="line">2.在物理开一个HTTP服务器提供虚拟机下载</span><br><span class="line">python2：python -m SimpleHTTPServer 8080</span><br><span class="line">python3：python -m http.server 8080</span><br><span class="line"></span><br><span class="line">问题：BP抓HTTPS协议的数据包是有问题的？不信任证书</span><br><span class="line">1.开着BP代理--》http://burpsuite/  http://127.0.0.1：8080 下载证书</span><br><span class="line">2.关闭BP代理--》讲下载的证书做导入</span><br><span class="line">3.开着BP代理--》再去抓取HTTPS协议的数据包，OK</span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 晓雲的小破屋
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;SC
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>
