@@ -18,11 +18,13 @@
   
     <meta name="description" content="一个简单的博客">
 <meta property="og:type" content="website">
-<meta property="og:title" content="友链">
-<meta property="og:url" content="https://jsweetcoffee.github.io/links/index.html">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="https://jsweetcoffee.github.io/about/index.html">
 <meta property="og:site_name" content="晓雲的小破屋">
 <meta property="og:description" content="一个简单的博客">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-25T12:19:04.000Z">
+<meta property="article:modified_time" content="2023-06-25T12:24:17.383Z">
 <meta property="article:author" content="SCxiaoyun">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -30,11 +32,17 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>友链 - 晓雲的小破屋</title>
+  <title>关于 - 晓雲的小破屋</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -196,13 +204,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/pic4.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/funhacker.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="友情链接"></span>
+            <span id="subtitle" data-typed-text="关于"></span>
           
         </div>
 
@@ -224,48 +232,94 @@
         <div id="board"
           >
           
+            <div class="about-avatar">
+              <img src="/img/avatar.png" srcset="/img/loading2.gif" lazyload class="img-fluid" alt="avatar">
+            </div>
+          
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="row links">
-  
-    
-    <div class="card col-lg-4 col-md-6 col-sm-12">
-      <a href="https://y231028.github.io/red_checklist/cn/index.html" class="card-body hover-with-bg" target="_blank" rel="noopener">
-        <div class="card-content">
+<div class="text-center">
+  <div class="about-info">
+    <div class="about-name">Fluid</div>
+    <div class="about-intro">An elegant theme for Hexo</div>
+    <div class="about-icons">
+      
+        
+        
+        
+        <a href=https://github.com class="
+           hint--bottom hint--rounded"
+           aria-label=GitHub
+           target="_blank"
+        >
+          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
           
-            <div class="link-avatar my-auto">
-              <img src="/img/%E5%AD%A6%E5%BC%9F%E5%A4%B4%E5%83%8F.jpeg" srcset="/img/loading2.gif" lazyload alt="泽田弘树"
-                   onerror="this.onerror=null; this.src=this.srcset='/img/funhacker.jpg'"/>
-            </div>
+        </a>
+      
+        
+        
+        
+        <a href=https://douban.com class="
+           hint--bottom hint--rounded"
+           aria-label=豆瓣
+           target="_blank"
+        >
+          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
           
-          <div class="link-text">
-            <div class="link-title">泽田弘树</div>
-            <div class="link-intro">来自大牛学弟红队导航</div>
-          </div>
-        </div>
-      </a>
+        </a>
+      
+        
+        
+        
+        <a  class="qr-trigger
+           "
+           
+           target="_self"
+        >
+          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
+          
+            <img class="qr-img" src="/img/favicon.png" srcset="/img/loading2.gif" lazyload alt="qrcode" />
+          
+        </a>
+      
     </div>
-  
+  </div>
 </div>
 
-
-  <!-- Custom -->
-  <div class="custom mx-auto">
-    <hr><p>在下方留言申请加入我的友链，按如下格式提供信息：</p><ul><li>博客名：Fluid</li><li>简介：Fluid 主题官方博客</li><li>链接：https://hexo.fluid-dev.com</li><li>图片：https://hexo.fluid-dev.com/img/favicon.png</li></ul>
+<article class="about-content page-content mt-5">
+  <div class="markdown-body">
+    
   </div>
 
+  
+</article>
+
+
+
 
 
   
-  
-    <article id="comments" lazyload>
-      
 
-    </article>
+
+
   
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
 
 
 
@@ -391,6 +445,59 @@
 
 
 
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
 
