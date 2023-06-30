@@ -19,18 +19,18 @@
     <meta name="description" content="1. frpc上传win7（边界主机）在配置文件正常是无法正常使用 用蚁剑上传失败，不断重新上传，上传成功后文件大小从12.8k–&gt;28k（离谱） 最后重新在远程界面上传成功运行 2. 在用proxychains4连接时配置文件中socks4不行而socks5可以的原因？(socks4和socks5的具体区别) 3. 拓展问题：用bp进行socks5代理访问内网 4. 在重新开启虚拟机后重新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="打靶机vulntarget-a问题与解决">
-<meta property="og:url" content="https://jsweetcoffee.github.io/2023/06/25/%E6%89%93%E9%9D%B6%E6%9C%BAvulntarget-a%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/index.html">
+<meta property="og:url" content="https://jsweetcoffee.github.io/posts/98e63108.html">
 <meta property="og:site_name" content="晓雲的小破屋">
 <meta property="og:description" content="1. frpc上传win7（边界主机）在配置文件正常是无法正常使用 用蚁剑上传失败，不断重新上传，上传成功后文件大小从12.8k–&gt;28k（离谱） 最后重新在远程界面上传成功运行 2. 在用proxychains4连接时配置文件中socks4不行而socks5可以的原因？(socks4和socks5的具体区别) 3. 拓展问题：用bp进行socks5代理访问内网 4. 在重新开启虚拟机后重新">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://jsweetcoffee.github.io/2023/06/25/%E6%89%93%E9%9D%B6%E6%9C%BAvulntarget-a%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/1686278232491-3ce5fcd3-fe08-40ec-9dfd-52cede1d48b8.png">
+<meta property="og:image" content="https://jsweetcoffee.github.io/posts/98e63108/1686278232491-3ce5fcd3-fe08-40ec-9dfd-52cede1d48b8.png">
 <meta property="article:published_time" content="2023-06-25T09:09:31.000Z">
-<meta property="article:modified_time" content="2023-06-25T09:18:11.087Z">
+<meta property="article:modified_time" content="2023-06-30T05:18:18.938Z">
 <meta property="article:author" content="SCxiaoyun">
 <meta property="article:tag" content="靶场">
 <meta property="article:tag" content="网安">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jsweetcoffee.github.io/2023/06/25/%E6%89%93%E9%9D%B6%E6%9C%BAvulntarget-a%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/1686278232491-3ce5fcd3-fe08-40ec-9dfd-52cede1d48b8.png">
+<meta name="twitter:image" content="https://jsweetcoffee.github.io/posts/98e63108/1686278232491-3ce5fcd3-fe08-40ec-9dfd-52cede1d48b8.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -296,7 +296,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年6月25日 下午
+                    本文最后更新于：2023年6月30日 下午
                   
                 
               </p>
@@ -312,7 +312,7 @@
 <h3 id="4-在重新开启虚拟机后重新进行frp连接发现7000端口占用，如何关闭之前的frp进程？（如何解决端口被进程占用的问题）">4. 在重新开启虚拟机后重新进行frp连接发现7000端口占用，如何关闭之前的frp进程？（如何解决端口被进程占用的问题）</h3>
 <h3 id="5-如何通过l-php中的信息判断出win2016使用了小皮搭建web服务">5. 如何通过l.php中的信息判断出win2016使用了小皮搭建web服务</h3>
 <h3 id="6-利用viper生成的免杀木马直接就本本地火绒拦截了。。。说好的免杀呢……">6. 利用viper生成的免杀木马直接就本本地火绒拦截了。。。说好的免杀呢……</h3>
-<p><img src="/2023/06/25/%E6%89%93%E9%9D%B6%E6%9C%BAvulntarget-a%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3/1686278232491-3ce5fcd3-fe08-40ec-9dfd-52cede1d48b8.png" alt="image.png"></p>
+<p><img src="/posts/98e63108/1686278232491-3ce5fcd3-fe08-40ec-9dfd-52cede1d48b8.png" alt="image.png"></p>
 <h3 id="7-cve-2020-1472-ex在执行时显示与解压相关的错误">7. cve-2020-1472-ex在执行时显示与解压相关的错误</h3>
 <p>开始时更新了github上下载的文件，从本地电脑解压依然不行，认为不是文件的问题，通过分析靶场的通信结果，排除代理配置错误的情况下，认为再重新开启虚拟机以后边界主机上的路由掉了，重新设置路由以后可以正常运行了（呜呜呜真难受）</p>
 
@@ -363,7 +363,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>打靶机vulntarget-a问题与解决</div>
-      <div>https://jsweetcoffee.github.io/2023/06/25/打靶机vulntarget-a问题与解决/</div>
+      <div>https://jsweetcoffee.github.io/posts/98e63108.html</div>
     </div>
     <div class="license-meta">
       
@@ -407,11 +407,17 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/posts/13d6b9a5.html" title="Fastjson反序列化漏洞靶场复现">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Fastjson反序列化漏洞靶场复现</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/06/23/vulntarget-a%E6%89%93%E9%9D%B6/" title="vulntarget-a打靶">
+                      <a href="/posts/d6f0653f.html" title="vulntarget-a打靶">
                         <span class="hidden-mobile">vulntarget-a打靶</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -710,5 +716,5 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/nito.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"rect":"opacity:0.5","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
