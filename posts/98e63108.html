@@ -20,7 +20,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="打靶机vulntarget-a问题与解决">
 <meta property="og:url" content="https://jsweetcoffee.github.io/posts/98e63108.html">
-<meta property="og:site_name" content="晓雲的小破屋">
+<meta property="og:site_name" content="晓雲的陋室">
 <meta property="og:description" content="1. frpc上传win7（边界主机）在配置文件正常是无法正常使用 用蚁剑上传失败，不断重新上传，上传成功后文件大小从12.8k–&gt;28k（离谱） 最后重新在远程界面上传成功运行 2. 在用proxychains4连接时配置文件中socks4不行而socks5可以的原因？(socks4和socks5的具体区别) 3. 拓展问题：用bp进行socks5代理访问内网 4. 在重新开启虚拟机后重新">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/98e63108/1686278232491-3ce5fcd3-fe08-40ec-9dfd-52cede1d48b8.png">
@@ -36,7 +36,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>打靶机vulntarget-a问题与解决 - 晓雲的小破屋</title>
+  <title>打靶机vulntarget-a问题与解决 - 晓雲的陋室</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -433,6 +433,28 @@
   
     <article id="comments">
       
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"ejWQ4cLgEdFyaqpxh7H74jUL-gzGzoHsz","appKey":"esK2EV3cfDXbDYkhTkNEHyHD","path":"window.location.pathname","placeholder":"吐槽一下","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true,"verify":false,"notify":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
 
     </article>
   

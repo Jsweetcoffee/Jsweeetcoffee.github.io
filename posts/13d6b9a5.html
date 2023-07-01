@@ -20,7 +20,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fastjson反序列化漏洞vulhub靶场复现">
 <meta property="og:url" content="https://jsweetcoffee.github.io/posts/13d6b9a5.html">
-<meta property="og:site_name" content="晓雲的小破屋">
+<meta property="og:site_name" content="晓雲的陋室">
 <meta property="og:description" content="Fastjson简介 ​	Fastjson是java的一个库，可以将java对象转化为json格式的字符串，也可以将json格式的字符串转化为java对象 提供了 toJSONString() 和 parseObject() 方法来将 Java 对象与 JSON 相互转换。调用toJSONString方法即可将对象转换成 JSON 字符串，parseObject 方法则反过来将 JSON 字符串转">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/13d6b9a5/image-20230630170317323-1688115809298-1.png">
@@ -44,7 +44,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Fastjson反序列化漏洞vulhub靶场复现 - 晓雲的小破屋</title>
+  <title>Fastjson反序列化漏洞vulhub靶场复现 - 晓雲的陋室</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -498,6 +498,28 @@
   
     <article id="comments">
       
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"ejWQ4cLgEdFyaqpxh7H74jUL-gzGzoHsz","appKey":"esK2EV3cfDXbDYkhTkNEHyHD","path":"window.location.pathname","placeholder":"吐槽一下","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true,"verify":false,"notify":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
 
     </article>
   

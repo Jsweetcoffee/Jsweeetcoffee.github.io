@@ -20,7 +20,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="vulntarget-a打靶">
 <meta property="og:url" content="https://jsweetcoffee.github.io/posts/d6f0653f.html">
-<meta property="og:site_name" content="晓雲的小破屋">
+<meta property="og:site_name" content="晓雲的陋室">
 <meta property="og:description" content="vulntarget-a打靶  1234567891011121314151617181920212223242526272829303132#攻击机OS:Kali 2022外NIC:192.168.x.x   (桥接模式)(与Win7-PC主机进行通信)#Web ServerOS:Windows 7Hostname:Win7-PCServer:通达OA 11.3username:win7pass">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/d6f0653f/1657868834428-f628c01b-5b68-4a07-b27c-e5cc8e16b5e7-1687676865522-1.png">
@@ -69,7 +69,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>vulntarget-a打靶 - 晓雲的小破屋</title>
+  <title>vulntarget-a打靶 - 晓雲的陋室</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -337,7 +337,7 @@
             
               <div class="markdown-body">
                 
-                <h1>vulntarget-a打靶</h1>
+                <h1 id="vulntarget-a打靶">vulntarget-a打靶</h1>
 <p><img src="/posts/d6f0653f/1657868834428-f628c01b-5b68-4a07-b27c-e5cc8e16b5e7-1687676865522-1.png" alt="img"></p>
 <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-meta">#攻击机</span><br><span class="hljs-symbol">OS:</span>Kali <span class="hljs-number">2022</span><br>外NIC:<span class="hljs-number">192.168</span>.x.x   (桥接模式)(与Win7-PC主机进行通信)<br><br><br><span class="hljs-meta">#Web Server</span><br><span class="hljs-symbol">OS:</span>Windows <span class="hljs-number">7</span><br><span class="hljs-symbol">Hostname:</span>Win7-PC<br><span class="hljs-symbol">Server:</span>通达OA <span class="hljs-number">11.3</span><br><span class="hljs-symbol">username:</span>win7<br><span class="hljs-symbol">password:</span>admin<br>外NIC:<span class="hljs-number">192.168</span>.x.x     (NAT模式)(与Kali通信)<br>内NIC:<span class="hljs-number">10.0</span><span class="hljs-number">.20</span><span class="hljs-number">.98</span>   (仅主机模式)(与Win2016主机即可域成员进行通信)(能够<span class="hljs-built_in">Ping</span>通Win2016主机)<br><br><br><span class="hljs-meta">#域成员</span><br><span class="hljs-symbol">OS:</span>Windows Server <span class="hljs-number">2016</span><br><span class="hljs-symbol">Hostname:</span>win2016<br><span class="hljs-symbol">Server:</span>PHPStudy+Redis<br><span class="hljs-symbol">username:</span>vulntarget\win2016<br><span class="hljs-symbol">password:</span>Admin<span class="hljs-meta">#123</span><br>内NIC：<span class="hljs-number">10.0</span><span class="hljs-number">.20</span><span class="hljs-number">.99</span>     (仅主机模式)(与Win7即WEB主机进行通信)(能够<span class="hljs-built_in">Ping</span>通Win7-PC主机)<br>内NIC：<span class="hljs-number">10.0</span><span class="hljs-number">.10</span><span class="hljs-number">.111</span>    (仅主机模式)(与Win2019即域控通信)(能够<span class="hljs-built_in">Ping</span>通Win2019主机)<br><br><br><span class="hljs-meta">#域控</span><br><span class="hljs-symbol">OS:</span>Windows Server <span class="hljs-number">2019</span><br><span class="hljs-symbol">Hostname:</span>win2019<br><span class="hljs-symbol">Server:</span>AD DC<br><span class="hljs-symbol">username:</span>vulntarget\administrator	<br><span class="hljs-symbol">password:</span>Admin<span class="hljs-subst">@666</span><br>内网NIC：<span class="hljs-number">10.0</span><span class="hljs-number">.10</span><span class="hljs-number">.110</span>    (仅主机模式)(与Win2016即域内成员通信)(能够<span class="hljs-built_in">Ping</span>通Win2016主机)<br></code></pre></td></tr></table></figure>
 <h2 id="一、边界主机">一、边界主机</h2>
@@ -615,6 +615,28 @@
   
     <article id="comments">
       
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"ejWQ4cLgEdFyaqpxh7H74jUL-gzGzoHsz","appKey":"esK2EV3cfDXbDYkhTkNEHyHD","path":"window.location.pathname","placeholder":"吐槽一下","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true,"verify":false,"notify":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
 
     </article>
   
