@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/hacker.png">
-  <link rel="icon" href="/img/%E7%94%B5%E8%84%91.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/%E8%95%BE%E5%A7%86.png">
+  <link rel="icon" href="/img/%E8%95%BE%E5%A7%86.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -337,11 +337,11 @@
             
               <div class="markdown-body">
                 
-                <h1 id="vulntarget-a打靶">vulntarget-a打靶</h1>
+                <h1>vulntarget-a打靶</h1>
 <p><img src="/posts/d6f0653f/1657868834428-f628c01b-5b68-4a07-b27c-e5cc8e16b5e7-1687676865522-1.png" alt="img"></p>
 <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-meta">#攻击机</span><br><span class="hljs-symbol">OS:</span>Kali <span class="hljs-number">2022</span><br>外NIC:<span class="hljs-number">192.168</span>.x.x   (桥接模式)(与Win7-PC主机进行通信)<br><br><br><span class="hljs-meta">#Web Server</span><br><span class="hljs-symbol">OS:</span>Windows <span class="hljs-number">7</span><br><span class="hljs-symbol">Hostname:</span>Win7-PC<br><span class="hljs-symbol">Server:</span>通达OA <span class="hljs-number">11.3</span><br><span class="hljs-symbol">username:</span>win7<br><span class="hljs-symbol">password:</span>admin<br>外NIC:<span class="hljs-number">192.168</span>.x.x     (NAT模式)(与Kali通信)<br>内NIC:<span class="hljs-number">10.0</span><span class="hljs-number">.20</span><span class="hljs-number">.98</span>   (仅主机模式)(与Win2016主机即可域成员进行通信)(能够<span class="hljs-built_in">Ping</span>通Win2016主机)<br><br><br><span class="hljs-meta">#域成员</span><br><span class="hljs-symbol">OS:</span>Windows Server <span class="hljs-number">2016</span><br><span class="hljs-symbol">Hostname:</span>win2016<br><span class="hljs-symbol">Server:</span>PHPStudy+Redis<br><span class="hljs-symbol">username:</span>vulntarget\win2016<br><span class="hljs-symbol">password:</span>Admin<span class="hljs-meta">#123</span><br>内NIC：<span class="hljs-number">10.0</span><span class="hljs-number">.20</span><span class="hljs-number">.99</span>     (仅主机模式)(与Win7即WEB主机进行通信)(能够<span class="hljs-built_in">Ping</span>通Win7-PC主机)<br>内NIC：<span class="hljs-number">10.0</span><span class="hljs-number">.10</span><span class="hljs-number">.111</span>    (仅主机模式)(与Win2019即域控通信)(能够<span class="hljs-built_in">Ping</span>通Win2019主机)<br><br><br><span class="hljs-meta">#域控</span><br><span class="hljs-symbol">OS:</span>Windows Server <span class="hljs-number">2019</span><br><span class="hljs-symbol">Hostname:</span>win2019<br><span class="hljs-symbol">Server:</span>AD DC<br><span class="hljs-symbol">username:</span>vulntarget\administrator	<br><span class="hljs-symbol">password:</span>Admin<span class="hljs-subst">@666</span><br>内网NIC：<span class="hljs-number">10.0</span><span class="hljs-number">.10</span><span class="hljs-number">.110</span>    (仅主机模式)(与Win2016即域内成员通信)(能够<span class="hljs-built_in">Ping</span>通Win2016主机)<br></code></pre></td></tr></table></figure>
-<h2 id="一、边界主机">一、边界主机</h2>
-<h3 id="Web端攻击">Web端攻击</h3>
+<h2 id="一、边界主机"><a class="header-anchor" href="#一、边界主机">¶</a>一、边界主机</h2>
+<h3 id="Web端攻击"><a class="header-anchor" href="#Web端攻击">¶</a>Web端攻击</h3>
 <ol>
 <li>拿到边界主机IP，先对其进行访问。按F12发现是通达OA的办公系统。</li>
 </ol>
@@ -358,7 +358,7 @@
 </li>
 </ol>
 <p><img src="/posts/d6f0653f/image-20230622112151646.png" alt="image-20230622112151646"></p>
-<h3 id="系统层面攻击">系统层面攻击</h3>
+<h3 id="系统层面攻击"><a class="header-anchor" href="#系统层面攻击">¶</a>系统层面攻击</h3>
 <ol>
 <li>
 <p>用nmap扫描发现主机开放135和445端口，系统版本为win7sp1版本，尝试利用永恒之蓝漏洞进行攻击。</p>
@@ -372,7 +372,7 @@
 <ol start="3">
 <li>出现 <code>meterpreter &gt; </code>上线MSF成功。</li>
 </ol>
-<h3 id="拿到远程桌面">拿到远程桌面</h3>
+<h3 id="拿到远程桌面"><a class="header-anchor" href="#拿到远程桌面">¶</a>拿到远程桌面</h3>
 <ol>
 <li>
 <p>输入<code>netstat -an | findstr 3389</code>发现边界主机并没</p>
@@ -387,7 +387,7 @@
 </li>
 </ol>
 <p><img src="/posts/d6f0653f/image-20230622115253943.png" alt="image-20230622115253943"></p>
-<h2 id="二、内网域成员主机">二、内网域成员主机</h2>
+<h2 id="二、内网域成员主机"><a class="header-anchor" href="#二、内网域成员主机">¶</a>二、内网域成员主机</h2>
 <p>拿下边界主机以后在MSF中输入shell，进入该主机的命令执行端，直接执行命令会出现乱码，执行以下命令修改编码并开始收集信息…</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">chcp</span> <span class="hljs-number">65001</span>（<span class="hljs-number">65001</span> UTF-<span class="hljs-number">8</span>代码页）<br><span class="hljs-attribute">whoami</span><br><span class="hljs-attribute">ipconfig</span> /<span class="hljs-literal">all</span><br><span class="hljs-attribute">systeminfo</span><br></code></pre></td></tr></table></figure>
 <p>输入<code>ipconfig</code>发现当前主机有两个网段的网卡(一个公网网卡一个内网网卡)：</p>
@@ -469,7 +469,7 @@
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">#添加代理</span><br>use auxiliary<span class="hljs-regexp">/server/</span>socks_proxy<br>run<br></code></pre></td></tr></table></figure>
 <p>此时我们还要修改proxychains4的代理配置将其端口修改为1080端口，丢弃掉之前用于搭建边界主机通信隧道的frp代理端口。</p>
 <p>（这里当然也可以在win2016中再加一个frp的通信隧道连接2019，但是MSF更加稳定，所以这里通过直接开启MSF的Socks5代理，利用之前在win7和win2016中建立的路由直接访问win2019）</p>
-<h2 id="三、域控">三、域控</h2>
+<h2 id="三、域控"><a class="header-anchor" href="#三、域控">¶</a>三、域控</h2>
 <p>继续进行信息收集：</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment">#域控判断</span><br><span class="hljs-attribute">ipconfig</span> /<span class="hljs-literal">all</span>  --&gt;获取DNS服务器地址：<span class="hljs-number">10.0.10.110</span><br><span class="hljs-attribute">net</span> time /doamian --&gt;获取域控地址：win2019.vulntarget.com<br><span class="hljs-attribute">ping</span> win2019.vulntarget.com --&gt; 返回地址：<span class="hljs-number">10.0.10.110</span><br><span class="hljs-comment">#Nmap扫描</span><br><span class="hljs-attribute">proxychains</span> nmap -Pn -sT -p <span class="hljs-number">80</span>,<span class="hljs-number">443</span>,<span class="hljs-number">8080</span>,<span class="hljs-number">445</span>,<span class="hljs-number">139</span> <span class="hljs-number">10.0.10.110</span><br></code></pre></td></tr></table></figure>
 <blockquote>
@@ -589,9 +589,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/98e63108.html" title="打靶机vulntarget-a问题与解决">
+                      <a href="/posts/e0dfd349.html" title="解决hexo上传后图片不显示的问题">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">打靶机vulntarget-a问题与解决</span>
+                        <span class="hidden-mobile">解决hexo上传后图片不显示的问题</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     

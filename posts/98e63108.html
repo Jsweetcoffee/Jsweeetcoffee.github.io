@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/hacker.png">
-  <link rel="icon" href="/img/%E7%94%B5%E8%84%91.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/%E8%95%BE%E5%A7%86.png">
+  <link rel="icon" href="/img/%E8%95%BE%E5%A7%86.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -16,12 +16,12 @@
   <meta name="author" content="SCxiaoyun">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. frpc上传win7（边界主机）在配置文件正常是无法正常使用 用蚁剑上传失败，不断重新上传，上传成功后文件大小从12.8k–&gt;28k（离谱） 最后重新在远程界面上传成功运行 2. 在用proxychains4连接时配置文件中socks4不行而socks5可以的原因？(socks4和socks5的具体区别) 3. 拓展问题：用bp进行socks5代理访问内网 4. 在重新开启虚拟机后重新">
+    <meta name="description" content="¶1. frpc上传win7（边界主机）在配置文件正常是无法正常使用 用蚁剑上传失败，不断重新上传，上传成功后文件大小从12.8k–&gt;28k（离谱） 最后重新在远程界面上传成功运行 ¶2. 在用proxychains4连接时配置文件中socks4不行而socks5可以的原因？(socks4和socks5的具体区别) ¶3. 拓展问题：用bp进行socks5代理访问内网 ¶4. 在重新开启虚拟">
 <meta property="og:type" content="article">
 <meta property="og:title" content="打靶机vulntarget-a问题与解决">
 <meta property="og:url" content="https://jsweetcoffee.github.io/posts/98e63108.html">
 <meta property="og:site_name" content="晓雲的陋室">
-<meta property="og:description" content="1. frpc上传win7（边界主机）在配置文件正常是无法正常使用 用蚁剑上传失败，不断重新上传，上传成功后文件大小从12.8k–&gt;28k（离谱） 最后重新在远程界面上传成功运行 2. 在用proxychains4连接时配置文件中socks4不行而socks5可以的原因？(socks4和socks5的具体区别) 3. 拓展问题：用bp进行socks5代理访问内网 4. 在重新开启虚拟机后重新">
+<meta property="og:description" content="¶1. frpc上传win7（边界主机）在配置文件正常是无法正常使用 用蚁剑上传失败，不断重新上传，上传成功后文件大小从12.8k–&gt;28k（离谱） 最后重新在远程界面上传成功运行 ¶2. 在用proxychains4连接时配置文件中socks4不行而socks5可以的原因？(socks4和socks5的具体区别) ¶3. 拓展问题：用bp进行socks5代理访问内网 ¶4. 在重新开启虚拟">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/98e63108/1686278232491-3ce5fcd3-fe08-40ec-9dfd-52cede1d48b8.png">
 <meta property="article:published_time" content="2023-06-25T09:09:31.000Z">
@@ -242,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          457 字
+          464 字
         
       </span>
     
@@ -304,16 +304,16 @@
             
               <div class="markdown-body">
                 
-                <h3 id="1-frpc上传win7（边界主机）在配置文件正常是无法正常使用">1. frpc上传win7（边界主机）在配置文件正常是无法正常使用</h3>
+                <h3 id="1-frpc上传win7（边界主机）在配置文件正常是无法正常使用"><a class="header-anchor" href="#1-frpc上传win7（边界主机）在配置文件正常是无法正常使用">¶</a>1. frpc上传win7（边界主机）在配置文件正常是无法正常使用</h3>
 <p>用蚁剑上传失败，不断重新上传，上传成功后文件大小从12.8k–&gt;28k（离谱）</p>
 <p>最后重新在远程界面上传成功运行</p>
-<h3 id="2-在用proxychains4连接时配置文件中socks4不行而socks5可以的原因？-socks4和socks5的具体区别">2. 在用proxychains4连接时配置文件中socks4不行而socks5可以的原因？(socks4和socks5的具体区别)</h3>
-<h3 id="3-拓展问题：用bp进行socks5代理访问内网">3. 拓展问题：用bp进行socks5代理访问内网</h3>
-<h3 id="4-在重新开启虚拟机后重新进行frp连接发现7000端口占用，如何关闭之前的frp进程？（如何解决端口被进程占用的问题）">4. 在重新开启虚拟机后重新进行frp连接发现7000端口占用，如何关闭之前的frp进程？（如何解决端口被进程占用的问题）</h3>
-<h3 id="5-如何通过l-php中的信息判断出win2016使用了小皮搭建web服务">5. 如何通过l.php中的信息判断出win2016使用了小皮搭建web服务</h3>
-<h3 id="6-利用viper生成的免杀木马直接就本本地火绒拦截了。。。说好的免杀呢……">6. 利用viper生成的免杀木马直接就本本地火绒拦截了。。。说好的免杀呢……</h3>
+<h3 id="2-在用proxychains4连接时配置文件中socks4不行而socks5可以的原因？-socks4和socks5的具体区别"><a class="header-anchor" href="#2-在用proxychains4连接时配置文件中socks4不行而socks5可以的原因？-socks4和socks5的具体区别">¶</a>2. 在用proxychains4连接时配置文件中socks4不行而socks5可以的原因？(socks4和socks5的具体区别)</h3>
+<h3 id="3-拓展问题：用bp进行socks5代理访问内网"><a class="header-anchor" href="#3-拓展问题：用bp进行socks5代理访问内网">¶</a>3. 拓展问题：用bp进行socks5代理访问内网</h3>
+<h3 id="4-在重新开启虚拟机后重新进行frp连接发现7000端口占用，如何关闭之前的frp进程？（如何解决端口被进程占用的问题）"><a class="header-anchor" href="#4-在重新开启虚拟机后重新进行frp连接发现7000端口占用，如何关闭之前的frp进程？（如何解决端口被进程占用的问题）">¶</a>4. 在重新开启虚拟机后重新进行frp连接发现7000端口占用，如何关闭之前的frp进程？（如何解决端口被进程占用的问题）</h3>
+<h3 id="5-如何通过l-php中的信息判断出win2016使用了小皮搭建web服务"><a class="header-anchor" href="#5-如何通过l-php中的信息判断出win2016使用了小皮搭建web服务">¶</a>5. 如何通过l.php中的信息判断出win2016使用了小皮搭建web服务</h3>
+<h3 id="6-利用viper生成的免杀木马直接就本本地火绒拦截了。。。说好的免杀呢……"><a class="header-anchor" href="#6-利用viper生成的免杀木马直接就本本地火绒拦截了。。。说好的免杀呢……">¶</a>6. 利用viper生成的免杀木马直接就本本地火绒拦截了。。。说好的免杀呢……</h3>
 <p><img src="/posts/98e63108/1686278232491-3ce5fcd3-fe08-40ec-9dfd-52cede1d48b8.png" alt="image.png"></p>
-<h3 id="7-cve-2020-1472-ex在执行时显示与解压相关的错误">7. cve-2020-1472-ex在执行时显示与解压相关的错误</h3>
+<h3 id="7-cve-2020-1472-ex在执行时显示与解压相关的错误"><a class="header-anchor" href="#7-cve-2020-1472-ex在执行时显示与解压相关的错误">¶</a>7. cve-2020-1472-ex在执行时显示与解压相关的错误</h3>
 <p>开始时更新了github上下载的文件，从本地电脑解压依然不行，认为不是文件的问题，通过分析靶场的通信结果，排除代理配置错误的情况下，认为再重新开启虚拟机以后边界主机上的路由掉了，重新设置路由以后可以正常运行了（呜呜呜真难受）</p>
 
                 
@@ -417,8 +417,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/d6f0653f.html" title="vulntarget-a打靶">
-                        <span class="hidden-mobile">vulntarget-a打靶</span>
+                      <a href="/posts/e0dfd349.html" title="解决hexo上传后图片不显示的问题">
+                        <span class="hidden-mobile">解决hexo上传后图片不显示的问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
