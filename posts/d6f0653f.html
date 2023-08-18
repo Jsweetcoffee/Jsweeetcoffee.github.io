@@ -16,12 +16,12 @@
   <meta name="author" content="SCxiaoyun">
   <meta name="keywords" content="">
   
-    <meta name="description" content="vulntarget-a打靶  1234567891011121314151617181920212223242526272829303132#攻击机OS:Kali 2022外NIC:192.168.x.x   (桥接模式)(与Win7-PC主机进行通信)#Web ServerOS:Windows 7Hostname:Win7-PCServer:通达OA 11.3username:win7pass">
+    <meta name="description" content="vulntarget-a靶场复现  1234567891011121314151617181920212223242526272829303132#攻击机OS:Kali 2022外NIC:192.168.x.x   (桥接模式)(与Win7-PC主机进行通信)#Web ServerOS:Windows 7Hostname:Win7-PCServer:通达OA 11.3username:win7pa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vulntarget-a打靶">
 <meta property="og:url" content="https://jsweetcoffee.github.io/posts/d6f0653f.html">
 <meta property="og:site_name" content="晓雲的陋室">
-<meta property="og:description" content="vulntarget-a打靶  1234567891011121314151617181920212223242526272829303132#攻击机OS:Kali 2022外NIC:192.168.x.x   (桥接模式)(与Win7-PC主机进行通信)#Web ServerOS:Windows 7Hostname:Win7-PCServer:通达OA 11.3username:win7pass">
+<meta property="og:description" content="vulntarget-a靶场复现  1234567891011121314151617181920212223242526272829303132#攻击机OS:Kali 2022外NIC:192.168.x.x   (桥接模式)(与Win7-PC主机进行通信)#Web ServerOS:Windows 7Hostname:Win7-PCServer:通达OA 11.3username:win7pa">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/d6f0653f/1657868834428-f628c01b-5b68-4a07-b27c-e5cc8e16b5e7-1687676865522-1.png">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/d6f0653f/image-20230622111403820-1687676304662-3.png">
@@ -57,7 +57,7 @@
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/d6f0653f/image-20230623112129672.png">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/d6f0653f/image-20230623113942986.png">
 <meta property="article:published_time" content="2023-06-23T03:40:27.642Z">
-<meta property="article:modified_time" content="2023-06-30T05:18:18.937Z">
+<meta property="article:modified_time" content="2023-08-02T01:38:53.458Z">
 <meta property="article:author" content="SCxiaoyun">
 <meta property="article:tag" content="靶场">
 <meta property="article:tag" content="内网">
@@ -357,7 +357,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年6月30日 下午
+                    本文最后更新于：2023年8月2日 上午
                   
                 
               </p>
@@ -365,7 +365,7 @@
             
               <div class="markdown-body">
                 
-                <h1>vulntarget-a打靶</h1>
+                <h1>vulntarget-a靶场复现</h1>
 <p><img src="/posts/d6f0653f/1657868834428-f628c01b-5b68-4a07-b27c-e5cc8e16b5e7-1687676865522-1.png" alt="img"></p>
 <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-meta">#攻击机</span><br><span class="hljs-symbol">OS:</span>Kali <span class="hljs-number">2022</span><br>外NIC:<span class="hljs-number">192.168</span>.x.x   (桥接模式)(与Win7-PC主机进行通信)<br><br><br><span class="hljs-meta">#Web Server</span><br><span class="hljs-symbol">OS:</span>Windows <span class="hljs-number">7</span><br><span class="hljs-symbol">Hostname:</span>Win7-PC<br><span class="hljs-symbol">Server:</span>通达OA <span class="hljs-number">11.3</span><br><span class="hljs-symbol">username:</span>win7<br><span class="hljs-symbol">password:</span>admin<br>外NIC:<span class="hljs-number">192.168</span>.x.x     (NAT模式)(与Kali通信)<br>内NIC:<span class="hljs-number">10.0</span><span class="hljs-number">.20</span><span class="hljs-number">.98</span>   (仅主机模式)(与Win2016主机即可域成员进行通信)(能够<span class="hljs-built_in">Ping</span>通Win2016主机)<br><br><br><span class="hljs-meta">#域成员</span><br><span class="hljs-symbol">OS:</span>Windows Server <span class="hljs-number">2016</span><br><span class="hljs-symbol">Hostname:</span>win2016<br><span class="hljs-symbol">Server:</span>PHPStudy+Redis<br><span class="hljs-symbol">username:</span>vulntarget\win2016<br><span class="hljs-symbol">password:</span>Admin<span class="hljs-meta">#123</span><br>内NIC：<span class="hljs-number">10.0</span><span class="hljs-number">.20</span><span class="hljs-number">.99</span>     (仅主机模式)(与Win7即WEB主机进行通信)(能够<span class="hljs-built_in">Ping</span>通Win7-PC主机)<br>内NIC：<span class="hljs-number">10.0</span><span class="hljs-number">.10</span><span class="hljs-number">.111</span>    (仅主机模式)(与Win2019即域控通信)(能够<span class="hljs-built_in">Ping</span>通Win2019主机)<br><br><br><span class="hljs-meta">#域控</span><br><span class="hljs-symbol">OS:</span>Windows Server <span class="hljs-number">2019</span><br><span class="hljs-symbol">Hostname:</span>win2019<br><span class="hljs-symbol">Server:</span>AD DC<br><span class="hljs-symbol">username:</span>vulntarget\administrator	<br><span class="hljs-symbol">password:</span>Admin<span class="hljs-subst">@666</span><br>内网NIC：<span class="hljs-number">10.0</span><span class="hljs-number">.10</span><span class="hljs-number">.110</span>    (仅主机模式)(与Win2016即域内成员通信)(能够<span class="hljs-built_in">Ping</span>通Win2016主机)<br></code></pre></td></tr></table></figure>
 <h2 id="一、边界主机"><a class="header-anchor" href="#一、边界主机">¶</a>一、边界主机</h2>

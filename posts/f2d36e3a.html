@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/f2d36e3a/image-20230709120011875.png">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/f2d36e3a/image-20230709120146413.png">
 <meta property="article:published_time" content="2023-07-09T03:11:32.000Z">
-<meta property="article:modified_time" content="2023-07-09T04:06:16.496Z">
+<meta property="article:modified_time" content="2023-08-17T07:41:15.817Z">
 <meta property="article:author" content="SCxiaoyun">
 <meta property="article:tag" content="权限维持">
 <meta property="article:tag" content="后渗透">
@@ -271,7 +271,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          702 字
+          1.4k 字
         
       </span>
     
@@ -282,7 +282,7 @@
         
         
         
-          6 分钟
+          12 分钟
         
       </span>
     
@@ -333,7 +333,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年7月9日 中午
+                    本文最后更新于：2023年8月17日 下午
                   
                 
               </p>
@@ -371,6 +371,22 @@
 <img src="/posts/f2d36e3a/image-20230709120011875.png" class title="image-20230709120011875">
 <p>此时再重新打开注册表，可以发现刚刚创建的用户还在，但是在本地用户和组以及<code>net user</code>命令中看不到该账户的存在，说明创建用户成功了。🌈🌈🌈</p>
 <img src="/posts/f2d36e3a/image-20230709120146413.png" class title="image-20230709120146413">
+<h1>补充加更正！</h1>
+<p>​		1. 之前说的用Administrator账户继续创建影子账户，在后续的利用过程中发现并不好使，原因是在新的win7以及后续的win10等版本中，administrator账户是被禁用的状态，无法远程登录（正常登录都登不上）</p>
+<p>​		所以需要将一个其他具有管理员权限的账户的F值复制到影子账户的F值下！！！！</p>
+<ol start="2">
+<li>
+<p>在某些情况下（很小的情况下），密码不正确会被直接挡在门外（远程的界面都打不开）原因和解决：</p>
+<p>鉴权开启时，我们在不知道账号密码的情况下无法登录到远程界面，但是鉴权关闭之后，无论我们输入的账号和密码是否正确，都可以进入远程界面窗口。</p>
+<p>如何关闭鉴权模式，我们采用如下命令：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">REG <span class="hljs-keyword">ADD</span><span class="language-bash"> <span class="hljs-string">&quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot;</span> /v UserAuthentication /t REG_DWORD /d 0</span><br></code></pre></td></tr></table></figure>
+<p>0代表关闭，1代表开启</p>
+<p>关闭鉴权模式还不够，还需要关闭securitylayer安全层验证 ：</p>
+<p>具体指：0 就是连接前使用 rdp 协议进行身份验证，rdp 即远程桌面连接，可以简单理解为就是关闭验证。1 是指在连接前两端协商来进行身份验证，这个是默认值。2 就是使用 tls 协议来进行。</p>
+<p>将其参数设置为0，命令如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs '">REG ADD &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot; /v SecurityLayer /t REG_DWORD /d 0<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
 
                 
               </div>
@@ -469,6 +485,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/posts/2cf00b0.html" title="常见端口号对应汇总">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">常见端口号对应汇总</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
