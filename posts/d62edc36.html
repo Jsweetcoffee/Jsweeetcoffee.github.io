@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/d62edc36/image-20230728161632099.png">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/d62edc36/1690266827967-c7f3cd69-031d-4069-9917-2d915dc64930.jpeg">
 <meta property="article:published_time" content="2023-07-14T06:14:27.000Z">
-<meta property="article:modified_time" content="2023-08-18T09:01:13.516Z">
+<meta property="article:modified_time" content="2023-08-30T01:54:40.066Z">
 <meta property="article:author" content="SCxiaoyun">
 <meta property="article:tag" content="Web安全">
 <meta property="article:tag" content="面试总结">
@@ -272,7 +272,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          63k 字
+          67k 字
         
       </span>
     
@@ -283,7 +283,7 @@
         
         
         
-          526 分钟
+          560 分钟
         
       </span>
     
@@ -334,7 +334,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年8月18日 下午
+                    本文最后更新于：2023年8月30日 上午
                   
                 
               </p>
@@ -2213,7 +2213,121 @@ CSRF客户端请求伪造：目标网站下的用户   —》 用户</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">hydra -P <span class="hljs-string">./pass.txt</span> redis:<span class="hljs-string">//192.168.229.140</span><span class="hljs-function">:6379</span> -f<br></code></pre></td></tr></table></figure>
 <h3 id="修复参考"><a class="header-anchor" href="#修复参考">¶</a>修复参考</h3>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs perl"><span class="hljs-comment"># 修复一</span><br>禁止一些高危命令<br>修改 redis.conf 文件，添加<br><span class="hljs-keyword">rename</span>-command FLUSHALL “”<br><span class="hljs-keyword">rename</span>-command CONFIG “”<br><span class="hljs-keyword">rename</span>-command EVAL “”<br>来禁用远程修改 DB 文件地址<br><br><span class="hljs-comment"># 修复二</span><br>以低权限运行 Redis 服务<br>为 Redis 服务创建单独的用户和家目录，并且配置禁止登陆<br>$ groupadd -r redis &amp;&amp; useradd -r -g redis redis<br><br><span class="hljs-comment"># 修复三</span><br>为 Redis 添加密码验证<br>修改 redis.conf 文件，添加<br>requirepass mypassword<br><br><span class="hljs-comment"># 修复四</span><br>禁止外网访问 Redis<br>修改 redis.conf 文件，添加或修改，使得 Redis 服务只在当前主机可用<br><span class="hljs-keyword">bind</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span><br><br><span class="hljs-comment"># 修复五</span><br>保证 authorized_keys 文件的安全<br>为了保证安全，您应该阻止其他用户添加新的公钥。<br>将 authorized_keys 的权限设置为对拥有者只读，其他用户没有任何权限：<br>$ <span class="hljs-keyword">chmod</span> <span class="hljs-number">400</span> ~<span class="hljs-regexp">/.ssh/au</span>thorized_keys<br>为保证 authorized_keys 的权限不会被改掉，您还需要设置该文件的 immutable 位权限：<br><span class="hljs-comment"># chattr +i ~/.ssh/authorized_keys</span><br>然而，用户还可以重命名 ~<span class="hljs-regexp">/.ssh，然后新建新的 ~/</span>.ssh 目录和 authorized_keys 文件。要避免这种情况，需要设置 ~./ssh 的 immutable 位权限：<br><span class="hljs-comment"># chattr +i ~/.ssh</span><br>注意: 如果需要添加新的公钥，需要移除 authorized_keys 的 immutable 位权限。然后，添加好新的公钥之后，按照上述步骤重新加上 immutable 位权限。<br></code></pre></td></tr></table></figure>
-<p>后续待补充……</p>
+<h1>常见框架漏洞</h1>
+<h2 id="Thinkphp"><a class="header-anchor" href="#Thinkphp">¶</a>Thinkphp</h2>
+<p>TP5 rce：</p>
+<p>Thinkphp5 5.0.22/5.1.29</p>
+<p>Thinkphp5 5.0.23 rce</p>
+<p><strong>更多</strong><a target="_blank" rel="noopener" href="https://github.com/Mochazz/ThinkPHP-Vuln">https://github.com/Mochazz/ThinkPHP-Vuln</a> <a target="_blank" rel="noopener" href="https://y4er.com/post/thinkphp5-rce/">https://y4er.com/post/thinkphp5-rce/</a></p>
+<h3 id="问题："><a class="header-anchor" href="#问题：">¶</a>问题：</h3>
+<p><strong>如果给你一个网站你如何识别是否使用了thinkphp框架？</strong></p>
+<ol>
+<li>
+<p>使用指纹识别插件 Wappalyzer</p>
+</li>
+<li>
+<p>通过构建报错的url , 根据报错信息判断</p>
+</li>
+<li>
+<p>根据tp的默认icon 5.路由格式</p>
+</li>
+</ol>
+<h2 id="Struts2"><a class="header-anchor" href="#Struts2">¶</a>Struts2</h2>
+<blockquote>
+<p>Struts 2 是一个基于MVC设计模式的web应用框架：</p>
+<p><strong>MVC</strong>：模型(Model)、视图(View)、控制器(Controller)：</p>
+<p>模型 — 属于软件设计模式的底层基础，主要负责数据维护。视图 — 这部分是负责向用户呈现全部或部分数据。</p>
+<p>控制器 — 通过软件代码控制模型和视图之间的交互。</p>
+</blockquote>
+<h3 id="struts2-rce"><a class="header-anchor" href="#struts2-rce">¶</a>struts2 rce</h3>
+<p><strong>S2-057远程执行代码漏洞原理</strong></p>
+<p>S2-057漏洞产生于网站配置xml的时候，有一个namespace的值，该值并没有做详细的安全过滤导致可以写入到XML上，尤其url标签值也没有做通配符的过滤，导致可以执行远程代码，以及系统命令执行。</p>
+<p>S2-057 先决条件 :</p>
+<p>alwaysSelectFullNamespace 正确 - 操作元素未设置名称空间属性，或使用了通配符用户将从 uri 传递命名空间，并将其解析为 OGNL 表达式，最终导致远程代码执行漏洞</p>
+<h1>spring</h1>
+<p>未授权访问、远程命令执行</p>
+<h3 id="SpEL是什么？"><a class="header-anchor" href="#SpEL是什么？">¶</a>SpEL是什么？</h3>
+<p>SpEL(Spring Expression Language)是基于spring的一个表达式语言，类似于struts的OGNL，能够在运行时动态执行一些运算甚至一些指令，类似于Java的反射功能。就使用方法上来看，一共分为三类，分别是直接在注解中使用，在XML文件中使用和直接在代码块中使用。</p>
+<h3 id="SpEL原理如下："><a class="header-anchor" href="#SpEL原理如下：">¶</a>SpEL原理如下：</h3>
+<ol>
+<li>
+<ol>
+<li>
+<ol>
+<li>表达式:可以认为就是传入的字符串内容；</li>
+<li>解析器︰将字符串解析为表达式内容；</li>
+<li>上下文:表达式对象执行的环境；</li>
+<li>根对象和活动上下文对象∶根对象是默认的活动上下文对象，活动上下文对象表示了当前表达式操作的对象。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="spring-rce"><a class="header-anchor" href="#spring-rce">¶</a>spring rce</h2>
+<p>Spring Cloud Function SpEL表达式命令注入（CVE-2022-22963）</p>
+<p><strong>漏洞原理</strong></p>
+<p>Spring Cloud Function 是基于Spring Boot 的函数计算框架，它抽象出所有传输细节和基础架构，允许开发人员保留所有熟悉的工具和流程，并专注于业务逻辑。 由于Spring Cloud Function中 RoutingFunction类的apply方法将请求头中的“spring.cloud.function.routing-expression”参数作为Spel表达式进行处理，造成了Spel表达式注入漏洞，未经授权的远程攻击者可利用该漏洞执行任意代码</p>
+<p><strong>fofa:</strong></p>
+<p>icon_hash=“116323821”</p>
+<p><strong>spring的特征</strong></p>
+<ol>
+<li>icon 是个小树叶</li>
+<li>默认报错页面</li>
+</ol>
+<p><strong>其他利用方式</strong></p>
+<p><a target="_blank" rel="noopener" href="https://xie.infoq.cn/article/a60c8897b4bd0dbfe08cf7260">https://xie.infoq.cn/article/a60c8897b4bd0dbfe08cf7260</a> <a target="_blank" rel="noopener" href="https://xie.infoq.cn/article/77266744d4eea813a20716fb5">https://xie.infoq.cn/article/77266744d4eea813a20716fb5</a> <a target="_blank" rel="noopener" href="https://github.com/LandGrey/SpringBootVulExploit">https://github.com/LandGrey/SpringBootVulExploit</a></p>
+<h1>shiro</h1>
+<h2 id="shiro-反序列化rce"><a class="header-anchor" href="#shiro-反序列化rce">¶</a>shiro 反序列化rce</h2>
+<h3 id="Shiro-550-反序列化rce"><a class="header-anchor" href="#Shiro-550-反序列化rce">¶</a>Shiro-550 反序列化rce</h3>
+<p>漏洞原理</p>
+<p>Apache Shiro框架提供了记住我的功能（RememberMe），用户登陆成功后会生成经过加密并编码的 cookie。</p>
+<p>cookie的key为RememberMe，cookie的值是经过对相关信息进行序列化，然后使用aes加密，最后在使用base64编码处理形成的。</p>
+<p>在服务端接收cookie值时，按照如下步骤来解析处理</p>
+<p>1、检索RememberMe cookie 的值</p>
+<p>2、Base64解码</p>
+<p>3、使用AES解密(加密密钥硬编码)</p>
+<p>4、进行反序列化操作（未作过滤处理）</p>
+<p>在调用反序列化时未进行任何过滤，导致可以触发远程代码执行漏洞。</p>
+<p><strong>利用条件</strong></p>
+<p>获得aes的加密密钥</p>
+<p>在shiro的1.2.4之前版本中使用的是硬编码。其默认密钥的base64编码后的值为 kPH+bIxk5D2deZiIxcaaaA==，这里就可以通过构造恶意的序列化对象进行编码，加密，然后作为cookie加密发送，服务端接收后会解密并触发反序列化漏洞</p>
+<p>尽管目前已经更新了许多版本，<strong>官方并没有对反序列化漏洞本身解决</strong>，而是通过去掉硬编码的密钥，使其每次生成一个密钥来解决该漏洞。但是，目前一些开源系统、教程范例代码都使用来固定的编码， 这里我们可以通过搜索引擎、github等来收集密钥，提高漏洞检测与利用的成功率。</p>
+<blockquote>
+<p>只要rememberMe的AES加密秘钥泄露，<strong>无论shiro是什么版本都会导致反序列化漏洞</strong>。</p>
+</blockquote>
+<p><strong>fofa：</strong></p>
+<p>app=“Apache-Shiro” header=“rememberme=deleteMe” header=“shiroCookie”</p>
+<h2 id="Shiro-721-反序列化漏洞"><a class="header-anchor" href="#Shiro-721-反序列化漏洞">¶</a>Shiro-721 反序列化漏洞</h2>
+<p><strong>Shiro Padding Oracle Attack</strong></p>
+<p><strong>漏洞原理</strong></p>
+<p>由于Apache Shiro cookie中通过 AES-128-CBC模式加密的rememberMe字段存在问题，用户可通过Padding Oracle 加密生成的攻击代码来构造恶意的rememberMe字段，并重新请求网站，进行反序列化攻击，最终导致任意代码执行。</p>
+<p><strong>利用技巧</strong></p>
+<p>1.该漏洞需要登录后获取到合法的Cookie: rememberMe=XXX后才可以进行利用, 看起来不是很好利用 但实际上有一些网站是开放注册的, 而且这个洞不需要知道服务端密钥 所以后续的利用还是可以同Shiro-550一样利用, 而且这里是AES加密的, 自带过WAF属性 ；<br>
+2.如果攻击没有生效, 可以试一下删除Cookie中的JSESSIONID 字段, 很多时候这个字段存在的话, 服务端不会去处理 rememberMe。</p>
+<p><strong>shiro550和721的区别</strong></p>
+<p>​    721是需要有效的登录才可以  550不用登录就可以直接跑key</p>
+<p>后续待	补充……</p>
+<h1>fastjson反序列化漏洞</h1>
+<p><strong>原理</strong>：漏洞利用fastjson autotype在处理json对象的时候，未对@type字段进行完全的安全性验<br>
+证，攻击者可以传入危险类，并调用危险类连接远程rmi主机，通过其中的恶意类执行代码。攻击者通过<br>
+这种方式可以实现远程代码执行漏洞的利用，获取服务器的敏感信息泄露，甚至可以利用此漏洞进一步<br>
+对服务器数据进行修改，增加，删除等操作，对服务器造成巨大影响。</p>
+<h1>Log4j2注入漏洞</h1>
+<p>参考文档：<a target="_blank" rel="noopener" href="https://blog.csdn.net/hilaryfrank/article/details/121944757?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=log4j2%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%8E%9F%E7%90%86&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-121944757.142%5Ev93%5EchatgptT3_2&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/hilaryfrank/article/details/121944757?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=log4j2漏洞的原理&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-121944757.142^v93^chatgptT3_2&amp;spm=1018.2226.3001.4187</a></p>
+<p>复现：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_53747497/article/details/129906229?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=log4j%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-2-129906229.142%5Ev93%5Einsert_down28v1&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/weixin_53747497/article/details/129906229?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=log4j漏洞复现&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-2-129906229.142^v93^insert_down28v1&amp;spm=1018.2226.3001.4187</a></p>
+<p>Log4j2漏洞总的来说就是：因为Log4j2默认支持解析ldap/rmi协议（只要打印的日志中包括ldap/rmi协议即可），并会通过名称从ldap服务端其获取对应的Class文件，并使用ClassLoader在本地加载Ldap服务端返回的Class类。这就为攻击者提供了攻击途径，攻击者可以在界面传入一个包含恶意内容（会提供一个恶意的Class文件）的ldap协议内容（如：恶意内容${jndi:ldap://localhost:9999/Test}恶意内容），该内容传递到后端被log4j2打印出来，就会触发恶意的Class的加载执行（可执行任意后台指令），从而达到攻击的目的。</p>
+<p><strong>漏洞适应版本</strong>：2.0 &lt;= Apache log4j2 &lt;=2.14.1</p>
+<h3 id="什么是JNDI"><a class="header-anchor" href="#什么是JNDI">¶</a>什么是JNDI</h3>
+<p>JNDI全称 Java Naming and Directory Interface。JNDI是Java平台的一个标准扩展，提供了一组接口、类和关于命名空间的概念。</p>
+<p><strong>JDNI通过绑定的概念将对象和名称联系起来</strong>。在一个文件系统中，文件名被绑定给文件。在DNS中，一个IP地址绑定一个URL。在目录服务中，一个对象名被绑定给一个对象实体。</p>
+<p>简单来说：通过JNDI提供了&quot;通过名称找到对应的对象&quot;的规范定义，即SPI功能，实现则由具体的技术支持，如：LDAP，RMI，DNS，Database。</p>
+<h3 id="什么是LDAP"><a class="header-anchor" href="#什么是LDAP">¶</a>什么是LDAP</h3>
+<p>目录服务是一个特殊的数据库，用来保存描述性的、基于属性的详细信息，支持过滤功能。</p>
+<p>LDAP（Light Directory Access Portocol），它是基于X.500标准的轻量级目录访问协议。</p>
+<p>目录是一个为查询、浏览和搜索而优化的数据库，它成树状结构组织数据，类似文件目录一样。</p>
+<p>简单来说：LDAP是一个目录服务，可以通过目录路径查询到对应目录下的对象（文件）等。即其也是JNDI的实现，通过名称（目录路径）查询到对象（目录下的文件）。</p>
+<h1>常见中间件漏洞</h1>
 
                 
               </div>
