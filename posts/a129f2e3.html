@@ -16,32 +16,24 @@
   <meta name="author" content="SCxiaoyun">
   <meta name="keywords" content="">
   
-    <meta name="description" content="¶配置： Xray的配置相对来说比较友好，没有那么痛苦 使用--config 用于指定配置文件的位置，默认加载同目录的 config.yaml。 –h 查看帮助 ¶命令：    命令 说明     webscan xray核心功能，用来发现探测Web漏洞   servicescan 服务扫描功能 用来探测服务漏洞   poclint 检测poc是否符合规范   reverse 启动单独的盲打平台服">
+    <meta name="description" content="全流程：  DNS解析 发起TCP请求 发起HTTP请求 负载均衡 浏览器渲染 网页静态资源加载  ¶DNS解析（UDP） 访问目标地址有两种方式： ①使用目标IP地址访问。由于IP地址是一堆数字不方便记忆，于是有了域名这种字符型标识。 ②使用域名访问。域名解析就是域名到IP地址的转换过程，域名的解析工作由DNS服务器完成。 DNS域名解析时用的是UDP协议。整个域名解析的过程如下：  浏览器向本">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Xray的基本使用">
-<meta property="og:url" content="https://jsweetcoffee.github.io/posts/8487c21c.html">
+<meta property="og:title" content="访问域名全流程">
+<meta property="og:url" content="https://jsweetcoffee.github.io/posts/a129f2e3.html">
 <meta property="og:site_name" content="晓雲的陋室">
-<meta property="og:description" content="¶配置： Xray的配置相对来说比较友好，没有那么痛苦 使用--config 用于指定配置文件的位置，默认加载同目录的 config.yaml。 –h 查看帮助 ¶命令：    命令 说明     webscan xray核心功能，用来发现探测Web漏洞   servicescan 服务扫描功能 用来探测服务漏洞   poclint 检测poc是否符合规范   reverse 启动单独的盲打平台服">
+<meta property="og:description" content="全流程：  DNS解析 发起TCP请求 发起HTTP请求 负载均衡 浏览器渲染 网页静态资源加载  ¶DNS解析（UDP） 访问目标地址有两种方式： ①使用目标IP地址访问。由于IP地址是一堆数字不方便记忆，于是有了域名这种字符型标识。 ②使用域名访问。域名解析就是域名到IP地址的转换过程，域名的解析工作由DNS服务器完成。 DNS域名解析时用的是UDP协议。整个域名解析的过程如下：  浏览器向本">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/8487c21c/1640526186117-d2910b64-38ca-47f1-bfa0-fb47ab1cf9ad.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/8487c21c/1640526284826-313b79c2-8daa-4dce-8abb-3cf801f7b1e1.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/8487c21c/1640526732164-872d52a7-7713-486b-bf54-eda276a85a76.png">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2336202/1640526926018-df7c1cdb-9e2f-4e76-8f6b-38bbe1be94ef.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/8487c21c/1640527039148-c92635d7-a2a3-4ef5-a7be-45fa3c64ddfd.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/8487c21c/1640527162668-39dca769-d52f-4763-9665-0ec08fb101ba.png">
-<meta property="article:published_time" content="2023-08-17T07:45:24.000Z">
-<meta property="article:modified_time" content="2023-09-06T08:54:56.839Z">
+<meta property="article:published_time" content="2023-09-12T00:27:39.000Z">
+<meta property="article:modified_time" content="2023-09-18T01:15:53.166Z">
 <meta property="article:author" content="SCxiaoyun">
-<meta property="article:tag" content="工具">
-<meta property="article:tag" content="漏洞扫描">
+<meta property="article:tag" content="计网知识">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jsweetcoffee.github.io/posts/8487c21c/1640526186117-d2910b64-38ca-47f1-bfa0-fb47ab1cf9ad.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Xray的基本使用 - 晓雲的陋室</title>
+  <title>访问域名全流程 - 晓雲的陋室</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -239,7 +231,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Xray的基本使用"></span>
+            <span id="subtitle" data-typed-text="访问域名全流程"></span>
           
         </div>
 
@@ -255,8 +247,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-17 15:45" pubdate>
-          2023年8月17日 下午
+        <time datetime="2023-09-12 08:27" pubdate>
+          2023年9月12日 早上
         </time>
       </span>
     
@@ -267,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.6k 字
+          2.2k 字
         
       </span>
     
@@ -278,7 +270,7 @@
         
         
         
-          22 分钟
+          19 分钟
         
       </span>
     
@@ -324,12 +316,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Xray的基本使用</h1>
+            <h1 style="display: none">访问域名全流程</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年9月6日 下午
+                    本文最后更新于：2023年9月18日 上午
                   
                 
               </p>
@@ -337,125 +329,77 @@
             
               <div class="markdown-body">
                 
-                <h2 id="配置："><a class="header-anchor" href="#配置：">¶</a>配置：</h2>
-<p>Xray的配置相对来说比较友好，没有那么痛苦</p>
-<p>使用<code>--config</code> 用于指定配置文件的位置，默认加载同目录的 config.yaml。</p>
-<p>–h 查看帮助</p>
-<h2 id="命令："><a class="header-anchor" href="#命令：">¶</a>命令：</h2>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>webscan</td>
-<td>xray核心功能，用来发现探测Web漏洞</td>
-</tr>
-<tr>
-<td>servicescan</td>
-<td>服务扫描功能 用来探测服务漏洞</td>
-</tr>
-<tr>
-<td>poclint</td>
-<td>检测poc是否符合规范</td>
-</tr>
-<tr>
-<td>reverse</td>
-<td>启动单独的盲打平台服务</td>
-</tr>
-<tr>
-<td>genca</td>
-<td>用于快速生成一个根证书，主要用于被动代理扫描HTTPS流量时用到</td>
-</tr>
-<tr>
-<td>upgrade</td>
-<td>检查新版本并自动升级</td>
-</tr>
-<tr>
-<td>version</td>
-<td>版本信息</td>
-</tr>
-<tr>
-<td>help</td>
-<td>显示命令列表或一个命令的帮助</td>
-</tr>
-<tr>
-<td>subdomain</td>
-<td>子域名扫描 高级本才有的命令</td>
-</tr>
-</tbody>
-</table>
-<h3 id="生成ca证书"><a class="header-anchor" href="#生成ca证书">¶</a>生成ca证书</h3>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode">.\xray.exe <span class="hljs-keyword">ge</span><span class="hljs-symbol">nca</span><br></code></pre></td></tr></table></figure>
-<p>会生成ca.key，ca.crt两个文件</p>
-<h3 id="webscan"><a class="header-anchor" href="#webscan">¶</a><strong>webscan</strong></h3>
-<p>在webscan后跟 <code>-h</code>查看webscan帮助</p>
+                <p>全流程：</p>
 <ol>
-<li><strong>直接调用，扫描一个指定站点</strong></li>
+<li>DNS解析</li>
+<li>发起TCP请求</li>
+<li>发起HTTP请求</li>
+<li>负载均衡</li>
+<li>浏览器渲染</li>
+<li>网页静态资源加载</li>
 </ol>
-<p>./xray_windows_amd64.exe webscan --basic-crawler <a target="_blank" rel="noopener" href="http://example.com/">http://example.com/</a></p>
-<ol start="2">
-<li><strong>指定扫描输出</strong></li>
+<h3 id="DNS解析（UDP）"><a class="header-anchor" href="#DNS解析（UDP）">¶</a>DNS解析（UDP）</h3>
+<p>访问目标地址有两种方式：</p>
+<p>①使用目标IP地址访问。由于IP地址是一堆数字不方便记忆，于是有了域名这种<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%AD%97%E7%AC%A6%E5%9E%8B&amp;spm=1001.2101.3001.7020">字符型</a>标识。</p>
+<p>②使用域名访问。域名解析就是域名到IP地址的转换过程，域名的解析工作由DNS服务器完成。</p>
+<p>DNS域名解析时用的是UDP协议。整个域名解析的过程如下：</p>
+<ol>
+<li>浏览器向本机DNS模块发出DNS请求，DNS模块生成相关的DNS报文；</li>
+<li>DNS模块将生成的DNS报文传递给传输层的UDP协议单元；</li>
+<li>UDP协议单元将该数据封装成UDP数据报，传递给网络层的IP协议单元；</li>
+<li>IP协议单元将该数据封装成IP数据包，其目的IP地址为DNS服务器的IP地址；</li>
+<li>封装好的IP数据包将传递给数据链路层的协议单元进行发送；</li>
+<li>发送时在ARP缓存中查询相关数据，如果没有，就发送ARP广播（包含待查询的IP地址，收到广播的主机检查自己的IP，符合条件的主机将含有自己MAC地址的ARP包发送给ARP广播的主机）请求，等待ARP回应；</li>
+<li>得到ARP回应后，将IP地址与路由的下一跳MAC地址对应的信息写入ARP缓存表；</li>
+<li>写入缓存后，以路由下一跳的地址填充目的MAC地址，以数据帧形式转发；</li>
+<li>转发可能进行多次；</li>
+<li>DNS请求到达DNS服务器的数据链路层协议单元；</li>
+<li>DNS服务器的数据链路层协议单元解析数据帧，将内部的IP数据包传递给网络层IP协议单元；</li>
+<li>DNS服务器的IP协议单元解析IP数据包，将内部的UDP数据报传递给传输层UDP协议单元；</li>
+<li>DNS服务器的UDP协议单元解析收到的UDP数据报，将内部的DNS报文传递给DNS服务单元；</li>
+<li>DNS服务单元将域名解析成对应IP地址，产生DNS回应报文；</li>
+<li>DNS回应报文-&gt;UDP-&gt;IP-&gt;MAC-&gt;我的主机；</li>
+<li>我的主机收到数据帧，将数据帧-&gt;IP-&gt;UDP-&gt;浏览器；</li>
+<li>将域名解析结果以域名和IP地址对应的形式写入DNS缓存表。</li>
 </ol>
-<p>不指定输出时，默认输出到控制台的标准输出中，可以做管道处理，也可以选择输出为文件，如：</p>
-<pre><code class="hljs">./xray_windows_amd64.exe webscan --url http://example.com/ --json-output report.json
+<h3 id="发起TCP请求（三次握手）结束（四次挥手）"><a class="header-anchor" href="#发起TCP请求（三次握手）结束（四次挥手）">¶</a>发起TCP请求（三次握手）结束（四次挥手）</h3>
+<p>第一次握手：客户端向服务端发送了一个同步报文段</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">SYN</span><span class="hljs-operator">=</span><span class="hljs-number">1</span>：表示客户端请求连接<br></code></pre></td></tr></table></figure>
+<p>第二次握手：服务端收到了用户端的请求，同意建立连接，然后服务器发送确认报文段给客户端</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-attribute">SYN</span>=1 <span class="hljs-attribute">ACK</span>=1：表示同意建立连接<br></code></pre></td></tr></table></figure>
+<p>第三次握手：客户端收到了服务端同意连接的确认之后，开始发送第一个数据包</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">ACK：表示收到服务器的确认数据包 <br></code></pre></td></tr></table></figure>
+<p>（所有TCP报文通过IP（DNS）-&gt;MAC（ARP）-&gt;网关-&gt;目的主机/我的主机；）</p>
+<p>第一次挥手：客户端向服务端发送连接释放的请求报文，并且停止发送数据</p>
+<pre><code class="hljs">    FIN=1：客户端主动释放客户端到服务端的TCP连接
 </code></pre>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">无参数：输出到控制台的标准输出 <br><br>--`text-output`：输出到文本文件中 <br><br>--`json-output`：输出到 JSON 文件中 <br><br>--`html-output`：输出到 HTML 文件中<br></code></pre></td></tr></table></figure>
-<ol start="3">
-<li><strong>抓包扫描</strong></li>
+<p>第二次挥手：服务端收到了客户端的请求释放报文，给客户端发送确认报文。从客户端到服务端这个方向上的连接就释放了，TCP连接处于半关闭状态。此时客户端无法发送数据给服务端，但是服务端还可以发送数据给客户端，客户端仍可以接收。</p>
+<pre><code class="hljs">    ACK=1：表示同意客户端释放连接请求
+</code></pre>
+<p>第三次挥手：服务端没有数据再发给客户端数据，其应用进程就通知TCP释放连接，并向客户端发送确认报文</p>
+<pre><code class="hljs">    FIN=1 ACK=1：表示服务器释放服务器到客户端的TCP连接
+</code></pre>
+<p>第四次挥手：客户端收到服务端的释放报文段后，给服务端发送同意确认报文</p>
+<h3 id="发起HTTP请求"><a class="header-anchor" href="#发起HTTP请求">¶</a>发起HTTP请求</h3>
+<ol>
+<li>浏览器向域名发出GET方法报文（HTTP请求）；</li>
+<li>该GET方法报文通过TCP-&gt;IP（DNS）-&gt;MAC（ARP）-&gt;网关-&gt;目的主机；</li>
+<li>目的主机收到数据帧，通过IP-&gt;TCP-&gt;HTTP，HTTP协议单元会回应HTTP协议格式封装好的HTML形式数据（HTTP响应）；[<br>
+从请求信息中获得客户机想访问的主机名。从请求信息中获取客户机想要访问的web应用（web应用程序指提供浏览器访问的程序，简称web应用）。从请求信息中获取客户机要访问的web资源。（web资源，即各种文件，图片，视频，文本等）读取相应的主机下的web应用，web资源。用读取到的web资源数据，创建一个HTTP响应。]</li>
+<li>该HTML数据通过TCP-&gt;IP（DNS）-&gt;MAC（ARP）-&gt;网关-&gt;我的主机；</li>
+<li>我的主机收到数据帧，通过IP-&gt;TCP-&gt;HTTP-&gt;浏览器，浏览器以网页形式显示HTML内容.</li>
 </ol>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">./xray_windows_amd64.exe webscan <span class="hljs-literal">--listen</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">7777</span><br></code></pre></td></tr></table></figure>
-<p>很多时候还会扫到 HTTPS 站点，可能会因为有代理而导致无法访问，或者需要手动确认安全风险。这时候需要我们导入 xray 运行目录下的ca.crt证书</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">.\xray_windows_amd64.exe genca<br>ca.crt ca.key config.yaml xray<br></code></pre></td></tr></table></figure>
-<p>导入证书和bp一样（如果你不知道bp是什么，那建议先去了解bp）</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">./xray_windows_amd64.exe webscan <span class="hljs-literal">--listen</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">7777</span><br></code></pre></td></tr></table></figure>
-<ol start="4">
-<li><strong>xray 与 Burpsuite 联动</strong></li>
-</ol>
-<p>首先 xray 建立起 webscan 的监听:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">./xray.exe webscan --listen 127.0.0.1:7777 --html-output bp.html<br></code></pre></td></tr></table></figure>
-<p>进入 Burp 后，打开 User options 标签页，然后找到 Upstream Proxy Servers 设置。</p>
-<p>点击 Add 添加上游代理以及作用域，Destination host处可以使用*匹配多个任意字符串，?匹配单一任意字符串，而上游代理的地址则填写 xray 的监听地址。</p>
-<img src="/posts/8487c21c/1640526186117-d2910b64-38ca-47f1-bfa0-fb47ab1cf9ad.png" class title="img">
-<p>接下来 BP 正常抓包，与此同时 BP 也会将我们截取到的一些流量包发到 xray 中进行漏洞检测。</p>
-<img src="/posts/8487c21c/1640526284826-313b79c2-8daa-4dce-8abb-3cf801f7b1e1.png" class title="img">
-<ol start="4">
-<li>
-<h3 id="xray-与-AWVS-联动"><a class="header-anchor" href="#xray-与-AWVS-联动">¶</a>xray 与 AWVS 联动</h3>
-<p>首先 xray 建立起 webscan 的监听：</p>
-<p>如果你的AWVS不是安装在物理机上话，那么你的xray应该填写你AWVS可以访问的地址；</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">./xray.exe webscan --listen 192.168.1.105:7777 --html-output awvs.html   //本机ip，不要填127.0.0.1<br></code></pre></td></tr></table></figure>
-<p>登入管理页后，点击 Targets, 然后点击 Add Target 添加扫描目标：</p>
-<p>测试靶场：<a target="_blank" rel="noopener" href="http://testphp.vulnweb.com/">http://testphp.vulnweb.com/</a></p>
-<img src="/posts/8487c21c/1640526732164-872d52a7-7713-486b-bf54-eda276a85a76.png" class title="img">
-<p>下滑到HTTP部分，填写Proxy Server为对应的xray代理：</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2336202/1640526926018-df7c1cdb-9e2f-4e76-8f6b-38bbe1be94ef.png" alt="img"></p>
-<p>扫描类型，仅爬取：</p>
-<img src="/posts/8487c21c/1640527039148-c92635d7-a2a3-4ef5-a7be-45fa3c64ddfd.png" class title="img">
-<p>此时 AWVS 的爬虫会把请求都转发给 xray 检测漏洞了，此时awvs.html里面就躺好了漏洞：</p>
-<img src="/posts/8487c21c/1640527162668-39dca769-d52f-4763-9665-0ec08fb101ba.png" class title="img">
-</li>
-<li>
-<p><strong>指定扫描插件</strong></p>
-</li>
-</ol>
-<p>使用 --plugins 参数可以选择仅启用部分扫描插件，多个插件之间可使用逗号分隔，如：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-string">./xray_windows_amd64.exe</span> webscan <span class="hljs-params">--plugins</span> cmd_injection <span class="hljs-params">--url</span> http:<span class="hljs-string">//example.com/</span><br></code></pre></td></tr></table></figure>
-<p>插件支持和key:</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">SQL</span> 注入检测 (<span class="hljs-attribute">key</span>: sqldet)：   支持报错注入、布尔注入和时间盲注等<br><span class="hljs-selector-tag">XSS</span> 检测（<span class="hljs-selector-tag">key</span>: <span class="hljs-selector-tag">xss</span>）：         支持扫描反射型、存储型 <span class="hljs-selector-tag">XSS</span><br>命令/代码注入检测 (<span class="hljs-attribute">key</span>: cmd_injection)：     支持 <span class="hljs-selector-tag">shell</span> 命令注入、<span class="hljs-selector-tag">PHP</span> 代码执行、模板注入等<br>目录枚举 (<span class="hljs-attribute">key</span>: dirscan)：    检测备份文件、临时文件、<span class="hljs-selector-tag">debug</span> 页面、配置文件等<span class="hljs-number">10</span>余类敏感路径和文件<br>路径穿越检测 (<span class="hljs-attribute">key</span>: path_traversal)：     支持常见平台和编码<br><span class="hljs-selector-tag">XML</span> 实体注入检测 (<span class="hljs-attribute">key</span>: xxe)：    支持有回显和反连平台检测<br><span class="hljs-selector-tag">POC</span> 管理 (<span class="hljs-attribute">key</span>: phantasm)：    默认内置部分常用的 <span class="hljs-selector-tag">POC</span>，用户可以根据需要自行构建 <span class="hljs-selector-tag">POC</span> 并运行。可参考：<span class="hljs-selector-tag">POC</span> 编写文档（<span class="hljs-selector-tag">https</span>:<span class="hljs-comment">//chaitin.github.io/xray/#/guide/poc）</span><br>文件上传检测 (<span class="hljs-attribute">key</span>: upload)：    支持检测常见的后端服务器语言的上传漏洞<br>弱口令检测 (<span class="hljs-attribute">key</span>: brute_force)：    支持检测 <span class="hljs-selector-tag">HTTP</span> 基础认证和简易表单弱口令，内置常见用户名和密码字典<br><span class="hljs-selector-tag">JSONP</span> 检测 (<span class="hljs-attribute">key</span>: jsonp)：    检测包含敏感信息可以被跨域读取的 <span class="hljs-selector-tag">jsonp</span> 接口<br><span class="hljs-selector-tag">SSRF</span> 检测 (<span class="hljs-attribute">key</span>: ssrf)：    <span class="hljs-selector-tag">ssrf</span> 检测模块，支持常见的绕过技术和反连平台检测<br>基线检查 (<span class="hljs-attribute">key</span>: baseline)：    检测低 <span class="hljs-selector-tag">SSL</span> 版本、缺失的或错误添加的 <span class="hljs-selector-tag">http</span> 头等<br>任意跳转检测 (<span class="hljs-attribute">key</span>: redirect)：    支持 <span class="hljs-selector-tag">HTML</span> <span class="hljs-selector-tag">meta</span> 跳转、<span class="hljs-number">30</span><span class="hljs-selector-tag">x</span> 跳转等<br><span class="hljs-selector-tag">CRLF</span> 注入 (<span class="hljs-attribute">key</span>: crlf_injection)：    检测 <span class="hljs-selector-tag">HTTP</span> 头注入，支持 <span class="hljs-selector-tag">query</span>、<span class="hljs-selector-tag">body</span> 等位置的参数<br></code></pre></td></tr></table></figure>
-<ol start="5">
-<li><strong>自定义 POC</strong></li>
-</ol>
-<p>xray 支持用户使用 YAML 编写 POC。YAML 是 JSON 的超集，也就是说我们甚至可以用 JSON 编写 POC，但这里还是建议大家使用 YAML 来编写，原因如下：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">YAML</span> 格式的 “值” 无需使用双引号包裹，特殊字符无需转义<br>YAML 格式使内容更加可读<br>YAML 中可以使用注释<br></code></pre></td></tr></table></figure>
-<ol start="6">
-<li><strong>反连平台</strong></li>
-</ol>
-<p>xray 在运行时会自动启动反连平台来辅助盲打扫描，可以在配置文件中修改反连平台的配置。目前支持 http 和 dns 两种反连机制，当服务端触发 payload 时 xray 会根据反连平台的状态判断漏洞是否存在。</p>
-<p>dns 反连需要启用 root 权限监听 53 端口，并且将域名的 ns 记录指向反连平台的监听地址。</p>
+<h3 id="负载均衡"><a class="header-anchor" href="#负载均衡">¶</a>负载均衡</h3>
+<p>（1）如果我们的平台配备了负载均衡的话，前一步DNS解析获得的IP地址应该是我们Nginx负载均衡服务器的IP地址。所以，我们的浏览器将我们的网页请求发送到了Nginx负载均衡服务器上。<br>
+（2）Nginx根据我们设定的分配算法和规则，选择一台后端的真实Web服务器，与之建立TCP连接、并转发我们浏览器发出去的网页请求。<br>
+（3）Web服务器收到请求，产生响应，并将网页发送给Nginx负载均衡服务器。<br>
+（4）Nginx负载均衡服务器将网页传递给filters链处理，之后发回给我们的浏览器.</p>
+<h3 id="浏览器渲染"><a class="header-anchor" href="#浏览器渲染">¶</a>浏览器渲染</h3>
+<p>（1）浏览器根据页面内容，生成DOM Tree。根据CSS内容，生成CSS Rule Tree(规则树)。调用JS执行引擎执行JS代码。<br>
+（2）根据DOM Tree和CSS Rule Tree生成Render Tree(呈现树)。<br>
+（3）根据Render Tree渲染网页。<br>
+在浏览器解析页面内容的时候，发现页面引用了其他未加载的image、css文件、js文件等静态内容，因此开始了第二部分。</p>
+<h3 id="网页静态资源加载"><a class="header-anchor" href="#网页静态资源加载">¶</a>网页静态资源加载</h3>
 
                 
               </div>
@@ -474,7 +418,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-chain-item">计算机网络</a>
   
   
 
@@ -489,9 +433,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%B7%A5%E5%85%B7/">#工具</a>
-      
-        <a href="/tags/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F/">#漏洞扫描</a>
+        <a href="/tags/%E8%AE%A1%E7%BD%91%E7%9F%A5%E8%AF%86/">#计网知识</a>
       
     </div>
   
@@ -503,8 +445,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Xray的基本使用</div>
-      <div>https://jsweetcoffee.github.io/posts/8487c21c.html</div>
+      <div>访问域名全流程</div>
+      <div>https://jsweetcoffee.github.io/posts/a129f2e3.html</div>
     </div>
     <div class="license-meta">
       
@@ -516,7 +458,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年8月17日</div>
+          <div>2023年9月12日</div>
         </div>
       
       
@@ -548,9 +490,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/f656209c.html" title="红日内网靶场vulnstack-7">
+                      <a href="/posts/a840fd.html" title="java反序列化全家桶">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">红日内网靶场vulnstack-7</span>
+                        <span class="hidden-mobile">java反序列化全家桶</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -558,8 +500,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/4b05df7d.html" title="nmap与sqlmap常用参数">
-                        <span class="hidden-mobile">nmap与sqlmap常用参数</span>
+                      <a href="/posts/e3c3c3a8.html" title="hydra的基本使用">
+                        <span class="hidden-mobile">hydra的基本使用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

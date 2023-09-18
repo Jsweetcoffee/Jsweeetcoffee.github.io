@@ -34,8 +34,9 @@
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/d62edc36/1685366016258-ed5bb3ea-6e88-4bab-926e-9b5ac0d3adb7.png">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/d62edc36/image-20230728161632099.png">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/d62edc36/1690266827967-c7f3cd69-031d-4069-9917-2d915dc64930.jpeg">
+<meta property="og:image" content="https://jsweetcoffee.github.io/posts/d62edc36/1690266827967-c7f3cd69-031d-4069-9917-2d915dc64930-1693987765629-1.jpeg">
 <meta property="article:published_time" content="2023-07-14T06:14:27.000Z">
-<meta property="article:modified_time" content="2023-08-30T01:54:40.066Z">
+<meta property="article:modified_time" content="2023-09-17T14:36:24.219Z">
 <meta property="article:author" content="SCxiaoyun">
 <meta property="article:tag" content="Web安全">
 <meta property="article:tag" content="面试总结">
@@ -272,7 +273,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          67k 字
+          75k 字
         
       </span>
     
@@ -283,7 +284,7 @@
         
         
         
-          560 分钟
+          629 分钟
         
       </span>
     
@@ -334,7 +335,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年8月30日 上午
+                    本文最后更新于：2023年9月17日 晚上
                   
                 
               </p>
@@ -1910,7 +1911,6 @@ CSRF客户端请求伪造：目标网站下的用户   —》 用户</p>
 <li>若必须使用 preg_replace的e修饰符，则必用单引号包裹正则匹配出的对象（preg_replace+正则） 。</li>
 </ol>
 <h3 id="问题-v7"><a class="header-anchor" href="#问题-v7">¶</a>问题</h3>
-<p>面试必问？</p>
 <p><strong>1.造成命令执行与代码执行漏洞的高危函数都有哪些?</strong></p>
 <p><strong>2.命令/代码执行漏洞处无法GetShell思路如何？</strong></p>
 <ul>
@@ -1973,7 +1973,7 @@ CSRF客户端请求伪造：目标网站下的用户   —》 用户</p>
 <h3 id="经典反序列化漏洞（待补充）"><a class="header-anchor" href="#经典反序列化漏洞（待补充）">¶</a>经典反序列化漏洞（待补充）</h3>
 <h4 id="fastjson"><a class="header-anchor" href="#fastjson">¶</a>fastjson</h4>
 <h1>业务逻辑漏洞</h1>
-<img src="/posts/d62edc36/image-20230728161632099.png" class title="image-20230728161632099">
+<img src="/posts/d62edc36/image-20230728161632099.png" class>
 <h2 id="越权"><a class="header-anchor" href="#越权">¶</a>越权</h2>
 <p><strong>水平越权</strong>：指攻击者尝试访问与他拥有相同权限的用户资源。</p>
 <p><strong>垂直越权</strong>是一种 “基于URL的访问控制” 设计缺陷引起的漏洞，垂直越权可以分为两种，分别是向上越权和向下越权。</p>
@@ -2305,7 +2305,8 @@ CSRF客户端请求伪造：目标网站下的用户   —》 用户</p>
 <p>1.该漏洞需要登录后获取到合法的Cookie: rememberMe=XXX后才可以进行利用, 看起来不是很好利用 但实际上有一些网站是开放注册的, 而且这个洞不需要知道服务端密钥 所以后续的利用还是可以同Shiro-550一样利用, 而且这里是AES加密的, 自带过WAF属性 ；<br>
 2.如果攻击没有生效, 可以试一下删除Cookie中的JSESSIONID 字段, 很多时候这个字段存在的话, 服务端不会去处理 rememberMe。</p>
 <p><strong>shiro550和721的区别</strong></p>
-<p>​    721是需要有效的登录才可以  550不用登录就可以直接跑key</p>
+<p>​    721是需要知道已经登陆用户的合法cookie  550不用登录就可以直接跑key;</p>
+<p>​	550先base64解码然后AES解密再反序列化； 721的加密方式是通过<code>AES-128-CBC</code>模式加密</p>
 <p>后续待	补充……</p>
 <h1>fastjson反序列化漏洞</h1>
 <p><strong>原理</strong>：漏洞利用fastjson autotype在处理json对象的时候，未对@type字段进行完全的安全性验<br>
@@ -2328,7 +2329,265 @@ CSRF客户端请求伪造：目标网站下的用户   —》 用户</p>
 <p>目录是一个为查询、浏览和搜索而优化的数据库，它成树状结构组织数据，类似文件目录一样。</p>
 <p>简单来说：LDAP是一个目录服务，可以通过目录路径查询到对应目录下的对象（文件）等。即其也是JNDI的实现，通过名称（目录路径）查询到对象（目录下的文件）。</p>
 <h1>常见中间件漏洞</h1>
-
+<h2 id="一、Tomcat"><a class="header-anchor" href="#一、Tomcat">¶</a>一、Tomcat</h2>
+<blockquote>
+<p>Fofa :</p>
+<p>app=“tomcat”</p>
+<p>server=“Apache Tomcat” &amp;&amp; body=“Apache Tomcat”</p>
+</blockquote>
+<h3 id="Tomcat介绍"><a class="header-anchor" href="#Tomcat介绍">¶</a>Tomcat介绍</h3>
+<p>tomcat是一个开源而且免费的jsp服务器，默认端口 : 8080，属于轻量级应用服务器。它可以实现 JavaWeb程序的装载，是配置JSP（Java Server Page）和JAVA系统必备的一款环境。</p>
+<h3 id="CVE-2017-12615"><a class="header-anchor" href="#CVE-2017-12615">¶</a>CVE-2017-12615</h3>
+<p><strong>Tomcat put方法任意文件写入漏洞</strong></p>
+<p>当 Tomcat运行在Windows操作系统时，且启用了HTTP PUT请求方法（例如，将 readonly初始化参数由默认值设置为false），攻击者将有可能可通过精心构造的攻击请求数据包向服务器上传包含任意代码的 JSP 文件，JSP文件中的恶意代码将能被服务器执行。导致服务器上的数据泄露或获取服务器权限。</p>
+<p><strong>漏洞原理</strong></p>
+<p>当在Tomcat的conf（配置目录下）/web.xml配置文件中添加readonly设置为false时，将导致该漏洞产生，（需要允许put请求） , 攻击者可以利用PUT方法通过精心构造的数据包向存在漏洞的服务器里面上传 jsp一句话文件，从而造成远程命令执行，getshell等。</p>
+<p><strong>影响范围</strong></p>
+<p>Apache Tomcat 7.0.0 - 7.0.79</p>
+<p>Apache Tomcat 8.5.19</p>
+<p><strong>漏洞修复</strong></p>
+<p>设置readonly 为 true</p>
+<h3 id="后台弱口令部署war包"><a class="header-anchor" href="#后台弱口令部署war包">¶</a>后台弱口令部署war包</h3>
+<p>在tomcat8环境下默认进入后台的密码为 tomcat/tomcat ，未修改造成未授权即可进入后台，或者管理员把密码设置成弱口令。</p>
+<p>认密码:tomcat/tomcat</p>
+<p>补充:</p>
+<p>其他弱口令</p>
+<p>admin:admin ADMIN:ADMIN admin:j5Brn9 admin:None admin:tomcat cxsdk:kdsxc j2deployer:j2deployer ovwebusr:OvW*busr1QCC:QLogic66 role:changethis role1:role1 role1:tomcat root:root tomcat:changethis tomcat:s3cret tomcat:tomcat tomcat:manager xampp:xampp</p>
+<p>制作WAR包，将JSP木马压缩为ZIP格式，然后修改后缀为war就可以了。</p>
+<h3 id="CVE-2020-1938Tomcat文件包含漏洞"><a class="header-anchor" href="#CVE-2020-1938Tomcat文件包含漏洞">¶</a>CVE-2020-1938Tomcat文件包含漏洞</h3>
+<p><strong>漏洞原理</strong></p>
+<p>由于Tomcat AJP协议设计上的缺陷，攻击者通过Tomcat AJP Connector 可以读取或包含Tomcat上所有</p>
+<p>Webapp目录下的任意文件，例如：</p>
+<p>可以读取webapp配置文件或源码文件。</p>
+<p>此外如果目标应用有文件上传的功能情况下，配合为文件包含漏洞利用GetShell。</p>
+<p><strong>影响版本</strong></p>
+<p>Apache Tomcat 6</p>
+<p>Tomcat 7系列 &lt;7.0.100 Tomcat 8系列 &lt; 8.5.51 Tomcat 9 系列 &lt;9.0.31</p>
+<p><strong>漏洞修复</strong></p>
+<ol>
+<li>更新到最新版本</li>
+<li>关闭AJP服务，修改Tomcat配置文件Service.xml,注释掉。</li>
+</ol>
+<Connector port="8009" protocol="AJP/1.3" redirectport="8443">
+<ol>
+<li>配置ajp配置中的secretRequired跟secret属性来限制认证。</li>
+</ol>
+<h2 id="WebLogic"><a class="header-anchor" href="#WebLogic">¶</a>WebLogic</h2>
+<blockquote>
+<p>Fofa:</p>
+<p>“weblogic”</p>
+<p>app=“Oracle-WebLogic-Server-管理控制台”</p>
+<p>app=“BEA-WebLogic-Server” || app=“Weblogic_interface_7001”</p>
+<p>“WebLogic” &amp;&amp; port=“7001”  &amp;&amp; title==“Error 404–Not Found”</p>
+</blockquote>
+<h3 id="Weblogic介绍"><a class="header-anchor" href="#Weblogic介绍">¶</a>Weblogic介绍</h3>
+<p>​		WebLogic是美国Oracle公司出品的一个application server，确切的说是一个基于JAVAEE架构的中间 件，默认端口：7001 WebLogic是用于开发、集成、部署和管理大型分布式Web应用、网络应用和数据库应用的Java应用服务器。将Java的动态功能和Java Enterprise标准的安全性引入大型网络应用的开发、集成、部署和管理之中。</p>
+<h3 id="后台弱口令GetShell"><a class="header-anchor" href="#后台弱口令GetShell">¶</a>后台弱口令GetShell</h3>
+<p>默认账号密码：weblogic/Oracle@123</p>
+<p>上传war包，jsp木马压缩成zip，修改后缀为war，上传，访问部署好的war用蚁剑直接连接。</p>
+<h3 id="CVE-2017-3506反序列化漏洞"><a class="header-anchor" href="#CVE-2017-3506反序列化漏洞">¶</a>CVE-2017-3506反序列化漏洞</h3>
+<p><strong>漏洞描述</strong></p>
+<p>Weblogic的WLS Security组件对外提供了webserver服务，其中使用了XMLDecoder来解析用户输入的 XML数据，在解析过程中出现反序列化漏洞，可导致任意命令执行。</p>
+<p><strong>影响版本</strong></p>
+<p>受影响版本：WebLogic 10.3.6.0, 12.1.3.0, 12.2.1.1, 12.2.1.2。</p>
+<p>访问以下目录中的一种，有回显如下图可以判断wls-wsat组件存在</p>
+<p>/wls-wsat/CoordinatorPortType</p>
+<p>/wls-wsat/RegistrationPortTypeRPC</p>
+<p>/wls-wsat/ParticipantPortType</p>
+<p>/wls-wsat/RegistrationRequesterPortType</p>
+<p>/wls-wsat/CoordinatorPortType11</p>
+<p>/wls-wsat/RegistrationPortTypeRPC11</p>
+<p>/wls-wsat/ParticipantPortType11</p>
+<p>/wls-wsat/RegistrationRequesterPortType11</p>
+<p><strong>漏洞修复</strong></p>
+<p>更新到最新版本，打上10271的补丁,对访问wls-wsat的资源进行访问控制 ，或者根据业务所有需求，考虑是否删除WLS-WebServices组件。包含此组件路径为：</p>
+<p>○ Middleware/user_projects/domains/base_domain/servers/AdminServer/tmp/_WL_interna  l/wls-wsat</p>
+<p>○ Middleware/user_projects/domains/base_domain/servers/AdminServer/tmp/.internal/w  ls-wsat.war</p>
+<ul>
+<li>Middleware/wlserver_10.3/server/lib/wls-wsat.war</li>
+</ul>
+<p>以上路径都在WebLogic安装处。删除以上文件之后，需重启WebLogic。确认http://weblogic_ip/wls-  w sat/ 是否为404页面。</p>
+<h3 id="CVE-2019-2725"><a class="header-anchor" href="#CVE-2019-2725">¶</a>CVE-2019-2725</h3>
+<p><strong>漏洞描述</strong></p>
+<p>wls9-async等组件为WebLogic Server提供异步通讯服务，默认应用于WebLogic部分版本。由于该WAR包在反序列化处理输入信息时存在缺陷，攻击者通过发送精心构造的恶意 HTTP 请求，即可获得目标服务器的权限，在未授权的情况下远程执行命令。</p>
+<p><strong>影响版本</strong></p>
+<p>weblogic 10.x weblogic 12.1.3</p>
+<p><strong>漏洞修复</strong></p>
+<ol>
+<li>禁用bea_wls9_async_response组件；</li>
+<li>删除wls9_async_response的war包并重启  ；</li>
+<li>禁止访问 /_async/* 路径。</li>
+</ol>
+<h3 id="CVE-2018-2628"><a class="header-anchor" href="#CVE-2018-2628">¶</a>CVE-2018-2628</h3>
+<p><strong>WebLogic T3协议反序列化命令执行漏洞(CVE-2018- 2628)</strong></p>
+<p><strong>漏洞描述</strong></p>
+<p>Weblogic Server中的RMI 通信使用T3协议在Weblogic Server和其它Java程序（客户端或者其它 Weblogic Server实例）之间传输数据, 服务器实例会跟踪连接到应用程序的每个Java虚拟机（JVM）中,并创建T3协议通信连接, 将流量传输到Java虚拟机. T3协议在开放WebLogic控制台端口的应用上默认开启， 攻击者可以通过T3协议发送恶意的的反序列化数据, 进行反序列化, 实现对存在漏洞的weblogic组件的远程代码执行攻击。</p>
+<p><strong>漏洞影响</strong></p>
+<p>Oracle WebLogic Server10.3.6.0.0 Oracle WebLogic Server12.1.3.0.0 Oracle WebLogic Server12.2.1.2.0 Oracle WebLogic Server12.2.1.3.0</p>
+<p><strong>漏洞修复</strong></p>
+<ol>
+<li>及时更新补丁 ；</li>
+<li>禁用T3协议 ；</li>
+<li>禁止T3端口对外开放，或者限制可访问T3端口的IP来源。</li>
+<li>升级版本</li>
+</ol>
+<h3 id="CVE-2018-2894WebLogic文件任意上传漏洞"><a class="header-anchor" href="#CVE-2018-2894WebLogic文件任意上传漏洞">¶</a>CVE-2018-2894WebLogic文件任意上传漏洞</h3>
+<p><strong>漏洞描述</strong></p>
+<p>Weblogic Web Service Test Page中一处任意文件上传漏洞，Web Service Test Page 在 “生产模式” 下默认不开启，所以该漏洞有一定限制。</p>
+<p><strong>漏洞版本</strong></p>
+<p>weblogic 10.3.6.0</p>
+<p>weblogic 12.1.3.0</p>
+<p>weblogic 12.2.1.2</p>
+<p>weblogic 12.2.1.3</p>
+<h3 id="CVE-2020-14882WebLogic远程代码执行漏洞"><a class="header-anchor" href="#CVE-2020-14882WebLogic远程代码执行漏洞">¶</a>CVE-2020-14882WebLogic远程代码执行漏洞</h3>
+<p><strong>漏洞描述</strong></p>
+<p>CVE-2020-14882  允许远程用户绕过管理员控制台组件中的身份验证。</p>
+<p>CVE-2020-14883  允许经过身份验证的用户在管理员控制台组件上执行任何命令。</p>
+<p>使用这两个漏洞链，未经身份验证的远程攻击者可以通过 HTTP 在 Oracle WebLogic 服务器上执行任意命令并完全控制主机</p>
+<p><strong>影响版本</strong></p>
+<p>Oracle Weblogic Server 10.3.6.0 Oracle Weblogic Server 12.1.3.0 Oracle Weblogic Server 12.2.1.3 Oracle Weblogic Server 12.2.1.4 Oracle Weblogic Server 14.1.1.0</p>
+<h2 id="Jboss"><a class="header-anchor" href="#Jboss">¶</a>Jboss</h2>
+<blockquote>
+<p>Fofa:</p>
+<p>title=“Welcome to JBoss AS” &amp;&amp; country!=“CN”</p>
+</blockquote>
+<h3 id="Jboss介绍"><a class="header-anchor" href="#Jboss介绍">¶</a>Jboss介绍</h3>
+<p>JBoss是一个基于J2EE的开发源代码的应用服务器。JBoss代码遵循LGPL许可，可以在任何商业应用中免费使用。JBoss是一个管理EJB的容器和服务器，支持EJB1.1、EJB 2.0和EJB3的规范。但JBoss核心服务不包括支持servlet/JSP的WEB容器，一般与Tomcat或Jetty绑定使用。在J2EE应用服务器领域，JBoss是发展最为迅速的应用服务器。由于JBoss遵循商业友好的LGPL授权分发，并且由开源社区开发，这使得 JBoss广为流行。</p>
+<h3 id="CVE-2015-7501-Jboss-JMXInvokerServlet-反序列化漏洞"><a class="header-anchor" href="#CVE-2015-7501-Jboss-JMXInvokerServlet-反序列化漏洞">¶</a>CVE-2015-7501 Jboss JMXInvokerServlet 反序列化漏洞</h3>
+<p><strong>漏洞介绍</strong></p>
+<p>这是经典的JBoss反序列化漏洞，JBoss在/invoker/JMXInvokerServlet请求中读取了用户传入的对象，然后我们利用Apache Commons Collections中的 Gadget 执行任意代码</p>
+<p><strong>影响范围</strong></p>
+<p>JBoss Enterprise Application Platform 6.4.4,5.2.0,4.3.0_CP10 JBoss AS (Wildly) 6 and earlier</p>
+<p>JBoss A-MQ 6.2.0</p>
+<p>JBoss Fuse 6.2.0</p>
+<p>JBoss SOA Platform (SOA-P) 5.3.1 JBoss Data Grid (JDG) 6.5.0 JBoss BRMS (BRMS) 6.1.0</p>
+<p>JBoss BPMS (BPMS) 6.1.0</p>
+<p>JBoss Data Virtualization (JDV) 6.1.0 JBoss Fuse Service Works (FSW) 6.0.0 JBoss Enterprise Web Server (EWS) 2.1,3.0</p>
+<h2 id="CVE-2017-7504-JBossMQ-JMS-反序列化漏洞"><a class="header-anchor" href="#CVE-2017-7504-JBossMQ-JMS-反序列化漏洞">¶</a>CVE-2017-7504 JBossMQ JMS 反序列化漏洞</h2>
+<p><strong>影响范围</strong></p>
+<p>JBoss 4.x 以及之前的所有版本</p>
+<p><strong>漏洞介绍</strong></p>
+<p>JBoss AS 4.x及之前版本中，JbossMQ实现过程的JMS over HTTP Invocation Layer的 HTTPServerILServlet.java文件存在反序列化漏洞，远程攻击者可借助特制的序列化数据利用该漏洞执行任意代码执行</p>
+<h3 id="CVE-2017-12149JBoss-5-x-6-x反序列化漏洞"><a class="header-anchor" href="#CVE-2017-12149JBoss-5-x-6-x反序列化漏洞">¶</a>CVE-2017-12149JBoss 5.x/6.x反序列化漏洞</h3>
+<p><strong>漏洞简述</strong></p>
+<p>该漏洞为 Java反序列化错误类型，存在于 Jboss 的 HttpInvoker 组件中的 ReadOnlyAccessFilter过滤器中。该过滤器在没有进行任何安全检查的情况下尝试将来自客户端的数据流进行反序列化，从而导致了漏洞</p>
+<p><strong>漏洞范围</strong></p>
+<p>JBoss 5.x/6.x</p>
+<h3 id="Administration-Console弱口令"><a class="header-anchor" href="#Administration-Console弱口令">¶</a>Administration Console弱口令</h3>
+<p><strong>漏洞描述</strong></p>
+<p>Administration Console管理页面存在弱口令，<code>admin:admin</code>，登陆后台上传war包 , getshell.</p>
+<h3 id="低版本JMX-Console未授权"><a class="header-anchor" href="#低版本JMX-Console未授权">¶</a>低版本JMX Console未授权</h3>
+<p>低版本JMX Console未授权访问Getshell</p>
+<p><strong>漏洞描述</strong></p>
+<p>此漏洞主要是由于 JBoss中/jmx-console/HtmlAdaptor 路径对外开放，并且没有任何身份验证机制，导致攻击者可以进⼊到 jmx控制台，并在其中执行任何功能。</p>
+<h3 id="高版本JMX-Console未授权"><a class="header-anchor" href="#高版本JMX-Console未授权">¶</a>高版本JMX Console未授权</h3>
+<p><strong>漏洞描述</strong></p>
+<p>JMX Console默认存在未授权访问，直接点击JBoss主页中的 JMX Console 链接进入JMX Console页面, 通过部署war包 , getshell</p>
+<p><strong>影响版本</strong></p>
+<p>Jboss6.x以下</p>
+<h2 id="Apache"><a class="header-anchor" href="#Apache">¶</a>Apache</h2>
+<h3 id="CVE-2021-41773-Apache-HTTP-Server-路径穿越漏洞"><a class="header-anchor" href="#CVE-2021-41773-Apache-HTTP-Server-路径穿越漏洞">¶</a>CVE-2021-41773  Apache HTTP Server 路径穿越漏洞</h3>
+<p><strong>漏洞简介</strong></p>
+<p>该漏洞是由于Apache HTTP Server 2.4.49版本存在目录穿越漏洞,在路径穿越目录 &lt;Directory</p>
+<p>允许被访问的的情况下（默认开启），攻击者可利用该路径穿</p>
+<p>/&gt;Require all granted</p>
+<p>越漏洞读取到Web目录之外的其他文件</p>
+<p>在服务端开启了gi或cgid这两个mod的情况下，这个路径穿越漏洞将可以执行任意cgi命令（RCE）</p>
+<p><strong>影响版本</strong></p>
+<p>Apache HTTP Server 2.4.49</p>
+<p>某些Apache HTTPd 2.4.50也存在此漏洞</p>
+<h2 id="问题：-v2"><a class="header-anchor" href="#问题：-v2">¶</a>问题：</h2>
+<p><strong>如何判断一个网站是Tomcat/Weblogic/Jboss框架？</strong></p>
+<p>tomcat：</p>
+<ol>
+<li>默认端口 8080</li>
+<li>浏览器的指纹识别插件</li>
+<li>默认管理路由 /manage/html 4.server头 Apache Tomcat</li>
+</ol>
+<p>weblogic：</p>
+<ol>
+<li>浏览器插件</li>
+<li>报错页面 Error 404–Not Found</li>
+<li>默认管理页面路由 /console/login/LoginForm.jsp</li>
+<li>7001端口</li>
+</ol>
+<p>Jboss：</p>
+<ol>
+<li>8080</li>
+<li>浏览器识别插件</li>
+<li>固定路由</li>
+</ol>
+<p>​		/admin-console/</p>
+<p>​		/jmx-console/</p>
+<ol start="4">
+<li>title :Welcome to JBoss AS</li>
+</ol>
+<h1>Jsonp&amp;Cors</h1>
+<h2 id="同源策略-v2"><a class="header-anchor" href="#同源策略-v2">¶</a>同源策略</h2>
+<p><strong>SOP</strong>，全称为同源策略 (Same Origin Policy)，同源是指&quot;协议+域名+端口&quot;三者相同，即便两个不同的域名指向同一个 ip 地址，也非同源。</p>
+<p>当一个请求url的<strong>协议、域名、端口</strong>三者之间任意一个与当前页面url不同即为<strong>跨域</strong></p>
+<blockquote>
+<p>如果没有同源策略，那么，你打开了一个合法网站，又打开了一个恶意网站。那么恶意网站的脚本能够随意的操作合法网站的任何可操作资源，没有任何限制。</p>
+<p>浏览器要严格隔离两个不同源的网站，目的是保证数据的<strong>完整性和机密性。</strong></p>
+</blockquote>
+<p><strong>ps:下面这些标签跨域加载资源(资源类型是有限止的)是不受同源策略限制的</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk"><br>&lt;script src=<span class="hljs-string">&quot;...&quot;</span>&gt;	<span class="hljs-regexp">//</span>加载本地js执行<br><br>&lt;img src=<span class="hljs-string">&quot;...&quot;</span>&gt;	<span class="hljs-regexp">//</span>图片<br><br>&lt;link href=<span class="hljs-string">&quot;...&quot;</span>&gt;	<span class="hljs-regexp">//</span>css<br><br>&lt;iframe src=<span class="hljs-string">&quot;...&quot;</span>&gt; <span class="hljs-regexp">//</span>任意资源<br></code></pre></td></tr></table></figure>
+<h2 id="CORS-v2"><a class="header-anchor" href="#CORS-v2">¶</a>CORS</h2>
+<p>CORS（Cross-Origin Resource Sharing）<strong>跨域资源共享</strong>，其思想是使用自定义的HTTP头部让浏览器与服务器进行沟通，它允许浏览器向跨域服务器发出XMLHttpRequest请求，从而克服AX只能同源使用的 限制。</p>
+<p>CORS的基本原理是：第三方网站生成访问控制策略，指定用户浏览器放宽SOP的限制，实现与指定的目标网站共享数据。</p>
+<h3 id="CORS跨域漏洞"><a class="header-anchor" href="#CORS跨域漏洞">¶</a>CORS跨域漏洞</h3>
+<p>介绍：因为同源策略的存在，不同源的客户端脚本不能访问目标站点的资源，如果目标站点CORS配置不当，没有对请求源的域做严格限制，导致任意源都可以访问时，就存在cors跨域漏洞问题。</p>
+<p>原理：攻击者可以利用Web应用对用户请求数据包的Origin头校验不严格，诱骗受害者访问攻击者制作好的恶意网站，从而跨域获取受害者的敏感数据.</p>
+<p><strong>本质</strong>是服务器配置不当</p>
+<p>即<strong>Access-Control-Allow-Origin</strong>取自请求头Orgin字段，<strong>Access-Contorl-Allow-Credentials</strong>设置为true。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim">GET / HTTP/<span class="hljs-number">1.1</span><br>HOST:<span class="hljs-built_in">exp</span>.<span class="hljs-keyword">com</span> Origin:www.<span class="hljs-built_in">exp</span>.<span class="hljs-keyword">com</span><br><span class="hljs-number">200</span> HTTP/<span class="hljs-number">1.1</span> OK<br>Access-Control-Allow-Origin:www.<span class="hljs-built_in">exp</span>.<span class="hljs-keyword">com</span> Access-Contorl-Allow-Credential<span class="hljs-variable">s:true</span><br></code></pre></td></tr></table></figure>
+<p>导致攻击者可以构造恶意的脚本，诱导用户点击获取用户敏感数据。</p>
+<p>如果返回以下，可认为不存在漏洞，因为CORS安全机制阻止了这种情况下的漏洞利用。</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ada"><span class="hljs-keyword">Access</span>-Control-Allow-Origin: *<br><br><span class="hljs-keyword">Access</span>-Control-Allow-Credentials: <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<p><strong>Access-Control-Allow-Origin</strong>：指定哪些外域可以访问本域资源；</p>
+<p><strong>Access-Control-Allow-Credentials</strong>：指定浏览器是否将使用请求发送Cookie。仅当设置为true</p>
+<p>时，才会发送Cookie；默认是false</p>
+<p><strong>Access-Control-Allow-Headers</strong>：指定可以在请求报文中添加的HTTP头字段； Access-Control-Max-Age：指定超时时间；</p>
+<h3 id="CORS漏洞危害"><a class="header-anchor" href="#CORS漏洞危害">¶</a>CORS漏洞危害</h3>
+<p>攻击者构造恶意的html页面，利用链接诱导受害者进行点击，从而获取受害者的敏感信息。</p>
+<h3 id="CORS挖掘思路-v2"><a class="header-anchor" href="#CORS挖掘思路-v2">¶</a>CORS挖掘思路</h3>
+<p>CORS的漏洞主要看当我们发起的请求中带有Origin 头部字段时，服务器的返回包带有CORS的相关字段并且允许Origin 的域访问。</p>
+<h2 id="JSONP-v2"><a class="header-anchor" href="#JSONP-v2">¶</a>JSONP</h2>
+<p>JSONP是JSON with   padding（填充式JSON或参数式JSON）的简写，是基于JSON格式达的为解决跨域请求资源而产生的解决方案。他实现的基本原理是利用的script标签的src属性不受同源策略影响的特   性，来跨越获取数据。</p>
+<p>简单来说：可以让网页从别的域名（网站）那获取资料，即跨域读取数据。</p>
+<p>JSONP由两部分组成： <strong>回调函数</strong> 、 <strong>数据</strong></p>
+<p>**回调函数 **是当响应来时，在页面中调用的函数。回调函数的名称一般是在请求中指定的。而数据就是传入回调函数中的JSON数据。</p>
+<h3 id="JSONP劫持漏洞-v2"><a class="header-anchor" href="#JSONP劫持漏洞-v2">¶</a>JSONP劫持漏洞</h3>
+<p>JSON劫持又称 “JSON Hijacking” 。当网站通过JSONP的方式来跨域传递用户认证后的敏感信息时，<strong>如果服务端对JSONP的请求来源校验不严格，那么攻击者可以构造恶意的JSONP调用页面，诱导被攻击者访问达到截取用户敏感信息的目的</strong>。</p>
+<p><strong>产生漏洞的原因</strong>：    网站没有对JSONP请求来源进行校验和过滤导致任意域都能够获取数据。</p>
+<p>利用过程：寻找敏感 json 数据 api 接口，构造恶意的代码。 发送给用户，用户访问有恶意的页面，数据会被劫持发送到远程服务器。</p>
+<img src="/posts/d62edc36/1690266827967-c7f3cd69-031d-4069-9917-2d915dc64930-1693987765629-1.jpeg" class title="img">
+<h3 id="JSONP的危害"><a class="header-anchor" href="#JSONP的危害">¶</a>JSONP的危害</h3>
+<p>攻击者构造恶意的html页面，利用链接诱导受害者进行点击，从而获取到受害者的敏感信息</p>
+<h3 id="JSONP漏洞挖掘思路-v2"><a class="header-anchor" href="#JSONP漏洞挖掘思路-v2">¶</a>JSONP漏洞挖掘思路</h3>
+<p>Google Hack语法</p>
+<p>inurl:json inurl:callback= site:a.com inurl:json</p>
+<p>Burp插件推荐</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/p1g3/JSONP-Hunter">https://github.com/p1g3/JSONP-Hunter</a></p>
+<h3 id="防御方案-v2"><a class="header-anchor" href="#防御方案-v2">¶</a>防御方案</h3>
+<ol>
+<li>
+<p>json 正确的 http 头输出尽量避免跨域的数据传输，对于同域的数据传输使用 xmlhttp 的方式作为数 据获取的方式，依赖于 javascript 在浏览器域里的安全性保护数据，如果是跨域的数据传输，必须要对敏 感的数据获取做权限认证；</p>
+</li>
+<li>
+<p>严格安全的实现 CSRF 方式调用 JSON 文件：限制 Referer 、部署一次性 Token 等；</p>
+</li>
+<li>
+<p>严格安装 JSON 格式标准输出 Content-Type 及编码（ Content-Type : application/json; charset=utf-8 ）</p>
+</li>
+<li>
+<p>严格过滤 callback 函数名及 JSON 里数据的输出；</p>
+</li>
+<li>
+<p>严格限制对 JSONP 输出 callback 函数名的长度(如防御上面 flash 输出的方法)；</p>
+</li>
+</ol>
+</Connector>
                 
               </div>
             
