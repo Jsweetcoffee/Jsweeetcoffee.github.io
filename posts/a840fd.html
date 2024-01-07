@@ -24,7 +24,7 @@
 <meta property="og:description" content="¶java序列化与反序列化 1、概述 两个进程在远程通信时，可以发送多种数据，包括文本、图片、音频、视频等，这些数据都是以二进制序列的形式在网络上传输。 java是面向对象的开发方式，一切都是java对象，想要在网络中传输java对象，可以使用序列化和反序列化去实现，发送发需要将java对象转换为字节序列，然后在网络上传送，接收方收到字符序列后，会通过反序列化将字节序列恢复成java对象。 序列化">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-15T01:58:29.000Z">
-<meta property="article:modified_time" content="2023-09-18T01:56:21.985Z">
+<meta property="article:modified_time" content="2023-12-14T00:28:58.110Z">
 <meta property="article:author" content="SCxiaoyun">
 <meta property="article:tag" content="反序列化">
 <meta property="article:tag" content="web安全">
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.6k 字
+          6.1k 字
         
       </span>
     
@@ -271,7 +271,7 @@
         
         
         
-          47 分钟
+          51 分钟
         
       </span>
     
@@ -322,7 +322,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年9月18日 上午
+                    本文最后更新于：2023年12月14日 早上
                   
                 
               </p>
@@ -347,7 +347,7 @@ java.io.ObjectInputStream<br>
 <p>Java序列化就是指把Java对象转换为字节序列的过程</p>
 <p>Java反序列化就是指把字节序列恢复为Java对象的过程。</p>
 <p>在序列化和反序列化中很重要的两个方法<strong>writeObject和readObject</strong>，这两个方法可以经过开发者的重写，一般开发者们会根据自己的需求来进行重写，然而只要服务端反序列化数据，客户端传递类的readObject中代码会自动执行，基于攻击者在服务器上运行代码的能力。</p>
-<p>在反序列化的时候<code>readObject</code>中代码会自动执行，如果<code>readObject</code>插入命令执行的代码，也就执行，就产生了安全漏洞。</p>
+<p><strong>在反序列化的时候<code>readObject</code>中代码会自动执行，如果<code>readObject</code>插入命令执行的代码，也就执行，就产生了安全漏洞。</strong></p>
 <pre><code class="hljs">所以从根本上来说，Java 反序列化的漏洞的与readObject有关。
 </code></pre>
 <h2 id="条件"><a class="header-anchor" href="#条件">¶</a>条件</h2>
@@ -361,16 +361,24 @@ java.io.ObjectInputStream<br>
 <h3 id="shiro的身份认证工作流程"><a class="header-anchor" href="#shiro的身份认证工作流程">¶</a>shiro的身份认证工作流程</h3>
 <pre><code class="hljs">通过前端传入的值，
 获取rememberMe cookie
-base64加密
-AES加密 （对称加解密）
+base64解密
+AES解密 （对称加解密）
 反序列化
 </code></pre>
 <h3 id="shiro反序列化漏洞原理"><a class="header-anchor" href="#shiro反序列化漏洞原理">¶</a>shiro反序列化漏洞原理</h3>
-<p>​		AES加密的密钥Key被硬编码在代码里，意味着每个人通过源代码都能拿到AES加密的密钥。因此，攻击者构造一个恶意的对象，并且对其序列化，AES加密，base64编码后，作为cookie的rememberMe字段发送。Shiro将rememberMe进行解密并且反序列化，最终造成反序列化漏洞。</p>
+<p>​		AES加密的密钥Key被<strong>硬编码</strong>在代码里，意味着每个人通过源代码都能拿到AES加密的密钥。因此，<strong>攻击者构造一个恶意的对象，并且对其序列化，AES加密，base64编码后</strong>，作为cookie的rememberMe字段发送。Shiro将rememberMe进行解密并且反序列化，最终造成反序列化漏洞。</p>
+<p><strong>Shiro-550 反序列化漏洞</strong>  CVE-2016-4437</p>
+<p>漏洞原理</p>
+<p>Apache Shiro框架提供了记住密码的功能(RememberMe)，用户登录成功后会生成经过加密并编码的Cookie，在服务端对rememberMe的Cookie值先base64解码然后AES解密在反序列化，就导致了反序列化RCE漏洞</p>
 <p><strong>流程</strong></p>
 <p>得到rememberMe的cookie值 --&gt; Base64解码 --&gt; AES解密 --&gt; 反序列化</p>
 <p><strong>什么是硬编码：</strong><br>
 硬编码要求程序的源代码在输入数据或所需格式发生变化时进行更改，以便最终用户可以通过程序外的某种方式更改细节。</p>
+<p><strong>Shiro-721 反序列化漏洞</strong>  Shiro Padding Oracle Attack</p>
+<p>漏洞详情</p>
+<p>Apache Shiro 存在高危代码执行漏洞。该漏洞是由于Apache Shiro cookie中通过 AES-128-CBC 模式加密的rememberMe字段存在问题，用户可通过Padding Oracle 加密生成的攻击代码来构造恶意的rememberMe字段，并重新请求网站，进行反序列化攻击，最终导致任意代码执行。</p>
+<p>漏洞原理</p>
+<p>由于Apache Shiro cookie中通过 AES-128-CBC模式加密的rememberMe字段存在问题，用户可通过Padding Oracle 加密生成的攻击代码来构造恶意的rememberMe字段，并重新请求网站，进行反序列化攻击，最终导致任意代码执行。</p>
 <h3 id="shiro的特征："><a class="header-anchor" href="#shiro的特征：">¶</a>shiro的特征：</h3>
 <pre><code class="hljs">未登陆的情况下，请求包的cookie中没有rememberMe字段，返回包set-Cookie里也没有deleteMe字段
 
@@ -384,7 +392,7 @@ AES加密 （对称加解密）
 <p>详细原理参考文章：<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv17256282/">https://www.bilibili.com/read/cv17256282/</a></p>
 <p><strong>用途</strong>：用于解析java，部署<strong>大型分布式</strong>Web应用的Web中间件</p>
 <h3 id="XMLDecoder反序列化漏洞"><a class="header-anchor" href="#XMLDecoder反序列化漏洞">¶</a>XMLDecoder反序列化漏洞</h3>
-<p>Weblogic的WLS Security组件对外提供webservice服务，其中使用了XMLDecoder来解析用户传入的XM（SOAP协议）数据，在解析的过程中出现反序列化漏洞，导致任意代码执行。出问题的包是wls-wsat、_async。</p>
+<p>Weblogic的WLS Security组件对外提供webservice服务，其中使用了XMLDecoder来解析用户传入的XML（SOAP协议）数据，在解析的过程中出现反序列化漏洞，导致任意代码执行。出问题的包是wls-wsat、_async。</p>
 <h3 id="T3协议反序列化漏洞"><a class="header-anchor" href="#T3协议反序列化漏洞">¶</a>T3协议反序列化漏洞</h3>
 <p>​		开放Weblogic控制台的7001端口，默认会开启T3协议服务，T3协议触发的Weblogic Server WLS Core Components中存在反序列化漏洞，攻击者可以发送构造的恶意T3协议数据，利用RMI绕过weblogic的黑名单限制，通过readObject解析加载的内容，获取目标服务器权限。</p>
 <p>T3协议缺陷实现了Java虚拟机的远程方法调用（RMI）,能够在本地虚拟机上调用远端代码。</p>
@@ -397,7 +405,7 @@ RMI：
 <h1>Fastjson</h1>
 <h3 id="什么是Fastjson"><a class="header-anchor" href="#什么是Fastjson">¶</a><strong>什么是Fastjson?</strong></h3>
 <p>fastjson介绍：fastjson 是一个java语言编写的高性能且功能完善的JSON库，它采用一种“假定有序快速匹配”的算法，把JSON Parse 的性能提升到了极致。FastJson是啊里巴巴的的开源库，用与对JSON格式的数据进行解析和打包。</p>
-<p>fastjson在解析json过程中，支持使用autoType来实例化某一个具体的类，并通过json来填充其属性值。而JDK自带的类com.sun.org.apache.xalan.internal.xsltc.trax.Templateslmpl中有一个私有属性 _bytecodes，其部分方法会执行这个值中包含的Java字节码。、</p>
+<p>fastjson在解析json过程中，支持使用autoType来实例化某一个具体的类，并通过json来填充其属性值。而JDK自带的类com.sun.org.apache.xalan.internal.xsltc.trax.Templateslmpl中有一个私有属性 _bytecodes，其部分方法会执行这个值中包含的Java字节码。</p>
 <h3 id="指纹特征"><a class="header-anchor" href="#指纹特征">¶</a>指纹特征</h3>
 <h5 id="有回显"><a class="header-anchor" href="#有回显">¶</a>有回显</h5>
 <p>通过构造错误的POST请求体，服务器返回报错中查看是否存在fastjson字样</p>
@@ -416,9 +424,9 @@ Fastjson在反序列化的时候，会调用成员变量的set方法，public修
 <p>原理：由于它在反序列一个对象的时候会去自动调用这个对象的set方法，所以如果这个set方法中有一些危险的操作，那么就会导致漏洞的产生。</p>
 <blockquote>
 <p>漏洞原理</p>
-<p>fastjson就是为了知道传入的值是水果里的苹果类型还是水果里的苹果手机类型。加了autotype机制导致的。因为他为了知道是什么详细类型，每次都需要读取下@type导致的。</p>
+<p>fastjson就是为了知道传入的值是水果里的苹果类型还是水果里的苹果手机类型。<strong>加了autotype机制导致的</strong>。因为他为了知道是什么详细类型，每次都需要读取下@type导致的。</p>
 <p>Fastjson反序列化的Gadget需要无参默认构造方法或者注解指定构造方法并添加相应参数。使用Feature.SupportNonPublicField才能打开非公有属性的反序列化处理，@type可以指定反序列化任意类调用其set，get，is方法，并且由于反序列化的特性，我们可以通过目标类的set方法自由的设置类的属性值。</p>
-<p>攻击者准备rmi服务和web服务，将rmi绝对路径注入到lookup方法中，受害者JNDI接口会指向攻击者控制rmi服务器，JNDI接口向攻击者控制web服务器远程加载恶意代码，执行构造函数形成RCE。</p>
+<p><strong>攻击者准备rmi服务和web服务，将rmi绝对路径注入到lookup方法中，受害者JNDI接口会指向攻击者控制rmi服务器，JNDI接口向攻击者控制web服务器远程加载恶意代码，执行构造函数形成RCE。</strong></p>
 </blockquote>
 <p>利用思路：上面说了在fastjson反序列化的时候会自动调用对象的set方法，所以我们就有了利用思路，如果我们可以找到一个类，并且这个类中有set方法，这个类的set方法中有一些敏感操作，并且每次运行任意java代码的时候又必须调用这个类，那我们就可以利用这个漏洞了。</p>
 <p>经过大佬的总结，以下这几个类就是我们上面所说的类(这些类都是jdk中的，也就是说不管你运行什么样的代码，它都会调用下面这几个类)：</p>
@@ -431,9 +439,9 @@ com.sun.org.apache.xalan.internal.xsltc.trax
 <p>JNDI提供了 查找和访问各种命名和目录服务的通用、统一的接口。支持的服务：DNS，LDAP，RMI，CORBA等</p>
 <p>JNDI注入发生在客户端的lookup()中，如果lookup()的参数可控即可导致被攻击</p>
 </blockquote>
-<h1>Jboss</h1>
+<h1>Jboss反序列化漏洞</h1>
 <p>CVE-2017-12149</p>
-<p>漏洞影响5.x和6.x版本的JBOSSAS。该漏洞位于JBoss的HttpInvoker组件中的 ReadOnlyAccessFilter 过滤器中，其doFilter方法在没有进行任何安全检查和限制的情况下尝试将来自客户端的序列化数据流进行反序列化，导致攻击者可以通过精心设计的序列化数据来执行任意代码。<br>
+<p>漏洞影响5.x和6.x版本的JBOSSAS。该漏洞位于JBoss的HttpInvoker组件中的 ReadOnlyAccessFilter 过滤器中，其<strong>doFilter方法</strong>在没有进行任何安全检查和限制的情况下尝试将来自客户端的序列化数据流进行反序列化，导致攻击者可以通过精心设计的序列化数据来执行任意代码。<br>
 CVE-2017-7504</p>
 <p>JBoss AS 4.x及之前版本中，JbossMQ实现过程的JMS over HTTP Invocation Layer的HTTPServerILServlet.java文件存在反序列化漏洞，远程攻击者可借助特制的序列化数据利用该漏洞执行任意代码。</p>
 <h1>log4j2(CVE-2021-44228)</h1>
@@ -441,7 +449,7 @@ CVE-2017-7504</p>
 <h3 id="什么是log4j2？"><a class="header-anchor" href="#什么是log4j2？">¶</a>什么是log4j2？</h3>
 <p>log4j2是java中一个流行的的日志框架，可以在服务中记录日志消息，提供了多种方式来记录和处理日志数据，使开发人员可以轻松的生成和管理大量日志信息</p>
 <h3 id="漏洞原理"><a class="header-anchor" href="#漏洞原理">¶</a>漏洞原理</h3>
-<p>由于log4j2库中的JNDI查询功能存在反序列化漏洞，具体来说是由于log4j2在处理日志事件时，使用了java反序列化机制(java Serialization)对java的对象和反序列化操作,没有对反序列化中的过程做安全的验证措施。</p>
+<p>由于log4j2库中的<strong>JNDI查询功能存在</strong>反序列化漏洞，具体来说是由于log4j2在处理日志事件时，使用了java反序列化机制(java Serialization)对java的对象和反序列化操作,没有对反序列化中的过程做安全的验证措施。</p>
 <p>导致可以构造恶意的JNDI名称的特殊日志来触发log4j2库中的JndiLookup.deserialized()方法调用，在执行反序操作时，可以利用java反序列漏洞，将恶意的代码注入到反序列化对象中，从而实现远程命令攻击。</p>
 <h3 id="漏洞的利用流程："><a class="header-anchor" href="#漏洞的利用流程：">¶</a>漏洞的利用流程：</h3>
 <p>1、向目标发送HTTP请求，其中请求包含了由${}字符构成的payload</p>
@@ -552,6 +560,12 @@ CVE-2017-7504</p>
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/posts/c983d692.html" title="docker命令及使用">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">docker命令及使用</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

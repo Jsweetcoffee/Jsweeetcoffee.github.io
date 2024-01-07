@@ -16,12 +16,12 @@
   <meta name="author" content="SCxiaoyun">
   <meta name="keywords" content="">
   
-    <meta name="description" content="[TOC] ¶前言： 学习了很多渗透方面的知识，但是本人又不喜欢复习，感觉理论知识非常欠缺（本人记性不好，忘性很大😫😫😫）尤其是自己组织语言，所以这里对知识进行一个大体的系统的总结。  Web渗透 ¶一、安全术语（行业黑话）  肉鸡 僵尸网络：僵尸网络 Botnet 是指采用一种或多种传播手段，将大量主机感 染病毒，从而在控制者和被感染主机之间所形成的一个可一对多控制的网络僵尸网络是一个非常">
+    <meta name="description" content="[TOC] ¶前言： 学习了很多渗透方面的知识，但是本人又不喜欢复习，感觉理论知识非常欠缺（本人记性不好，忘性很大😫😫😫）尤其是自己组织语言，所以这里对知识进行一个大体的系统的总结。  Web渗透 ¶一、安全术语（行业黑话）   肉鸡:   僵尸网络：僵尸网络 Botnet 是指采用一种或多种传播手段，将大量主机感 染病毒，从而在控制者和被感染主机之间所形成的一个可一对多控制的网络僵尸网络是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Web安全学习总结总结">
+<meta property="og:title" content="Web安全学习总结">
 <meta property="og:url" content="https://jsweetcoffee.github.io/posts/d62edc36.html">
 <meta property="og:site_name" content="晓雲的陋室">
-<meta property="og:description" content="[TOC] ¶前言： 学习了很多渗透方面的知识，但是本人又不喜欢复习，感觉理论知识非常欠缺（本人记性不好，忘性很大😫😫😫）尤其是自己组织语言，所以这里对知识进行一个大体的系统的总结。  Web渗透 ¶一、安全术语（行业黑话）  肉鸡 僵尸网络：僵尸网络 Botnet 是指采用一种或多种传播手段，将大量主机感 染病毒，从而在控制者和被感染主机之间所形成的一个可一对多控制的网络僵尸网络是一个非常">
+<meta property="og:description" content="[TOC] ¶前言： 学习了很多渗透方面的知识，但是本人又不喜欢复习，感觉理论知识非常欠缺（本人记性不好，忘性很大😫😫😫）尤其是自己组织语言，所以这里对知识进行一个大体的系统的总结。  Web渗透 ¶一、安全术语（行业黑话）   肉鸡:   僵尸网络：僵尸网络 Botnet 是指采用一种或多种传播手段，将大量主机感 染病毒，从而在控制者和被感染主机之间所形成的一个可一对多控制的网络僵尸网络是">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/d62edc36/SQLmap.jpeg">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/d62edc36/1683710868825-3bcd85b4-887e-4ef2-8e61-685cef9d7fd9.png">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/d62edc36/1690266827967-c7f3cd69-031d-4069-9917-2d915dc64930.jpeg">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/d62edc36/1690266827967-c7f3cd69-031d-4069-9917-2d915dc64930-1693987765629-1.jpeg">
 <meta property="article:published_time" content="2023-07-14T06:14:27.000Z">
-<meta property="article:modified_time" content="2023-09-18T02:55:34.045Z">
+<meta property="article:modified_time" content="2023-09-21T12:28:42.747Z">
 <meta property="article:author" content="SCxiaoyun">
 <meta property="article:tag" content="Web安全">
 <meta property="article:tag" content="面试总结">
@@ -47,7 +47,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Web安全学习总结总结 - 晓雲的陋室</title>
+  <title>Web安全学习总结 - 晓雲的陋室</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -245,7 +245,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Web安全学习总结总结"></span>
+            <span id="subtitle" data-typed-text="Web安全学习总结"></span>
           
         </div>
 
@@ -273,7 +273,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          75k 字
+          77k 字
         
       </span>
     
@@ -284,7 +284,7 @@
         
         
         
-          629 分钟
+          642 分钟
         
       </span>
     
@@ -330,12 +330,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Web安全学习总结总结</h1>
+            <h1 style="display: none">Web安全学习总结</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年9月18日 上午
+                    本文最后更新于：2023年9月21日 晚上
                   
                 
               </p>
@@ -350,45 +350,123 @@
 <h1>Web渗透</h1>
 <h2 id="一、安全术语（行业黑话）"><a class="header-anchor" href="#一、安全术语（行业黑话）">¶</a>一、安全术语（行业黑话）</h2>
 <ol>
-<li><strong>肉鸡</strong></li>
-<li><strong>僵尸网络</strong>：僵尸网络 Botnet 是指采用一种或多种传播手段，将大量主机感 染病毒，从而在控制者和被感染主机之间所形成的一个可一对多控制的网络僵尸网络是一个非常形象的比喻，众多的计算机在不知不 觉中如同中国古老传说中的僵尸群一样被人驱赶和指挥着，成为被 攻击者执行各类恶意活动（DDOS、垃圾邮件等）利用的一种基础 设施。</li>
-<li><strong>木马</strong></li>
-<li><strong>网页木马</strong></li>
-<li><strong>蠕虫病毒</strong>：它是一类相对独立的恶意代码，利用了联网系统的开放性特点，通过可远程利用的漏洞自主地进行传播，受到控制终端会变成攻击的发起方，尝试感染更多的系统。蠕虫病毒的主要特性有：自我复制能力、很强的传播性、潜伏性、特定的触发性、很大的破坏性。</li>
-<li><strong>震网病毒</strong>：名 Stuxnet 病毒，是第一个专门定向攻击真实世界中基础（能源）设施的“蠕虫”病毒，比如核电站，水坝，国家电网。作为世界上首个网络“超级破坏性武器”，Stuxnet 的计算机病毒已经感染了全球超过 45000 个网络，其目标伊朗的铀浓缩设备遭到的攻击最为严重。</li>
-<li><strong>C2</strong>：C2 全称为 Command and Control，命令与控制，常见于 APT 攻击场景中。作动词解释时理解为恶意软件与攻击者进行交互，作名词解释时理解为攻击者的“基础设施”。 供应链攻击是黑客攻击目标机构的合作伙伴，并以该合作伙为跳板，达到渗透目标用户的目的。</li>
-<li><strong>APT 攻击</strong>：Advanced Persistent Threat，即高级可持续威胁攻击，指某组织在网络上对特定对象展开的持续有效的攻击活动。</li>
-<li><strong>嗅探</strong></li>
-<li><strong>水坑攻击</strong></li>
-<li><strong>钓鲸攻击</strong></li>
-<li><strong>鱼叉攻击</strong></li>
-<li><strong>网络钓鱼</strong></li>
-<li><strong>反弹端口</strong></li>
-<li><strong>DDoS</strong></li>
-<li><strong>软件脱壳</strong></li>
-<li><strong>缓冲区溢出</strong></li>
-<li><strong>挂马</strong></li>
-<li><strong>0/1/N Day 漏洞</strong></li>
-<li><strong>远程命令执行漏洞</strong></li>
-<li><strong>后门</strong></li>
-<li><strong>攻击载荷（payload）</strong></li>
-<li><strong>Rootkit</strong></li>
-<li><strong>横移</strong></li>
-<li><strong>渗透</strong></li>
-<li><strong>跳板</strong></li>
-<li><strong>暗链</strong></li>
-<li><strong>拖库</strong></li>
-<li><strong>CC 攻击（Challenge Collapsar）</strong></li>
-<li><strong>欺骗攻击</strong>：网络欺骗的技术主要有：HONEYPOT 和分布式 HONEYPOT、欺骗空间技术等。 主要方式有：IP 欺骗、ARP 欺骗、 DNS 欺骗、Web 欺骗、电子邮件欺骗、源路由欺骗（通过指定路由，以假冒身份与其他主机进行合法通信或发送假报文，使受攻击主机出现错误动作）、地址欺骗（包括伪造源地址和伪造中间站点）等。</li>
-<li><strong>社会工程学</strong>：一种无需依托任何黑客软件，更注重研究人性弱点的黑客手法正在兴起，这就是社会工程学黑客技术。</li>
-<li><strong>老三样</strong>：通常指 IDS、防火墙和反病毒三样历史最悠久安全产品。</li>
-<li>**堡垒机：**运用各种技术手段监控和记录运维人员对网络内的服务器、网络设备、安全设备、数据库等设备的操作行为，以便集中报警、及时处理及审计定责。数据库审计 能够实时记录网络上的数据库活动，对数据库操作进行细粒度审计的合规性管理，对数据库遭受到的风险行为进行告警，对攻击行为进行阻断。 它通过对用户访问数据库行为的记录、分析和汇报，用来帮助用户事后生成合规报告、事故追根溯源，同时加强内外部数据库网络行为记录，提高数据资产安全。</li>
-<li>**VPN：**虚拟专用网，在公用网络上建立专用网络，进行加密通讯，通过对数据包的加密和数据包目标地址的转换实现远程访问。</li>
-<li><strong>蜜罐（Honeypot）</strong>：是一个包含漏洞的系统，它摸拟一个或多个易受攻击的主机，给黑客提供一个容易攻击的目标。 由于蜜罐没有其它任务需要完成，因此所有连接的尝试都应被视为是可疑的。</li>
-<li><strong>沙箱</strong>：沙箱是一种用于安全的运行程序的机制。它常常用来执行那些非可信的程序。 非可信程序中的恶意代码对系统的影响将会被限制在沙箱内而不会影响到系统的其它部分。</li>
-<li><strong>沙箱逃逸</strong>：一种识别沙箱环境，并利用静默、欺骗等技术，绕过沙箱检测的现象</li>
-<li>**南北向流量：**通常指数据中心内外部通信所产生的的流量。</li>
-<li><strong>东西向流量</strong>：通常指数据中心内部不同主机之间互相通信所产生的的流量。</li>
+<li>
+<p><strong>肉鸡</strong>:</p>
+</li>
+<li>
+<p><strong>僵尸网络</strong>：僵尸网络 Botnet 是指采用一种或多种传播手段，将大量主机感 染病毒，从而在控制者和被感染主机之间所形成的一个可一对多控制的网络僵尸网络是一个非常形象的比喻，众多的计算机在不知不 觉中如同中国古老传说中的僵尸群一样被人驱赶和指挥着，成为被 攻击者执行各类恶意活动（DDOS、垃圾邮件等）利用的一种基础 设施。</p>
+</li>
+<li>
+<p><strong>木马</strong>：木马病毒是指隐藏在正常程序中的一段具有特殊功能的恶意代码，是具备破坏和删除文件、发送密码、记录键盘和攻击Dos等特殊功能的后门程序。</p>
+</li>
+<li>
+<p><strong>网页木马</strong>:伪装成网页文件或直接插入正常的网页文件中，当有人访问或执行时，就会利用对方系统或浏览器的漏洞自动下载木马到访问者的电脑上执行。</p>
+</li>
+<li>
+<p><strong>蠕虫病毒</strong>：它是一类相对独立的恶意代码，利用了联网系统的开放性特点，通过可远程利用的漏洞自主地进行传播，受到控制终端会变成攻击的发起方，尝试感染更多的系统。蠕虫病毒的主要特性有：自我复制能力、很强的传播性、潜伏性、特定的触发性、很大的破坏性。</p>
+</li>
+<li>
+<p><strong>震网病毒</strong>：名 Stuxnet 病毒，是第一个专门定向攻击真实世界中基础（能源）设施的“蠕虫”病毒，比如核电站，水坝，国家电网。作为世界上首个网络“超级破坏性武器”，Stuxnet 的计算机病毒已经感染了全球超过 45000 个网络，其目标伊朗的铀浓缩设备遭到的攻击最为严重。</p>
+</li>
+<li>
+<p><strong>C2</strong>：C2 全称为 Command and Control，命令与控制，常见于 APT 攻击场景中。作动词解释时理解为恶意软件与攻击者进行交互，作名词解释时理解为攻击者的“基础设施”。 供应链攻击是黑客攻击目标机构的合作伙伴，并以该合作伙为跳板，达到渗透目标用户的目的。</p>
+</li>
+<li>
+<p><strong>APT 攻击</strong>：Advanced Persistent Threat，即<strong>高级可持续威胁攻击</strong>，指某组织在网络上对特定对象展开的持续有效的攻击活动。</p>
+</li>
+<li>
+<p><strong>嗅探</strong>：　嗅探指窃听网络中流经的数据包，这里的网络一般指用集线器或路由器组建的局域网。通过嗅探并解析数据包，便可知道数据包中的信息，一旦含有账户密码等隐私信息就可能造成个人资金损失。</p>
+</li>
+<li>
+<p><strong>水坑攻击</strong>：黑客通过分析被攻击者的网络活动规律，寻找被攻击者经常访问的网站的弱点，先攻下该网站并植入攻击代码，等待被攻击者来访时实施攻击。</p>
+</li>
+<li>
+<p><strong>钓鲸攻击</strong>：攻击者针对高层，如首席执行官，首席财务官和首席运营官。钓鲸的目标是经过精心挑选的，因为受害者价值很高，而被盗的信息将比普通员工提供的信息更有价值。钓鲸需要依赖于社交工程，攻击者需要更好地了解目标。</p>
+</li>
+<li>
+<p><strong>鱼叉攻击</strong>：鱼叉式攻击是一种较为高级的网络钓鱼攻击手法，针对特定的目标或组织，借助构造特定主题和内容的邮件、短信等第三方媒介，吸引特定目标群体打开链接或下载附件等方式的钓鱼攻击行为。</p>
+</li>
+<li>
+<p><strong>网络钓鱼</strong>：在网络钓鱼过程中，攻击者使用诱饵（如电子邮件、手机短信、QQ链接等）将攻击代码发送给大量用户，期待少数安全意识弱的用户“上钩”，进而达到“钓鱼”（如窃取用户的隐私信息）的目的。</p>
+</li>
+<li>
+<p><strong>反弹端口</strong>：是指受害者服务器的某一个端口不能访问，我们通过反弹端口的形式，让攻击者能够访问该端口，也叫端口转发</p>
+</li>
+<li>
+<p><strong>DDoS</strong>：DDoS攻击一般指分布式拒绝攻击，是一种攻击者操纵大量计算机，或位于不同位置的多个攻击者，在短时间内通过将攻击伪装成大量的合法请求，向服务器资源发动的攻击，导致请求数量超过了服务器的处理能力，造成服务器运行缓慢或者宕机。通常由僵尸网络用于执行此恶意任务，由于攻击的发出点是分布在不同地方的，这类攻击称为分布式拒绝服务攻击。<br>
+<strong>软件脱壳</strong>：壳是用来保护计算机软件不被非法修改或编译的程序；</p>
+</li>
+<li>
+<p><strong>缓冲区溢出</strong>：指当计算机向缓冲区填充数据时超出了缓冲区本身的容量，溢出的数据覆盖在合法数据上。程序崩溃、导致拒绝服务、</p>
+<p>​    跳转并且执行一段恶意代码。造成缓冲区溢出的主要原因是程序中没有仔细检查用户输入。</p>
+</li>
+<li>
+<p><strong>挂马</strong>：</p>
+</li>
+<li>
+<p>挂马攻击是指攻击者在已经获得控制权的网站的网页中嵌入恶意代码（通常是通过IFrame、Script引用来实现），当用户访问该网页时，嵌入的恶意代码利用浏览器本身的漏洞、第三方ActiveX漏洞或者其它插件（如Flash、PDF插件等）漏洞，在用户不知情的情况下下载并执行恶意木马。</p>
+</li>
+<li>
+<p><strong>0/1/N Day 漏洞</strong>:</p>
+</li>
+<li>
+<p><strong>后门</strong>:</p>
+</li>
+<li>
+<p><strong>攻击载荷（payload）</strong>:</p>
+</li>
+<li>
+<p><strong>Rootkit</strong>：是一种特殊的恶意软件，它的功能是在安装目标上隐藏自身及指定的文件、进程和网络链接等信息，比较多见到的是Rootkit一般都和木马、后门等其他恶意程序结合使用。</p>
+</li>
+<li>
+<p><strong>横移</strong>：横向移动是网络攻击者使用的一种常见策略，用于在整个网络中旋转，以便访问受害组织的敏感信息和用户信息。</p>
+<p>威胁行为者获得公司网络的访问权限后，通常会尝试通过横向移动和侦察收集尽可能多的有关组织的信息，包括关键信息的位置、用户活动、如何获得特权以及如何避免被发现。</p>
+</li>
+<li>
+<p><strong>渗透</strong>：</p>
+</li>
+<li>
+<p><strong>跳板</strong>:</p>
+</li>
+<li>
+<p><strong>暗链</strong>：暗链又叫隐藏链接，指的是正常的链接通过一些方法，如：把链接放入js代码中，使用display:none等等，从而使用户在正常浏览网页的时候无法看到这个链接。暗链是对搜索引擎的一种欺骗，导致搜索引擎的误判，将高权重分配给原本没有价值的网站甚至是钓鱼网站。</p>
+</li>
+<li>
+<p><strong>拖库</strong>：拖库本来是数据库领域的术语，指从数据库中导出数据。到了黑客攻击泛滥的今天，它被用来指网站遭到入侵后，黑客窃取其数据库文件，拖库的主要防护手段是数据库加密。</p>
+</li>
+<li>
+<p><strong>CC 攻击（Challenge Collapsar）</strong>：CC攻击算得上是应用层的DDoS，而且是经过TCP握手协议之后，CC的攻击原理很简单，就是模拟多个用户对一些资源消耗较大的页面不断发出请求，从而达到消耗服务器资源的目的，当服务器一直都有处理不完的大量数据请求时，服务器资源浪费过多，就会造成堵塞，而正常用户的访问也会被终止，网站陷入瘫痪状态。</p>
+</li>
+<li>
+<p><strong>欺骗攻击</strong>：网络欺骗的技术主要有：HONEYPOT 和分布式 HONEYPOT、欺骗空间技术等。 主要方式有：IP 欺骗、ARP 欺骗、 DNS 欺骗、Web 欺骗、电子邮件欺骗、源路由欺骗（通过指定路由，以假冒身份与其他主机进行合法通信或发送假报文，使受攻击主机出现错误动作）、地址欺骗（包括伪造源地址和伪造中间站点）等。</p>
+</li>
+<li>
+<p><strong>社会工程学</strong>：一种无需依托任何黑客软件，更注重研究人性弱点的黑客手法正在兴起，这就是社会工程学黑客技术。</p>
+</li>
+<li>
+<p><strong>老三样</strong>：通常指 IDS、防火墙和反病毒三样历史最悠久安全产品。</p>
+</li>
+<li>
+<p>**堡垒机：**运用各种技术手段监控和记录运维人员对网络内的服务器、网络设备、安全设备、数据库等设备的操作行为，以便集中报警、及时处理及审计定责。数据库审计 能够实时记录网络上的数据库活动，对数据库操作进行细粒度审计的合规性管理，对数据库遭受到的风险行为进行告警，对攻击行为进行阻断。 它通过对用户访问数据库行为的记录、分析和汇报，用来帮助用户事后生成合规报告、事故追根溯源，同时加强内外部数据库网络行为记录，提高数据资产安全。</p>
+</li>
+<li>
+<p>**VPN：**虚拟专用网，在公用网络上建立专用网络，进行加密通讯，通过对数据包的加密和数据包目标地址的转换实现远程访问。</p>
+</li>
+<li>
+<p><strong>蜜罐（Honeypot）</strong>：是一个包含漏洞的系统，它摸拟一个或多个易受攻击的主机，给黑客提供一个容易攻击的目标。 由于蜜罐没有其它任务需要完成，因此所有连接的尝试都应被视为是可疑的。</p>
+</li>
+<li>
+<p><strong>沙箱</strong>：沙箱是一种用于安全的运行程序的机制。它常常用来执行那些非可信的程序。 非可信程序中的恶意代码对系统的影响将会被限制在沙箱内而不会影响到系统的其它部分。</p>
+</li>
+<li>
+<p><strong>沙箱逃逸</strong>：一种识别沙箱环境，并利用静默、欺骗等技术，绕过沙箱检测的现象</p>
+</li>
+<li>
+<p>**南北向流量：**通常指数据中心内外部通信所产生的的流量。</p>
+</li>
+<li>
+<p><strong>东西向流量</strong>：通常指数据中心内部不同主机之间互相通信所产生的的流量。</p>
+</li>
 </ol>
 <h2 id="二、信息收集"><a class="header-anchor" href="#二、信息收集">¶</a>二、信息收集</h2>
 <blockquote>
@@ -1861,7 +1939,7 @@ CSRF客户端请求伪造：目标网站下的用户   —》 用户</p>
 <p>mixed eval(string $code) 把字符串$code作为PHP代码执行。</p>
 <p><strong>2.assert函数</strong></p>
 <p>Bool assert(mixed $assertion[,string $description]) 检查一个断言是否为false（把字符串$assertion作为PHP代码执行）。</p>
-<p><strong>3.preg_replace()</strong></p>
+<p><strong>3.preg_replace()函数</strong></p>
 <p>mixed preg_replace (mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &amp;$count ]]) 搜索subject中匹配pattern的部分， 以$replacement进行替换</p>
 <blockquote>
 <p>preg_replace()函数原本是执行一个正则表达式的搜索和替换，但因为存在危险的/e修饰符，使 preg_replace() 将 replacement 参数当作 PHP 代码</p>
@@ -2634,7 +2712,7 @@ CSRF客户端请求伪造：目标网站下的用户   —》 用户</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Web安全学习总结总结</div>
+      <div>Web安全学习总结</div>
       <div>https://jsweetcoffee.github.io/posts/d62edc36.html</div>
     </div>
     <div class="license-meta">

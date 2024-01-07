@@ -16,23 +16,24 @@
   <meta name="author" content="SCxiaoyun">
   <meta name="keywords" content="">
   
-    <meta name="description" content="MIME (***M***ultipurpose ***I***nternet ***M***ail ***E***xtensions) 是描述消息内容类型的因特网标准。 以下是一些文件后缀（扩展名）对应的MIME类型的一个对照表，方便iis中或其他服务器对相应的文件进行解析。 有些文件的后缀名没有默认解析就出现上传后无法访问或者下载的问题，这个时候就要设置文件后缀对应的MIME类型，设置后才能访">
+    <meta name="description" content="docker命令手册：https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;reference&#x2F;commandline&#x2F;logs&#x2F; ¶嘛玩意是docker啊？ Docker是一个开源的应用容器引擎，它基于Google 公司推出的Go 语言实现，项目代码托管在 GitHub 上进行维护;https:github.com&#x2F;docker&#x2F;docker-ce；  Docker 技术让开发者可以打包">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文件后缀与MIME类型对照表">
-<meta property="og:url" content="https://jsweetcoffee.github.io/posts/732bd708.html">
+<meta property="og:title" content="docker命令及使用">
+<meta property="og:url" content="https://jsweetcoffee.github.io/posts/c983d692.html">
 <meta property="og:site_name" content="晓雲的陋室">
-<meta property="og:description" content="MIME (***M***ultipurpose ***I***nternet ***M***ail ***E***xtensions) 是描述消息内容类型的因特网标准。 以下是一些文件后缀（扩展名）对应的MIME类型的一个对照表，方便iis中或其他服务器对相应的文件进行解析。 有些文件的后缀名没有默认解析就出现上传后无法访问或者下载的问题，这个时候就要设置文件后缀对应的MIME类型，设置后才能访">
+<meta property="og:description" content="docker命令手册：https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;reference&#x2F;commandline&#x2F;logs&#x2F; ¶嘛玩意是docker啊？ Docker是一个开源的应用容器引擎，它基于Google 公司推出的Go 语言实现，项目代码托管在 GitHub 上进行维护;https:github.com&#x2F;docker&#x2F;docker-ce；  Docker 技术让开发者可以打包">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-25T12:16:28.000Z">
-<meta property="article:modified_time" content="2023-08-18T09:12:13.088Z">
+<meta property="article:published_time" content="2023-09-19T05:39:57.000Z">
+<meta property="article:modified_time" content="2023-09-19T07:10:51.261Z">
 <meta property="article:author" content="SCxiaoyun">
+<meta property="article:tag" content="工具">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>文件后缀与MIME类型对照表 - 晓雲的陋室</title>
+  <title>docker命令及使用 - 晓雲的陋室</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -230,7 +231,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="文件后缀与MIME类型对照表"></span>
+            <span id="subtitle" data-typed-text="docker命令及使用"></span>
           
         </div>
 
@@ -246,8 +247,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-25 20:16" pubdate>
-          2023年7月25日 晚上
+        <time datetime="2023-09-19 13:39" pubdate>
+          2023年9月19日 下午
         </time>
       </span>
     
@@ -258,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.7k 字
         
       </span>
     
@@ -269,7 +270,7 @@
         
         
         
-          13 分钟
+          14 分钟
         
       </span>
     
@@ -315,12 +316,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">文件后缀与MIME类型对照表</h1>
+            <h1 style="display: none">docker命令及使用</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年8月18日 下午
+                    本文最后更新于：2023年9月19日 下午
                   
                 
               </p>
@@ -328,21 +329,44 @@
             
               <div class="markdown-body">
                 
-                <p>MIME (***M***ultipurpose ***I***nternet ***M***ail ***E***xtensions) 是描述消息内容类型的因特网标准。</p>
-<p>以下是一些文件后缀（扩展名）对应的MIME类型的一个对照表，方便iis中或其他服务器对相应的文件进行解析。</p>
-<p>有些文件的后缀名没有默认解析就出现上传后无法访问或者下载的问题，这个时候就要设置文件后缀对应的MIME类型，设置后才能访问或者下载。</p>
-<p>》》》文档文件类型《《《</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp">.ai        application/postscript<br>.eps        application/postscript<br>.exe        application/octet-stream<br>.doc        application/vnd.ms-word<br>.xls        application/vnd.ms-excel<br>.ppt        application/vnd.ms-powerpoint<br>.pps        application/vnd.ms-powerpoint<br>.pdf        application/pdf<br>.xml        application/xml<br>.odt        application/vnd.oasis.opendocument.text<br>.swf        application/x-shockwave-flash<br></code></pre></td></tr></table></figure>
-<p>》》》压缩文件类型《《《</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp">.gz        application/x-gzip<br>.tgz        application/x-gzip<br>.bz        application/x-bzip2<br>.bz2        application/x-bzip2<br>.tbz        application/x-bzip2<br>.zip        application/zip<br>.rar        application/x-rar<br>.tar        application/x-tar<br><span class="hljs-number">.7</span>z        application/x<span class="hljs-number">-7</span>z-compressed<br></code></pre></td></tr></table></figure>
-<p>》》》文字类型《《《</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp">.txt        text/plain<br>.php        text/x-php<br>.html        text/html<br>.htm        text/html<br>.js        text/javascript<br>.css        text/css<br>.rtf        text/rtf<br>.rtfd        text/rtfd<br>.py        text/x-python<br>.java        text/x-java-source<br>.rb        text/x-ruby<br>.sh        text/x-shellscript<br>.pl        text/x-perl<br>.sql        text/x-sql<br></code></pre></td></tr></table></figure>
-<p>》》》图片类型《《《</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp">.bmp        image/x-ms-bmp<br>.jpg        image/jpeg<br>.jpeg        image/jpeg<br>.gif        image/gif<br>.png        image/png<br>.tif        image/tiff<br>.tiff        image/tiff<br>.tga        image/x-targa<br>.psd        image/vnd.adobe.photoshop<br></code></pre></td></tr></table></figure>
-<p>》》》音频文件类型《《《</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp">.mp3        audio/mpeg<br>.mid        audio/midi<br>.ogg        audio/ogg<br>.mp4a        audio/mp4<br>.wav        audio/wav<br>.wma        audio/x-ms-wma<br></code></pre></td></tr></table></figure>
-<p>》》》视频文件类型《《《</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp">.avi        video/x-msvideo<br>.dv        video/x-dv<br>.mp4        video/mp4<br>.mpeg        video/mpeg<br>.mpg        video/mpeg<br>.mov        video/quicktime<br>.wm        video/x-ms-wmv<br>.flv        video/x-flv<br>.mkv        video/x-matroska<br></code></pre></td></tr></table></figure>
+                <p>docker命令手册：<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/logs/">https://docs.docker.com/engine/reference/commandline/logs/</a></p>
+<h2 id="嘛玩意是docker啊？"><a class="header-anchor" href="#嘛玩意是docker啊？">¶</a>嘛玩意是docker啊？</h2>
+<pre><code class="hljs">Docker是一个开源的应用容器引擎，它基于Google 公司推出的Go 语言实现，项目代码托管在 GitHub 上进行维护;https:github.com/docker/docker-ce；
+
+Docker 技术让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，打包好的容器可以发布到任何流行的 Linux 服务器上运行，这样就可以解决开发环境与运维环境不一致的问题了，所以容器技术解决了开发和运维之间的矛盾，让开发专注于开发，运维专注于运维，不要被环境问题所打扰；
+
+Docker彻底释放了虚拟化的威力，极大降低了计算机资源供应的成本，Docker重新定义了程序开发测试、交付和部署过程，Docker提出了“构建一次，到处运行”的理念，让应用的开发、测试、部署和分发都变得前所未有的高效和轻松！
+
+Docker是一种轻量级的操作系统虚拟化解决方案，Docker的基础是 Linux 容器（LXC）技术，在 LXC的基础上 Docker进行了进一步的封装，让用户不需要去关心容器的管理，使得操作更为简便。用户操作 Docker的容器就像操作一个快速轻量级的虚拟机一样简单;Docker 自开源后受到广泛的关注，Docker最早是基于Ubuntu开发的，但后续CentOS、Debian、Fedora等主流的Linux操作系统都支持Docker；
+</code></pre>
+<p>总结∶</p>
+<p>简单地说，Docker是对软件和其依赖环境的标准化打包，应用之间相互隔离，共享一个OS Kernel（解决了资源浪费的问题），可以运行在很多主流操作系统上；但是也需要澄清一下，Docker 本身不是容器，Docker 只是管理容器的引擎。</p>
+<h2 id="docker-基础命令"><a class="header-anchor" href="#docker-基础命令">¶</a>docker 基础命令</h2>
+<p><strong>linux 下启动docker：</strong></p>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs nsis"><span class="hljs-params">system</span>ctl start docker    <span class="hljs-comment">#启动docker服务</span><br><span class="hljs-params">system</span>ctl stop docker     <span class="hljs-comment">#停止docker服务</span><br><span class="hljs-params">system</span>ctl restart docker  <span class="hljs-comment">#重启docker服务</span><br><span class="hljs-params">system</span>ctl status docker   <span class="hljs-comment">#查看docker服务状态</span><br><span class="hljs-params">system</span>ctl enable docker   <span class="hljs-comment">#设置开机启动服务</span><br><br>docker version 	<span class="hljs-comment">#查看docker 版本号信息</span><br>docker info<br><br></code></pre></td></tr></table></figure>
+<h2 id="docker-镜像命令"><a class="header-anchor" href="#docker-镜像命令">¶</a>docker 镜像命令</h2>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs applescript">docker images		<span class="hljs-comment">#查看自己服务器中docker 镜像列表</span><br>docker search 		<span class="hljs-comment">#镜像名</span><br>docker search <span class="hljs-comment">--filter=STARS=9000 mysql 搜索 STARS &gt;9000的</span><br></code></pre></td></tr></table></figure>
+<p>不加tag(版本号) 即拉取docker仓库中 该镜像的最新版本latest 加:tag 则是拉取指定版本</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">docker pull 镜像名 <br>docker pull 镜像名:<span class="hljs-keyword">tag</span><br></code></pre></td></tr></table></figure>
+<p>运行镜像</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros">docker <span class="hljs-built_in">run</span> 镜像名<br>docker <span class="hljs-built_in">run</span> 镜像名:Tag<br>docker <span class="hljs-built_in">run</span> --name=&#123;your_name&#125; --d &#123;image_name&#125;  #运行容器<br></code></pre></td></tr></table></figure>
+<p>删除镜像</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment">#删除一个</span><br>docker rmi <span class="hljs-operator">-f</span> 镜像名/镜像ID<br><br><span class="hljs-comment">#删除多个 其镜像ID或镜像用用空格隔开即可 </span><br>docker rmi <span class="hljs-operator">-f</span> 镜像名/镜像ID 镜像名/镜像ID 镜像名/镜像ID<br><br><span class="hljs-comment">#删除全部镜像  -a 意思为显示全部, -q 意思为只显示ID</span><br>docker rmi <span class="hljs-operator">-f</span> <span class="hljs-variable">$</span>(docker images <span class="hljs-literal">-aq</span>)<br></code></pre></td></tr></table></figure>
+<p>强制删除镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker image <span class="hljs-built_in">rm</span> 镜像名称/镜像ID<br></code></pre></td></tr></table></figure>
+<p>保存镜像</p>
+<blockquote>
+<p>将我们的镜像 保存为tar 压缩文件 这样方便镜像转移和保存 ,然后 可以在任何一台安装了docker的服务器上 加载这个镜像</p>
+</blockquote>
+<p>命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker save 镜像名/镜像ID -o 镜像保存在哪个位置与名字<br></code></pre></td></tr></table></figure>
+<p>加载镜像</p>
+<blockquote>
+<p>任何装 docker 的地方加载镜像保存文件,使其恢复为一个镜像</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">docker load -<span class="hljs-selector-tag">i</span> 镜像保存文件位置<br></code></pre></td></tr></table></figure>
+<p>查看正在运行容器列表</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">docker <span class="hljs-built_in">ps</span> <br><br>docker <span class="hljs-built_in">ps</span> <span class="hljs-literal">-a</span>		<span class="hljs-comment">#查看所有容器 -----包含正在运行 和已停止的</span><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -351,6 +375,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%B7%A5%E5%85%B7/">#工具</a>
+      
+    </div>
   
 </div>
 
@@ -360,8 +412,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>文件后缀与MIME类型对照表</div>
-      <div>https://jsweetcoffee.github.io/posts/732bd708.html</div>
+      <div>docker命令及使用</div>
+      <div>https://jsweetcoffee.github.io/posts/c983d692.html</div>
     </div>
     <div class="license-meta">
       
@@ -373,7 +425,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年7月25日</div>
+          <div>2023年9月19日</div>
         </div>
       
       
@@ -405,9 +457,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/64d31b65.html" title="vulntarget-c打靶复现">
+                      <a href="/posts/226c5eba.html" title="linux以及docker挖矿木马应急响应">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vulntarget-c打靶复现</span>
+                        <span class="hidden-mobile">linux以及docker挖矿木马应急响应</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -415,8 +467,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/d62edc36.html" title="Web安全学习总结">
-                        <span class="hidden-mobile">Web安全学习总结</span>
+                      <a href="/posts/a840fd.html" title="java反序列化全家桶">
+                        <span class="hidden-mobile">java反序列化全家桶</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
