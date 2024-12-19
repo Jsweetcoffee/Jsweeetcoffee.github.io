@@ -23,17 +23,17 @@
 <meta property="og:site_name" content="晓雲的陋室">
 <meta property="og:description" content="IP以及IP划分 ¶什么是IP地址 IP地址（Internet Protocol Address）是指互联网协议地址，又称网际协议地址。IP地址是IP协议提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配一个逻辑地址，以此来屏蔽物理地址的差异。因此，IP地址是逻辑地址，每台主机的网卡上的MAC地址才是物理地址 IP地址其实是一串32位的二进制数，为了方便我们记忆我们以8位一组进行划">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/undefined/8f813080e5af4b0c90eae497fabfaa81.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/undefined/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215dmVzdA==,size_16,color_FFFFFF,t_70.png">
+<meta property="og:image" content="https://jsweetcoffee.github.io/posts/0/8f813080e5af4b0c90eae497fabfaa81.png">
+<meta property="og:image" content="https://jsweetcoffee.github.io/posts/0/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215dmVzdA==,size_16,color_FFFFFF,t_70.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/18c4515a87b9ae6c8e0492c3feae7c34.png">
 <meta property="og:image" content="https://jsweetcoffee.github.io/posts/0/97765b8783d51e23df97e63618c27eb5.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/undefined/4cbabd46d2d07ad602d4d562ae98af14.png">
-<meta property="og:image" content="https://jsweetcoffee.github.io/posts/undefined/29ab14509c068d6ae04110cde759637c.png">
+<meta property="og:image" content="https://jsweetcoffee.github.io/posts/0/4cbabd46d2d07ad602d4d562ae98af14.png">
+<meta property="og:image" content="https://jsweetcoffee.github.io/posts/0/29ab14509c068d6ae04110cde759637c.png">
 <meta property="article:published_time" content="2024-12-18T09:41:43.226Z">
-<meta property="article:modified_time" content="2024-12-18T09:41:43.250Z">
+<meta property="article:modified_time" content="2024-12-19T01:07:55.508Z">
 <meta property="article:author" content="SCxiaoyun">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jsweetcoffee.github.io/posts/undefined/8f813080e5af4b0c90eae497fabfaa81.png">
+<meta name="twitter:image" content="https://jsweetcoffee.github.io/posts/0/8f813080e5af4b0c90eae497fabfaa81.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -327,7 +327,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年12月18日 下午
+                    本文最后更新于：2024年12月19日 上午
                   
                 
               </p>
@@ -354,7 +354,7 @@ IP地址其实是一串32位的二进制数，为了方便我们记忆我们以8
 <li>D类IP地址。其范围是从<strong>224.0.0.0到239.255.255.255</strong>，用于网络中的组播（多点广播）通信。</li>
 <li>E类IP地址。其范围是从<strong>240.0.0.0到255.255.255.255</strong>，主要用于将来使用和实验目的。</li>
 </ul>
-<img src="/posts/undefined/8f813080e5af4b0c90eae497fabfaa81.png" class title="img">
+<img src="/posts/0/8f813080e5af4b0c90eae497fabfaa81.png" class title="img">
 <p>其中ABC三类地址为单播地址、D类地址为多（组）播地址、E类地址科研使用，保留</p>
 <p>**单播地址：**既可以作为源地址，也可以作为目标地址使用</p>
 <p>**多（组）播地址：**只能作为目标地址去使用</p>
@@ -494,7 +494,7 @@ flag(A)字段，表示是否可以使用RA报文前缀信息配置无状态地�
  <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">ICMPv6</span> <span class="hljs-selector-tag">Option</span> (Prefix <span class="hljs-attribute">information </span>: <span class="hljs-number">2409</span>:<span class="hljs-number">8</span><span class="hljs-attribute">a20</span>:<span class="hljs-attribute">c1a</span>:<span class="hljs-attribute">ce70</span>::/<span class="hljs-number">64</span>)<br></code></pre></td></tr></table></figure>
 <p>如果是客户端采用自动配置，那么则完全根据RA报文来决定如何获取IPv6相关配置，当然，客户端也可以无视RA报文，选择自己想要的配置方式。（如上图，RA报文配置为无状态DHCPv6模式，但是客户端其实也可以通过DHCPv6来获取有状态地址，只要DHCPv6 Server支持即可）。</p>
 <p>所以，有状态及无状态地址并不是完全互斥，他们可以同时存在，如下图可以理解其流程：</p>
-<img src="/posts/undefined/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215dmVzdA==,size_16,color_FFFFFF,t_70.png" class title="IPv6分配流程">
+<img src="/posts/0/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215dmVzdA==,size_16,color_FFFFFF,t_70.png" class title="IPv6分配流程">
 <h4 id="地址构成"><a class="header-anchor" href="#地址构成">¶</a>地址构成</h4>
 <p>IPv6 与 <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=IPv4&amp;spm=1001.2101.3001.7020">IPv4</a> 最显著的不同，就是其超大的地址空间。IPv4 有32比特 (4字节)，允许大约42.9亿（232）个地址。而 IPv6 定义了128比特 (16字节)，支持大约340 x 1036个地址。这是一个相当可观的数字，在可预见的未来都不会出现地址枯竭的问题。典型的 IPv6 地址可被划分成两部分。如下图所示，开头的64比特用来代表网络，后面的64比特用作接口标识：</p>
 <p><a target="_blank" rel="noopener" href="https://www.packetmania.net/2020/12/01/IPv6-Addressing/ipv6-addr-format.png"><img src="https://img-blog.csdnimg.cn/img_convert/18c4515a87b9ae6c8e0492c3feae7c34.png" alt="img"></a></p>
@@ -511,9 +511,9 @@ flag(A)字段，表示是否可以使用RA报文前缀信息配置无状态地�
 <img src="/posts/0/97765b8783d51e23df97e63618c27eb5.png" class title="img">
 <p>2101这样一个地址节有16位，拆成二进制表达方式为 0010 0001 0000 0001</p>
 <p>所以以上要拆成8个子网（2^3=8）需要在原来的64位在往后延伸 3位，所以需要向下一个地址节中的第一个16进制数字中借用三位   0000</p>
-<img src="/posts/undefined/4cbabd46d2d07ad602d4d562ae98af14.png" class title="img">
+<img src="/posts/0/4cbabd46d2d07ad602d4d562ae98af14.png" class title="img">
 <p>所以2101:db6::/64 这个子网拆成有8个子网有以下</p>
-<img src="/posts/undefined/29ab14509c068d6ae04110cde759637c.png" class title="img">
+<img src="/posts/0/29ab14509c068d6ae04110cde759637c.png" class title="img">
 <p>所以完整的8个子网的地址网段为</p>
 <p>简写：2101:db6::/64</p>
 <p>完整写法：2101:0DB6:0000:0000:0000:0000:0000:0000/64</p>
